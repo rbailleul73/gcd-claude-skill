@@ -1,7 +1,7 @@
 # Enable and disable services
 
 Source: https://berlin.devsitetest.how/service-usage/docs/enable-disable
-Last updated: 2026-10-07
+Last updated: 2026-10-09
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/service-usage/docs/tpc-differences) for more details.
 
@@ -284,13 +284,10 @@ project, then you already have the required permissions.
 
 
 
-
-
 - 
 
 
 [Install](/sdk/docs/install) the Google Cloud CLI.
-
 
 
 
@@ -312,7 +309,6 @@ Configure the gcloud CLI to use your federated identity.
 For more information, see
 [
 Sign in to the gcloud CLI with your federated identity](/iam/docs/workforce-log-in-gcloud).
-
 
 
 

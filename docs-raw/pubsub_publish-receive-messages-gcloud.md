@@ -1,7 +1,7 @@
 # Quickstart: Publish and receive messages in Pub/Sub by using the gcloud CLI
 
 Source: https://berlin.devsitetest.how/pubsub/docs/publish-receive-messages-gcloud
-Last updated: 2026-10-06
+Last updated: 2026-10-09
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/pubsub/docs/tpc-differences) for more details.
 
@@ -222,13 +222,10 @@ You can view and manage these resources at any time in the
 
 
 
-
-
 - 
 
 
 [Install](/sdk/docs/install) the Google Cloud CLI.
-
 
 
 
@@ -250,7 +247,6 @@ Configure the gcloud CLI to use your federated identity.
 For more information, see
 [
 Sign in to the gcloud CLI with your federated identity](/iam/docs/workforce-log-in-gcloud).
-
 
 
 

@@ -1,7 +1,7 @@
 # Cloud Storage client libraries
 
 Source: https://berlin.devsitetest.how/storage/docs/reference/libraries
-Last updated: 2026-10-07
+Last updated: 2026-10-09
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/storage/docs/tpc-differences) for more details.
 
@@ -724,8 +724,6 @@ that are associated with your Google Account:
 
 
 
-
-
 [Install](/sdk/docs/install) the Google Cloud CLI, and then
 [
 sign in to the gcloud CLI with your federated identity](/iam/docs/workforce-log-in-gcloud).
@@ -768,8 +766,6 @@ gcloud init
 
 
 
-
-
 Create local authentication credentials for your user account:
 
 
@@ -784,8 +780,7 @@ gcloud auth application-default login
 
 
 
-If an authentication error is returned, and you are using an external identity provider
-(IdP), confirm that you have
+If an authentication error is returned, confirm that you have
 [
 signed in to the gcloud CLI with your federated identity](/iam/docs/workforce-log-in-gcloud).
 
@@ -1505,7 +1500,7 @@ def quickstart bucket_name :
 require "google/cloud/storage" 
 
 # Instantiates a client 
-storage = Google :: Cloud :: [ Storage ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html) . [ new ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+storage = Google :: Cloud :: [ Storage ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html) . [ new ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
 
 # The ID to give your GCS bucket 
 # bucket_name = "your-unique-bucket-name" 

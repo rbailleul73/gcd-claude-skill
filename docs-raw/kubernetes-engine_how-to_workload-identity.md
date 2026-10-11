@@ -1,7 +1,7 @@
 # Authenticate to Google Cloud Dedicated APIs from GKE workloads
 
 Source: https://berlin.devsitetest.how/kubernetes-engine/docs/how-to/workload-identity
-Last updated: 2026-10-06
+Last updated: 2026-10-09
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/kubernetes-engine/docs/tpc-differences) for more details.
 
@@ -324,8 +324,6 @@ More
 
 
 
-
-
 In the Google Cloud Dedicated console, activate Cloud Shell.
 
 
@@ -470,8 +468,6 @@ enable Workload Identity Federation for GKE on the cluster.
 
 
 - 
-
-
 
 
 
@@ -1065,8 +1061,6 @@ More
 
 
 - 
-
-
 
 
 

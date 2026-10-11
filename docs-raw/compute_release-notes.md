@@ -1,7 +1,7 @@
 # Compute Engine release notes
 
 Source: https://berlin.devsitetest.how/compute/docs/release-notes
-Last updated: 2026-10-07
+Last updated: 2026-10-09
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/compute/docs/tpc-differences) for more details.
 
@@ -899,7 +899,7 @@ Feature
 Feature 
 
 
-**Generally available:** Stockholm, Sweden, Europe `(europe-north2-a,b,c)` has launched with [N4, C3D highmem, C4 highmem, and E2](/compute/docs/general-purpose-machines) machine types available in all three zones. For more information, see [Cloud locations](https://berlin.devsitetest.how/about/locations) and [VM instance pricing](https://berlin.devsitetest.how/compute/vm-instance-pricing).
+**Generally available:** Stockholm, Sweden, Europe `(europe-north2-a,b,c)` has launched with [N4, C3D highmem, C4 highmem, and E2](/compute/docs/general-purpose-machines) machine types available in all three zones. For more information, see [Cloud locations](https://berlin.devsitetest.how/about/locations) and [VM instance pricing](https://berlin.devsitetest.how/products/compute/pricing).
 
 
 

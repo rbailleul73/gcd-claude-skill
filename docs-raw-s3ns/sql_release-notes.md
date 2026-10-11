@@ -1,7 +1,7 @@
 # Cloud SQL release notes
 
 Source: https://documentation.s3ns.fr/sql/docs/release-notes
-Last updated: 2026-10-10
+Last updated: 2026-10-11
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/sql/docs/tpc-differences) for more details.
 
@@ -129,6 +129,7 @@ Resources
 
 
 - On this page 
+- [ October 10, 2026 ](#October_10_2026)
 - [ October 08, 2026 ](#October_08_2026)
 - [ August 04, 2026 ](#August_04_2026)
 - [ July 31, 2026 ](#July_31_2026)
@@ -245,7 +246,23 @@ reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the
 
 
 
-## October 08, 2026 
+## October 10, 2026 
+
+**Cloud SQL for MySQL**
+
+Change 
+
+
+MySQL 8.0.46 is now the
+[default minor version](/sql/docs/mysql/db-versions#database-version-support)
+for Cloud SQL for MySQL 8.0.
+
+For more information about minor version support in Cloud SQL for MySQL,
+see [MySQL 8.0](/sql/docs/mysql/db-versions#mysql-8.0).
+
+
+
+## October 08, 2026
 
 **Cloud SQL for MySQL**
 

@@ -1,7 +1,7 @@
 # Import a key version into Cloud KMS
 
 Source: https://documentation.s3ns.fr/kms/docs/importing-a-key
-Last updated: 2026-10-06
+Last updated: 2026-10-09
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/kms/docs/tpc-differences) for more details.
 
@@ -316,13 +316,10 @@ Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`).
 
 
 
-
-
 - 
 
 
 [Install](/sdk/docs/install) the Google Cloud CLI.
-
 
 
 
@@ -344,7 +341,6 @@ Configure the gcloud CLI to use your federated identity.
 For more information, see
 [
 Sign in to the gcloud CLI with your federated identity](/iam/docs/workforce-log-in-gcloud).
-
 
 
 
