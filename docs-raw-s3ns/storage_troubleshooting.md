@@ -1,7 +1,7 @@
 # Troubleshooting
 
 Source: https://documentation.s3ns.fr/storage/docs/troubleshooting
-Last updated: 2026-10-09
+Last updated: 2026-10-12
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/storage/docs/tpc-differences) for more details.
 
@@ -370,7 +370,7 @@ to the request.
 
 
 
-[C++](#c++) [C#](#c) [Go](#go) [Java](#java) [Node.js](#node.js) [PHP](#php) [Python](#python) [Ruby](#ruby) 
+[C++](#c++) [C#](#c) [Go](#go) [Java](#java) [Node.js](#node.js) [PHP](#php) [Python](#python) [Ruby](#ruby) [Rust](#rust) 
 More 
 
 
@@ -529,10 +529,78 @@ extra_headers = {
 ```
 require "google/cloud/storage" 
 
-storage = Google :: Cloud :: [ Storage ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html) . [ new ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+storage = Google :: Cloud :: [ Storage ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html) . [ new ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
 
 storage . [ add_custom_headers ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Project.html) { 'X-Custom-Header' = > 'value' } 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+use google_cloud_gax :: options :: RequestOptionsBuilder ; 
+use google_cloud_storage :: client :: Storage ; 
+use google_cloud_storage :: client :: StorageControl ; 
+use http :: header ::{ HeaderName , HeaderValue }; 
+
+pub async fn sample ( bucket_id : & str ) - > anyhow :: Result () > { 
+const NAME : & str = "hello-world.txt" ; 
+
+// Set a client-level custom header on the Storage data plane client. 
+let client = Storage :: builder () 
+. with_custom_header ( 
+HeaderName :: from_static ( "x-custom-header" ), 
+HeaderValue :: from_static ( "custom-value" ), 
+) 
+. build () 
+. await ? ; 
+
+let reader = client 
+. read_object ( format! ( "projects/_/buckets/{bucket_id}" ), NAME ) 
+. send () 
+. await ? ; 
+println! ( "Object highlights: {:?}" , reader . object ()); 
+
+// Set a request-level custom header on a StorageControl RPC request. 
+let control = StorageControl :: builder (). build (). await ? ; 
+let bucket = control 
+. get_bucket () 
+. set_name ( format! ( "projects/_/buckets/{bucket_id}" )) 
+. with_custom_header ( 
+HeaderName :: from_static ( "x-custom-header" ), 
+HeaderValue :: from_static ( "custom-value" ), 
+) 
+. send () 
+. await ? ; 
+println! ( "Bucket {bucket_id} metadata is {bucket:?}" ); 
+
+Ok (()) 
+} 
+```
+
+
+
 
 
 
