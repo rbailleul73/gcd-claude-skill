@@ -205,14 +205,14 @@
   "/bigquery/docs/exporting-data": {
     "title": "Export table data to Cloud Storage",
     "filename": "bigquery_exporting-data.md",
-    "size": 72309,
+    "size": 72304,
     "url": "https://documentation.s3ns.fr/bigquery/docs/exporting-data",
     "last_updated": "2026-10-09"
   },
   "/bigquery/docs/loading-data-cloud-storage-csv": {
     "title": "Load CSV data from Cloud Storage",
     "filename": "bigquery_loading-data-cloud-storage-csv.md",
-    "size": 138949,
+    "size": 138944,
     "url": "https://documentation.s3ns.fr/bigquery/docs/loading-data-cloud-storage-csv",
     "last_updated": "2026-10-09"
   },
@@ -233,7 +233,7 @@
   "/bigquery/docs/quickstarts/quickstart-client-libraries": {
     "title": "Query a public dataset with the BigQuery client libraries",
     "filename": "bigquery_quickstarts_quickstart-client-libraries.md",
-    "size": 42512,
+    "size": 42507,
     "url": "https://documentation.s3ns.fr/bigquery/docs/quickstarts/quickstart-client-libraries",
     "last_updated": "2026-10-09"
   },
@@ -247,7 +247,7 @@
   "/bigquery/docs/tables": {
     "title": "Create and use tables",
     "filename": "bigquery_tables.md",
-    "size": 161125,
+    "size": 161115,
     "url": "https://documentation.s3ns.fr/bigquery/docs/tables",
     "last_updated": "2026-10-09"
   },
@@ -345,7 +345,7 @@
   "/compute/docs/reference/rest/v1": {
     "title": "Compute Engine API",
     "filename": "compute_reference_rest_v1.md",
-    "size": 528045,
+    "size": 528104,
     "url": "https://documentation.s3ns.fr/compute/docs/reference/rest/v1",
     "last_updated": "2026-09-28"
   },
@@ -394,9 +394,9 @@
   "/dns/docs/overview": {
     "title": "Cloud DNS overview",
     "filename": "dns_overview.md",
-    "size": 11072,
+    "size": 11481,
     "url": "https://documentation.s3ns.fr/dns/docs/overview",
-    "last_updated": "2026-10-09"
+    "last_updated": "2026-10-12"
   },
   "/dns/docs/policies": {
     "title": "Configure DNS server policies",
@@ -520,7 +520,7 @@
   "/docs/authentication/get-id-token": {
     "title": "Get an ID token",
     "filename": "authentication_get-id-token.md",
-    "size": 18080,
+    "size": 18044,
     "url": "https://documentation.s3ns.fr/docs/authentication/get-id-token",
     "last_updated": "2026-10-09"
   },
@@ -716,9 +716,9 @@
   "/docs/gcd-solutions/sovereign-monitoring": {
     "title": "Open-source software (OSS)-based monitoring",
     "filename": "gcd-solutions_sovereign-monitoring.md",
-    "size": 6147,
+    "size": 7484,
     "url": "https://documentation.s3ns.fr/docs/gcd-solutions/sovereign-monitoring",
-    "last_updated": "2026-10-09"
+    "last_updated": "2026-10-12"
   },
   "/docs/gcd-solutions/sovereign-standby": {
     "title": "\"Sovereign standby\" with multiple universes",
@@ -975,7 +975,7 @@
   "/docs/quotas/development-environment": {
     "title": "Set up the Cloud Quotas API",
     "filename": "quotas_development-environment.md",
-    "size": 2681,
+    "size": 2680,
     "url": "https://documentation.s3ns.fr/docs/quotas/development-environment",
     "last_updated": "2026-10-09"
   },
@@ -989,7 +989,7 @@
   "/docs/quotas/help/request_increase": {
     "title": "View and manage quotas",
     "filename": "quotas_help_request_increase.md",
-    "size": 18877,
+    "size": 18879,
     "url": "https://documentation.s3ns.fr/docs/quotas/help/request_increase",
     "last_updated": "2026-10-09"
   },
@@ -1052,7 +1052,7 @@
   "/docs/quotas/reference/libraries": {
     "title": "Cloud Quotas client libraries",
     "filename": "quotas_reference_libraries.md",
-    "size": 132184,
+    "size": 131881,
     "url": "https://documentation.s3ns.fr/docs/quotas/reference/libraries",
     "last_updated": "2026-10-09"
   },
@@ -1593,7 +1593,7 @@
     "filename": "kubernetes-engine_release-notes.md",
     "size": 1473759,
     "url": "https://documentation.s3ns.fr/kubernetes-engine/docs/release-notes",
-    "last_updated": "2026-10-09"
+    "last_updated": "2026-10-12"
   },
   "/kubernetes-engine/docs/tpc-differences": {
     "title": "GKE in Cloud de Confiance versus Google Cloud",
@@ -1628,21 +1628,21 @@
     "filename": "logging_audit.md",
     "size": 21037,
     "url": "https://documentation.s3ns.fr/logging/docs/audit",
-    "last_updated": "2026-10-09"
+    "last_updated": "2026-10-12"
   },
   "/logging/docs/buckets": {
     "title": "Configure log buckets",
     "filename": "logging_buckets.md",
     "size": 27299,
     "url": "https://documentation.s3ns.fr/logging/docs/buckets",
-    "last_updated": "2026-10-09"
+    "last_updated": "2026-10-12"
   },
   "/logging/docs/reference/libraries": {
     "title": "Logging client libraries",
     "filename": "logging_reference_libraries.md",
-    "size": 27853,
+    "size": 27832,
     "url": "https://documentation.s3ns.fr/logging/docs/reference/libraries",
-    "last_updated": "2026-10-09"
+    "last_updated": "2026-10-12"
   },
   "/logging/docs/reference/v2/rest": {
     "title": "Cloud Logging API",
@@ -1670,21 +1670,21 @@
     "filename": "logging_view_building-queries.md",
     "size": 23728,
     "url": "https://documentation.s3ns.fr/logging/docs/view/building-queries",
-    "last_updated": "2026-10-09"
+    "last_updated": "2026-10-12"
   },
   "/logging/docs/view/logs-viewer-interface": {
     "title": "View and analyze log entries",
     "filename": "logging_view_logs-viewer-interface.md",
     "size": 41358,
     "url": "https://documentation.s3ns.fr/logging/docs/view/logs-viewer-interface",
-    "last_updated": "2026-10-09"
+    "last_updated": "2026-10-12"
   },
   "/logging/docs/write-query-log-entries-gcloud": {
     "title": "Quickstart: Write and query log entries with the gcloud CLI",
     "filename": "logging_write-query-log-entries-gcloud.md",
     "size": 12219,
     "url": "https://documentation.s3ns.fr/logging/docs/write-query-log-entries-gcloud",
-    "last_updated": "2026-10-09"
+    "last_updated": "2026-10-12"
   },
   "/monitoring/docs": {
     "title": "Cloud Monitoring documentation",
@@ -2048,7 +2048,7 @@
     "filename": "sql_release-notes.md",
     "size": 67712,
     "url": "https://documentation.s3ns.fr/sql/docs/release-notes",
-    "last_updated": "2026-10-12"
+    "last_updated": "2026-10-13"
   },
   "/sql/docs/tpc-differences": {
     "title": "Cloud SQL in Cloud de Confiance versus Google Cloud",
@@ -2067,7 +2067,7 @@
   "/storage/docs/creating-buckets": {
     "title": "Create a bucket",
     "filename": "storage_creating-buckets.md",
-    "size": 32653,
+    "size": 32642,
     "url": "https://documentation.s3ns.fr/storage/docs/creating-buckets",
     "last_updated": "2026-10-10"
   },
@@ -2088,7 +2088,7 @@
   "/storage/docs/reference/libraries": {
     "title": "Cloud Storage client libraries",
     "filename": "storage_reference_libraries.md",
-    "size": 22291,
+    "size": 22288,
     "url": "https://documentation.s3ns.fr/storage/docs/reference/libraries",
     "last_updated": "2026-10-09"
   },
@@ -2116,7 +2116,7 @@
   "/storage/docs/uploading-objects": {
     "title": "Upload objects from a file system",
     "filename": "storage_uploading-objects.md",
-    "size": 46649,
+    "size": 46646,
     "url": "https://documentation.s3ns.fr/storage/docs/uploading-objects",
     "last_updated": "2026-10-09"
   },

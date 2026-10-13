@@ -1,7 +1,7 @@
 # Cloud DNS overview
 
 Source: https://documentation.s3ns.fr/dns/docs/overview
-Last updated: 2026-10-09
+Last updated: 2026-10-12
 
 - 
 
@@ -116,6 +116,9 @@ Guides
 - On this page 
 - [ Shared VPC considerations ](#shared-vpc)
 - [ DNS forwarding methods ](#dns-forwarding-methods)
+
+- [ Outbound Endpoints ](#outbound-endpoints)
+
 - [ DNS64 ](#dns64-overview)
 - [ Access control ](#access_control)
 
@@ -267,6 +270,16 @@ For information about how to apply server policies, see [Create DNS
 server policies](/dns/docs/policies#creating). To learn how to create a
 forwarding zone, see [Create a forwarding
 zone](/dns/docs/zones/forwarding-zones).
+
+### Outbound Endpoints
+
+
+
+Outbound Endpoints let you forward DNS queries by using private IP addresses
+from your VPC network. This approach provides granular control over
+outbound traffic and flexibility to unblock hybrid and multi-cloud
+DNS resolution use cases. For more information, see
+[Outbound Endpoints overview](/dns/docs/outbound-endpoints-overview).
 
 ## DNS64
 

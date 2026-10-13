@@ -1,7 +1,7 @@
 # Open-source software (OSS)-based monitoring
 
 Source: https://documentation.s3ns.fr/docs/gcd-solutions/sovereign-monitoring
-Last updated: 2026-10-09
+Last updated: 2026-10-12
 
 - 
 
@@ -97,10 +97,10 @@ Cloud Logging features currently available in Cloud de Confiance by S3NS. This e
 shows you how to create a complete sovereign observability solution on
 Cloud de Confiance by S3NS by adding widely used open source tools.
 
-The architecture uses OpenTelemetry, Grafana Mimir (backed by Cloud Storage),
-Grafana, and Fluent Bit to generate metrics, logs, visualizations, and alerts
-for Google Kubernetes Engine (GKE) and Compute Engine. All data stays within the
-sovereign region, and avoids third-party SaaS fees.
+The architecture uses OpenTelemetry, Grafana Mimir and Grafana Loki (backed by
+Cloud Storage), Grafana, and Fluent Bit to generate metrics, logs,
+visualizations, and alerts for Google Kubernetes Engine (GKE) and Compute Engine.
+All data stays within the sovereign region, and avoids third-party SaaS fees.
 
 We recommend that you subscribe to the relevant [release notes](/release-notes)
 for future updates to the Cloud de Confiance by S3NS observability capabilities.
@@ -129,9 +129,9 @@ transition path to first-party cloud monitoring.
 ## Core capabilities
 
 - **Sovereign observability and local data retention**: Collect, process,
-and store application metrics for Compute Engine and GKE
-logs within the local sovereign infrastructure using Cloud Storage
-buckets.
+and store application metrics for Compute Engine and
+GKE logs within the local sovereign infrastructure using
+Cloud Storage buckets.
 
 - **OpenTelemetry standard ingestion**: Use OpenTelemetry collectors for
 pull-based Prometheus scraping and push-based OpenTelemetry Protocol (OTLP)
@@ -139,16 +139,19 @@ metrics ingestion. This approach supports future compatibility with
 first-party cloud monitoring.
 
 - **Scalable Cloud Storage-backed metric storage**: Configure Grafana
-Mimir to use Cloud Storage as a highly available, cost-effective
-Prometheus metric block backend.
+Mimir and Grafana Loki to use Cloud Storage as a highly available,
+cost-effective Prometheus metric block backend.
 
 - **Unified telemetry visualization**: View pre-configured Grafana dashboards
-that display real-time application metrics, Compute Engine VM stdout
-logs, and integrate Cloud Logging datasources.
+that display real-time application metrics, Grafana Loki log streams,
+Compute Engine VM stdout logs, and integrate Cloud Logging
+datasources.
 
 - **Compute Engine VM logging pipeline**: Install Fluent Bit and
 OpenTelemetry Collector Contrib automatically on Compute Engine VMs
-to stream `systemd-journald` and stdout logs to Cloud Logging.
+to stream `systemd-journald` and stdout logs to Grafana Loki,
+Cloud Logging, or both. You can also collect VM host metrics and
+synthetic OTLP application metrics to forward over mTLS to Mimir.
 
 - **Flexible deployment automation**: Use an Infrastructure as Code (IaC)
 approach of Terraform and Kubernetes package management with Helm for
@@ -156,9 +159,13 @@ consistent environment setup and teardown.
 
 ## Architecture
 
-This architecture uses OpenTelemetry collectors, Grafana Mimir, Grafana, and
-Fluent Bit to monitor Compute Engine and GKE workloads with
-Cloud Storage for metrics and Cloud Logging for logs.
+This architecture uses OpenTelemetry collectors, Grafana Mimir, Grafana Loki,
+`kube-state-metrics`, Fluent Bit, `cert-manager`, and Grafana to monitor
+Compute Engine and GKE workloads with
+Cloud Storage for metrics and Cloud Logging for logs. Mimir and Loki
+inside the Virtual Private Cloud (VPC) use internal Application Load Balancer over mTLS so that
+Compute Engine VMs can push metrics and logs. Grafana is exposed
+externally over HTTPS using a regional GKE Gateway.
 
 
 
@@ -206,15 +213,79 @@ in Cloud Storage. |
 |
 
 | 
+**Logs
+database**
+
+| 
+Grafana Loki
+
+| 
+Horizontally scalable,
+multi-tenant log aggregation
+database persisting chunks and
+TSDB indexes in Cloud Storage. | 
+|
+
+| 
 **Object
 storage**
 | 
 Cloud Storage
 
 | 
-Secure, durable object storage
-backend that retains Mimir metric
-blocks cost-effectively. | 
+Provisions dedicated buckets for
+Mimir metrics, Loki logs, and
+shared monitoring artifacts. | 
+|
+
+| 
+**Cluster state
+Metrics**
+
+| 
+`kube-state-metrics`
+
+| 
+Listens to the Kubernetes API
+server and generates metrics
+about the state of cluster
+objects (like Deployments, nodes,
+or Pods). Scraped by the
+OpenTelemetry Collector using
+`ServiceMonitor`. | 
+|
+
+| 
+**PKI and
+certificates**
+
+| 
+`cert-manager` & PKI
+issuer
+
+| 
+Bootstraps an internal Root CA
+and `ClusterIssuer` to issue TLS /
+mTLS certificates for in-cluster
+components and standalone
+Compute Engine VMs. | 
+|
+
+| 
+**Google Kubernetes Engine
+log
+Collector**
+
+| 
+Fluent Bit (DaemonSet)
+
+| 
+Collects container stdout logs
+across GKE nodes,
+enriches with Kubernetes metadata,
+and forwards using OTLP mTLS to
+the GKE OTel
+Collector. | 
 |
 
 | 
@@ -255,8 +326,9 @@ Grafana
 | 
 Dashboard visualization layer
 pre-configured with datasources
-for Mimir, Cloud Monitoring,
-and Cloud Logging. | 
+for Mimir, Grafana Loki,
+Cloud Monitoring, and
+Cloud Logging. | 
 |
 
 | 
@@ -308,12 +380,11 @@ Terraform and Helm
 
 | 
 Automates
-Virtual Private Cloud (VPC),
-GKE cluster,
-Cloud Storage bucket,
-Identity and Access Management (IAM) roles,
-Compute Engine VM, and
-Helm chart deployment. | 
+Virtual Private Cloud, GKE
+cluster, Cloud Storage
+bucket, Identity and Access Management (IAM)
+roles, Compute Engine VM,
+and Helm chart deployment. | 
 |
 
 
