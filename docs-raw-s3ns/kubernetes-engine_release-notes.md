@@ -1,7 +1,7 @@
 # GKE release notes
 
 Source: https://documentation.s3ns.fr/kubernetes-engine/docs/release-notes
-Last updated: 2026-10-12
+Last updated: 2026-10-14
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/kubernetes-engine/docs/tpc-differences) for more details.
 
@@ -131,6 +131,7 @@ Resources
 - On this page 
 - [ Current versions ](#current_versions)
 - [ Other resources ](#other_resources)
+- [ October 14, 2026 ](#October_14_2026)
 - [ October 08, 2026 ](#October_08_2026)
 - [ October 07, 2026 ](#October_07_2026)
 - [ October 06, 2026 ](#October_06_2026)
@@ -408,10 +409,10 @@ Available minor versions |
 
 | 
 Recommended auto-upgrade target | 
-1.36.4-gke.2046002 | 
-1.35.8-gke.1439001 | 
+1.36.4-gke.2326000 | 
+1.35.8-gke.1626001 | 
 1.35.6-gke.1250001 | 
-1.32.13-gke.2427000 | 
+1.32.13-gke.2504000 | 
 1.35.6-gke.1250001 | 
 |
 
@@ -419,55 +420,55 @@ Recommended auto-upgrade target |
 Auto-upgrade targets | 
 
 
-- 1.34.12-gke.1011000
-- 1.35.8-gke.1796000
-- 1.36.4-gke.2046002
-- 1.37.0-gke.3503000
+- 1.34.12-gke.1153000
+- 1.35.8-gke.1919000
+- 1.36.4-gke.2326000
+- 1.37.1-gke.1552000
 | 
 
 
-- 1.34.11-gke.1102000
-- 1.35.8-gke.1439001
-- 1.36.4-gke.1391002
+- 1.34.11-gke.1209000
+- 1.35.8-gke.1626001
+- 1.36.4-gke.1495003
 | 
 
 
-- 1.34.9-gke.1655001
+- 1.34.11-gke.1056000
 - 1.35.6-gke.1250001
 | 
 
 
-- 1.31.14-gke.2704000
-- 1.32.13-gke.2427000
-- 1.33.13-gke.1647000
-- 1.34.11-gke.1102000
-- 1.35.8-gke.1439001
-- 1.36.4-gke.1391002
+- 1.31.14-gke.2759000
+- 1.32.13-gke.2504000
+- 1.33.13-gke.1721000
+- 1.34.11-gke.1209000
+- 1.35.8-gke.1626001
+- 1.36.4-gke.1495003
 | 
 
 
-- 1.34.11-gke.1102000
+- 1.34.11-gke.1209000
 - 1.35.6-gke.1250001
-- 1.36.4-gke.1391002
+- 1.36.4-gke.1495002
 | 
 |
 
 | 
 Default patch version for cluster creation | 
-1.36.4-gke.2046002 | 
-1.36.4-gke.1391002 | 
+1.37.1-gke.1552000 | 
+1.36.4-gke.1495002 | 
 1.35.6-gke.1250001 | 
-1.36.4-gke.1391002 | 
-1.36.4-gke.1391002 | 
+1.36.4-gke.1495002 | 
+1.36.4-gke.1495002 | 
 |
 
 | 
 COS version of default patch version | 
+[cos-133-19999-44-85](/container-optimized-os/docs/release-notes/m133#cos-133-19999-44-85_) | 
 [cos-129-19506-448-20](/container-optimized-os/docs/release-notes/m129#cos-129-19506-448-20_) | 
-[cos-129-19506-448-8](/container-optimized-os/docs/release-notes/m129#cos-129-19506-448-8_) | 
 [cos-125-19216-395-109](/container-optimized-os/docs/release-notes/m125#cos-125-19216-395-109_) | 
-[cos-129-19506-448-8](/container-optimized-os/docs/release-notes/m129#cos-129-19506-448-8_) | 
-[cos-129-19506-448-8](/container-optimized-os/docs/release-notes/m129#cos-129-19506-448-8_) | 
+[cos-129-19506-448-20](/container-optimized-os/docs/release-notes/m129#cos-129-19506-448-20_) | 
+[cos-129-19506-448-20](/container-optimized-os/docs/release-notes/m129#cos-129-19506-448-20_) | 
 |
 
 
@@ -524,6 +525,293 @@ reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the
 
 
 
+
+
+
+
+
+
+## October 14, 2026
+
+
+Change 
+
+#### (2026-R44) Version updates
+
+GKE cluster versions have been updated.
+
+**New versions available for upgrades and new clusters.**
+
+The following versions are now available for new GKE clusters, and for
+manual control plane upgrades and node upgrades for existing clusters. For more
+information about versioning and upgrades, see [GKE versioning and
+support](https://documentation.s3ns.fr/kubernetes-engine/versioning) and [About GKE
+cluster upgrades](https://documentation.s3ns.fr/kubernetes-engine/upgrades).
+
+
+
+[Rapid channel](#rapid-channel) [Regular channel](#regular-channel) [Stable channel](#stable-channel) 
+More 
+
+[Extended channel](#extended-channel) [No channel (deprecated)](#no-channel-deprecated) 
+
+
+
+
+
+- Version [1.37.1-gke.1552000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000) is now the default version for cluster creation in the Rapid channel.
+
+- The following versions are now available in the Rapid channel:
+
+- [1.34.12-gke.1209000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+
+- [1.35.8-gke.1975000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+
+- [1.36.4-gke.2377000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+
+- [1.37.1-gke.1697000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1697000)
+
+- [Alpha version](https://documentation.s3ns.fr/kubernetes-engine/versioning#alpha-versions) 1.38.0-gke.2884000+preview is now available for GKE alpha clusters in the Rapid channel.
+
+- The following versions are no longer available in the Rapid channel:
+
+- 1.34.12-gke.1011000
+
+- 1.35.8-gke.1796000
+
+- 1.36.4-gke.2046002
+
+- 1.36.4-gke.2202002 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support) in the Rapid channel. This version will be removed in 90 days, or at the end of support, if sooner.
+
+- 1.36.4-gke.2304000 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support) in the Rapid channel. This version will be removed in 90 days, or at the end of support, if sooner.
+
+- 1.37.0-gke.3503000
+
+- Alpha version 1.38.0-gke.1002000+preview is no longer available in the Rapid channel.
+
+- Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release:
+
+- GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades:
+
+- 1.33 to [1.34.12-gke.1153000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1153000)
+
+- 1.34 to [1.35.8-gke.1919000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1919000)
+
+- 1.35 to [1.36.4-gke.2326000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2326000)
+
+- GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades:
+
+- 1.34 to [1.34.12-gke.1153000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1153000)
+
+- 1.35 to [1.35.8-gke.1919000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1919000)
+
+- 1.36 to [1.36.4-gke.2326000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2326000)
+
+- 1.37 to [1.37.1-gke.1552000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+
+
+
+
+
+
+
+- Version [1.36.4-gke.1495002](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495002) is now the default version for cluster creation in the Regular channel.
+
+- The following versions are now available in the Regular channel:
+
+- [1.34.12-gke.1011000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+
+- [1.35.8-gke.1796000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1796000)
+
+- [1.36.4-gke.1495003](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495003)
+
+- [1.36.4-gke.2046002](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046002)
+
+- [1.36.4-gke.2046003](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003)
+
+- The following versions are no longer available in the Regular channel:
+
+- 1.34.11-gke.1102000
+
+- 1.35.8-gke.1439001
+
+- 1.36.4-gke.1391002
+
+- Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release:
+
+- GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades:
+
+- 1.33 to [1.34.11-gke.1209000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1209000)
+
+- 1.34 to [1.35.8-gke.1626001](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1626001)
+
+- GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades:
+
+- 1.34 to [1.34.11-gke.1209000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1209000)
+
+- 1.35 to [1.35.8-gke.1626001](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1626001)
+
+- 1.36 to [1.36.4-gke.1495003](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495003)
+
+
+
+
+
+
+
+- The following versions are now available in the Stable channel:
+
+- [1.34.11-gke.1102000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1102000)
+
+- [1.35.8-gke.1439001](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1439001)
+
+- Version 1.34.9-gke.1655001 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support) in the Stable channel. This version will be removed in 90 days, or at the end of support, if sooner.
+
+- Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release:
+
+- GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades:
+
+- 1.33 to [1.34.11-gke.1056000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1056000)
+
+- GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades:
+
+- 1.34 to [1.34.11-gke.1056000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1056000)
+
+
+
+
+
+
+
+- Version [1.36.4-gke.1495002](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495002) is now the default version for cluster creation in the Extended channel.
+
+- The following versions are now available in the Extended channel:
+
+- [1.31.14-gke.2825000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-2825000)
+
+- [1.31.14-gke.2963000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-2963000)
+
+- [1.32.13-gke.2567000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2567000)
+
+- [1.32.13-gke.2701000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2701000)
+
+- [1.33.13-gke.1815000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1815000)
+
+- [1.33.13-gke.1952000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1952000)
+
+- [1.34.12-gke.1011000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+
+- [1.35.8-gke.1796000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1796000)
+
+- [1.36.4-gke.1495003](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495003)
+
+- [1.36.4-gke.2046002](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046002)
+
+- [1.36.4-gke.2046003](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003)
+
+- The following versions are no longer available in the Extended channel:
+
+- 1.31.14-gke.2704000 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+
+- 1.31.14-gke.2925000 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+
+- 1.32.13-gke.2427000 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+
+- 1.32.13-gke.2662000 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+
+- 1.33.13-gke.1647000 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+
+- 1.33.13-gke.1915000 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+
+- 1.34.11-gke.1102000
+
+- 1.35.8-gke.1439001
+
+- 1.36.4-gke.1391002
+
+- Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release:
+
+- GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades:
+
+- 1.30 to [1.31.14-gke.2759000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-2759000)
+
+- 1.31 to [1.32.13-gke.2504000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2504000)
+
+- GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades:
+
+- 1.31 to [1.31.14-gke.2759000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-2759000)
+
+- 1.32 to [1.32.13-gke.2504000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2504000)
+
+- 1.33 to [1.33.13-gke.1721000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1721000)
+
+- 1.34 to [1.34.11-gke.1209000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1209000)
+
+- 1.35 to [1.35.8-gke.1626001](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1626001)
+
+- 1.36 to [1.36.4-gke.1495003](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495003)
+
+
+
+
+
+
+
+- Version [1.36.4-gke.1495002](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495002) is now the default version for cluster creation.
+
+- The following versions are now available:
+
+- [1.34.12-gke.1209000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+
+- [1.35.8-gke.1975000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+
+- [1.36.4-gke.1495003](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495003)
+
+- [1.36.4-gke.2046003](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003)
+
+- [1.36.4-gke.2377000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+
+- The following node versions are now available:
+
+- [1.31.14-gke.2963000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-2963000)
+
+- [1.32.13-gke.2701000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2701000)
+
+- [1.33.13-gke.1952000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1952000)
+
+- [1.34.12-gke.1209000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+
+- [1.35.8-gke.1975000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+
+- [1.36.4-gke.1495003](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495003)
+
+- [1.36.4-gke.2046003](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003)
+
+- [1.36.4-gke.2377000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+
+- The following versions are no longer available:
+
+- 1.34.9-gke.1655001 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+
+- 1.35.8-gke.1225000 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+
+- 1.36.4-gke.1495000 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+
+- 1.36.4-gke.2202002 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+
+- 1.36.4-gke.2304000 is [deprecated](https://documentation.s3ns.fr/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+
+- Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release:
+
+- GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades:
+
+- 1.33 to [1.34.11-gke.1209000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1209000)
+
+- GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades:
+
+- 1.34 to [1.34.11-gke.1209000](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1209000)
+
+- 1.36 to [1.36.4-gke.1495002](https://documentation.s3ns.fr/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495002)
 
 
 
@@ -17913,7 +18201,7 @@ The [May 13, 2025](https://documentation.s3ns.fr/kubernetes-engine/docs/release-
 Feature 
 
 
-In GKE version 1.32.3-gke.1927002 and later, GKE uses a container-optimized compute platform for the general-purpose Autopilot compute class. This platform improves Pod scheduling latency, especially during autoscaling operations. The container-optimized compute platform provides benefits like faster scaling reaction times and more precise capacity right-sizing. For more information about the general-purpose compute class, see [About built-in compute classes in Autopilot clusters](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/autopilot-compute-classes).
+In GKE version 1.32.3-gke.1927002 and later, GKE uses a container-optimized compute platform for the general-purpose Autopilot compute class. This platform improves Pod scheduling latency, especially during autoscaling operations. The container-optimized compute platform provides benefits like faster scaling reaction times and more precise capacity right-sizing. For more information about the general-purpose compute class, see [About built-in compute classes in Autopilot clusters](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/balanced-scale-out-autopilot).
 
 
 
@@ -19363,7 +19651,7 @@ Feature
 
 New recommendations of `NODE_SA_MISSING_PERMISSIONS` subtype are added to the portfolio of [GKE Recommendations](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/optimize-with-recommenders). Use the new recommendations to [identify clusters](https://documentation.s3ns.fr/kubernetes-engine/docs/troubleshooting/logging#identify-fix-permissions-logs-in-all-clusters) with node service accounts missing IAM permissions that are critical for normal cluster operations.
 
-If your organization has a policy to [disable automatic role grants to default service accounts](https://documentation.s3ns.fr/resource-manager/docs/organization-policy/restricting-service-accounts#disable_service_account_default_grants), the created [default GKE node service account](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/service-accounts#default-gke-service-agent) will not get the necessary permissions. Missing critical permissions can degrade your essential cluster operations, such as logging and monitoring.
+If your organization has a policy to [disable automatic role grants to default service accounts](https://documentation.s3ns.fr/organization-policy/restrict-service-accounts#disable_service_account_default_grants), the created [default GKE node service account](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/service-accounts#default-gke-service-agent) will not get the necessary permissions. Missing critical permissions can degrade your essential cluster operations, such as logging and monitoring.
 
 
 
@@ -19700,6 +19988,17 @@ To learn more, see [Container-Optimized OS updates during the extended support p
 Feature 
 
 
+GKE Managed NVIDIA Data Center GPU Manager (DCGM) Metrics Package is now generally available for both GKE Standard and Autopilot clusters running version 1.32.0-gke.1764000 and later. You can enable the feature via the Console, gcloud, or Terraform. Starting with cluster version 1.32.1-gke.1357000, GKE Managed NVIDIA DCGM will be default-on for new clusters. 
+
+GKE Managed DCGM provides a curated set of metrics for monitoring the utilization, performance, and health of NVIDIA GPUs. These metrics are collected by Google Cloud Managed Service for Prometheus and you can view the metric charts in the Observability Tab on the Kubernetes Clusters page or in Cloud Monitoring. For more information, see Collect and view DCGM metrics.
+
+To learn more, see [Collect and view DCGM metrics](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/dcgm-metrics).
+
+
+
+Feature 
+
+
 GKE automatically adds the following resource labels to node pools:
 
 - `goog-gke-accelerator-type`: The accelerator type used in the node pool.
@@ -19709,17 +20008,6 @@ GKE automatically adds the following resource labels to node pools:
 - `goog-gke-node-pool-provisioning-model`: The provisioning model of the node pool. The nodes can be on demand, by reservation, or Spot VMs. 
 
 To learn more, see [Automatically applied labels](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/creating-managing-labels#automatically-applied-labels).
-
-
-
-Feature 
-
-
-GKE Managed NVIDIA Data Center GPU Manager (DCGM) Metrics Package is now generally available for both GKE Standard and Autopilot clusters running version 1.32.0-gke.1764000 and later. You can enable the feature via the Console, gcloud, or Terraform. Starting with cluster version 1.32.1-gke.1357000, GKE Managed NVIDIA DCGM will be default-on for new clusters. 
-
-GKE Managed DCGM provides a curated set of metrics for monitoring the utilization, performance, and health of NVIDIA GPUs. These metrics are collected by Google Cloud Managed Service for Prometheus and you can view the metric charts in the Observability Tab on the Kubernetes Clusters page or in Cloud Monitoring. For more information, see Collect and view DCGM metrics.
-
-To learn more, see [Collect and view DCGM metrics](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/dcgm-metrics).
 
 
 
@@ -21129,13 +21417,6 @@ More
 Feature 
 
 
-User-managed firewall rules for GKE LoadBalancer Services is now generally available on GKE clusters running version 1.31.3-gke.1056000 or later. By allowing user-managed firewall rules for GKE LoadBalancer Services, advanced firewall policies can now be configured to control ingress traffic to your GKE Services exposed with passthrough network load balancers. To learn more, see [User-managed firewall rules for GKE LoadBalancer Services](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/user-managed-firewall-rules).
-
-
-
-Feature 
-
-
 You can now [customize a node system configuration](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/node-system-config#kubelet-options) with the following new kubelet and sysctl configuration options:
 
 - 
@@ -21179,6 +21460,13 @@ Sysctl
 - net.netfilter.nf_conntrack_tcp_timeout_time_wait (1.32.0-gke.1448000 and later)
 
 To learn more, see [Kubelet configuration options](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/node-system-config#kubelet-options) and [Sysctl configuration options](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/node-system-config#sysctl-options).
+
+
+
+Feature 
+
+
+User-managed firewall rules for GKE LoadBalancer Services is now generally available on GKE clusters running version 1.31.3-gke.1056000 or later. By allowing user-managed firewall rules for GKE LoadBalancer Services, advanced firewall policies can now be configured to control ingress traffic to your GKE Services exposed with passthrough network load balancers. To learn more, see [User-managed firewall rules for GKE LoadBalancer Services](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/user-managed-firewall-rules).
 
 
 
@@ -22037,7 +22325,7 @@ Autopilot clusters in `1.28.15-gke.1344000`, `1.29.11-gke.1012000`, `1.30.7-gke.
 
 Cluster autoscaler and node auto-provisioning are supported in `1.28.15-gke.1344000`, `1.29.11-gke.1012000`, `1.30.7-gke.1136000`, `1.31.3-gke.1056000` or later.
 
-Local SSD support is available for Public [Preview](https://documentation.s3ns.fr/products/?_gl=1*jq03lo*_ga*MTE4MTA1MzEyMS4xNzMzOTQ1MTU0*_ga_4LYFWVHBEB*MTczNDAxMzM2OS40LjEuMTczNDAxMzk2NS4wLjAuMA..#product-launch-stages) from `1.31.1-gke.2008000`. Contact your Account Team to participate in the preview.
+Local SSD support is available for Public [Preview](https://documentation.s3ns.fr/products#product-launch-stages) from `1.31.1-gke.2008000`. Contact your Account Team to participate in the preview.
 
 
 
@@ -23224,7 +23512,7 @@ There are no new releases in the Stable channel.
 Feature 
 
 
-The GKE Volume Populator is generally available on GKE clusters running version 1.31.1-gke.1729000 or later. This feature provides a way to automate data transfer from a Google Cloud Storage bucket source storage to a destination PersistentVolumeClaim backed by a Parallelstore instance. To learn more, see [Transfer data from Cloud Storage during dynamic provisioning using GKE Volume Populator](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/persistent-volumes/volume-populator).
+The GKE Volume Populator is generally available on GKE clusters running version 1.31.1-gke.1729000 or later. This feature provides a way to automate data transfer from a Google Cloud Storage bucket source storage to a destination PersistentVolumeClaim backed by a Parallelstore instance. To learn more, see [Transfer data from Cloud Storage during dynamic provisioning using GKE Volume Populator](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/about-volume-populator).
 
 
 
@@ -23957,27 +24245,6 @@ More
 Feature 
 
 
-The new release of the [GKE Gateway controller](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/gateway-api#gateway_controller) (2024-R2) is now generally available. With this release, the GKE Gateway controller provides the following new capabilities:
-
-- [ReferenceGrant](https://gateway-api.sigs.k8s.io/api-types/referencegrant/) support
-
-- [Cloud Armor backend security policy support for internal Gateways](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/configure-gateway-resources#configure_cloud_armor)
-
-- [Regional selection for regional multi-cluster Gateways](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-region)
-
-- [Traffic-based autoscaling for single cluster Gateways](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/configure-gateway-resources#configure_service_capacity)
-
-**Conformance:**
-
-- [GKE Gateway is now conformant to Gateway APIs v1.1.0](https://gateway-api.sigs.k8s.io/implementations/#google-kubernetes-engine)
-
-To learn more about our GKE Gateway controller capabilities, see the [supported capabilities per GatewayClass](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/gatewayclass-capabilities).
-
-
-
-Feature 
-
-
 You can now use NVIDIA H100 80GB GPUs on GKE in the following smaller machine types: 
 
 - `a3-highgpu-1g` (1 GPU)
@@ -23996,6 +24263,27 @@ Feature
 
 
 In GKE clusters with the control plane running version 1.29.1-gke.1425000 or later, TPU slice nodes support `SIGTERM` signals that alert the node of an imminent shutdown. The imminent shutdown notification is configurable up to five minutes in TPU nodes. To configure GKE to terminate your workloads gracefully within this notification timeframe, see [Manage GKE node disruption for GPUs and TPUs](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/handle-disruption-gpu-tpu).
+
+
+
+Feature 
+
+
+The new release of the [GKE Gateway controller](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/gateway-api#gateway_controller) (2024-R2) is now generally available. With this release, the GKE Gateway controller provides the following new capabilities:
+
+- [ReferenceGrant](https://gateway-api.sigs.k8s.io/api-types/referencegrant/) support
+
+- [Cloud Armor backend security policy support for internal Gateways](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/configure-gateway-resources#configure_cloud_armor)
+
+- [Regional selection for regional multi-cluster Gateways](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/configure-gateway-resources#configure-region)
+
+- [Traffic-based autoscaling for single cluster Gateways](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/configure-gateway-resources#configure_service_capacity)
+
+**Conformance:**
+
+- [GKE Gateway is now conformant to Gateway APIs v1.1.0](https://gateway-api.sigs.k8s.io/implementations/#google-kubernetes-engine)
+
+To learn more about our GKE Gateway controller capabilities, see the [supported capabilities per GatewayClass](https://documentation.s3ns.fr/kubernetes-engine/docs/how-to/gatewayclass-capabilities).
 
 
 
@@ -24564,18 +24852,18 @@ More
 Feature 
 
 
-GKE now supports the Parallelstore CSI driver in allowlisted general availability (GA), which means that you can reach out to your Google support team to use the service under [GA terms](https://documentation.s3ns.fr/products#product-launch-stages).
-
-Parallelstore accelerates AI/ML training and excels at saturating individual compute clients, ensuring that expensive compute resources are efficiently used. The product demonstrated a 3.9x training time improvement and 3.7x better throughput improvement compared to native ML framework data loaders and saturates single clients NIC bandwidth at 90%+.
-
-For details, see [About the GKE Parallelstore CSI driver](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/parallelstore-for-gke).
+In GKE version 1.30.3-gke.1639000 and later and 1.31.0-gke.1058000 and later, GKE can handle GPU and TPU node disruptions by notifying you in advance of a shutdown and by gracefully terminating your workloads. This feature is generally available. For details, see [Manage GKE node disruption for GPUs and TPUs](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/handle-disruption-gpu-tpu).
 
 
 
 Feature 
 
 
-In GKE version 1.30.3-gke.1639000 and later and 1.31.0-gke.1058000 and later, GKE can handle GPU and TPU node disruptions by notifying you in advance of a shutdown and by gracefully terminating your workloads. This feature is generally available. For details, see [Manage GKE node disruption for GPUs and TPUs](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/handle-disruption-gpu-tpu).
+GKE now supports the Parallelstore CSI driver in allowlisted general availability (GA), which means that you can reach out to your Google support team to use the service under [GA terms](https://documentation.s3ns.fr/products#product-launch-stages).
+
+Parallelstore accelerates AI/ML training and excels at saturating individual compute clients, ensuring that expensive compute resources are efficiently used. The product demonstrated a 3.9x training time improvement and 3.7x better throughput improvement compared to native ML framework data loaders and saturates single clients NIC bandwidth at 90%+.
+
+For details, see [About the GKE Parallelstore CSI driver](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/managed-lustre).
 
 
 
@@ -25996,14 +26284,6 @@ Deprecated
 
 
 
-Announcement 
-
-#### 1.31 is now available in the Rapid channel
-
-Kubernetes 1.31 is now available in the Rapid channel. For more information about the content of Kubernetes 1.31, read the [Kubernetes 1.31 Release Notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#changelog-since-v1300).
-
-
-
 Deprecated 
 
 #### Deprecated in-tree volume support
@@ -26026,6 +26306,14 @@ Switch to use an RBD or CephFS CSI driver (like the CSI drivers provided at [htt
 
 For more information, refer to the [OSS Kubernetes announcement](https://groups.google.com/a/kubernetes.io/g/dev/c/U0--uNBae0Q/m/yhmcWHi3AAAJ?utm_medium=email&utm_source=footer) and [https://github.com/ceph/ceph-csi/](https://github.com/ceph/ceph-csi/)
 
+
+
+
+Announcement 
+
+#### 1.31 is now available in the Rapid channel
+
+Kubernetes 1.31 is now available in the Rapid channel. For more information about the content of Kubernetes 1.31, read the [Kubernetes 1.31 Release Notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#changelog-since-v1300).
 
 
 
@@ -26321,7 +26609,7 @@ This issue is more likely to occur in clusters with more than 25 nodes. To preve
 Fixed 
 
 
-In GKE version 1.30 and later, there is a [workaround in the PDCSI driver](https://github.com/kubernetes-sigs/gcp-compute-persistent-disk-csi-driver/pull/1658) for privileged workloads that access container namespaces with hostpath. The workaround delays NodeUnstage until attached filesystems are no longer in use. Under certain conditions, the privileged hostpath workloads may cause a container's mount namespace to be retained longer than the container's lifecycle. The workaround addresses an issue where the driver could proceed with detaching a GCE persistent disk even if the block device filesystem is still in use.
+In GKE version 1.30 and later, there is a [workaround in the PDCSI driver](https://github.com/kubernetes-sigs/gcp-compute-persistent-disk-csi-driver/pull/1658) for privileged workloads that access container namespaces with hostpath. The workaround delays NodeUnstage until attached filesystems are no longer in use. Under certain conditions, the privileged hostpath workloads may cause a container's mount namespace to be retained longer than the container's lifecycle. The workaround addresses an issue where the driver could proceed with detaching a Compute Engine persistent disk even if the block device filesystem is still in use.
 
 With this fix, the PDCSI driver will validate that an attached block device is no longer in use prior to unmounting it from a GKE node.
 
@@ -26568,6 +26856,23 @@ You can now enable NCCL Fast Socket on your multi-GPU Autopilot workloads. [NCCL
 ## July 31, 2024
 
 
+Fixed 
+
+
+GKE Autopilot versions 1.28.6-gke.1317000 and later fixes a known issue for ephemeral storage requests. If the combined ephemeral storage requests across all containers in your workload exceed 10 GiB, your workload will be rejected with an error message. This differs from earlier versions, which admitted the workload if it requested more than 10 GiB while only actually provisioning 10 GiB, which would result in workload eviction when the workload used more than 10 GiB.
+
+To ensure uninterrupted operation with GKE Autopilot versions 1.28.6-gke.1317000 and later, do the following:
+
+- Verify that containers injected by webhooks don't cause Pods to exceed the [maximum Autopilot resource limits](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/autopilot-resource-requests#hardware-min-max).
+
+- Adjust workload resource requests to account for any containers that may be injected by webhooks.
+
+- If any Pods are rejected after updating, reduce their ephemeral storage requests to meet the limit for your workload configuration.
+
+To learn more, see [Automatic resource management in Autopilot](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/autopilot-resource-requests#autopilot-resource-management).
+
+
+
 Change 
 
 ### (2024-R27) Version updates
@@ -26782,23 +27087,6 @@ More
 
 
 
-Fixed 
-
-
-GKE Autopilot versions 1.28.6-gke.1317000 and later fixes a known issue for ephemeral storage requests. If the combined ephemeral storage requests across all containers in your workload exceed 10 GiB, your workload will be rejected with an error message. This differs from earlier versions, which admitted the workload if it requested more than 10 GiB while only actually provisioning 10 GiB, which would result in workload eviction when the workload used more than 10 GiB.
-
-To ensure uninterrupted operation with GKE Autopilot versions 1.28.6-gke.1317000 and later, do the following:
-
-- Verify that containers injected by webhooks don't cause Pods to exceed the [maximum Autopilot resource limits](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/autopilot-resource-requests#hardware-min-max).
-
-- Adjust workload resource requests to account for any containers that may be injected by webhooks.
-
-- If any Pods are rejected after updating, reduce their ephemeral storage requests to meet the limit for your workload configuration.
-
-To learn more, see [Automatic resource management in Autopilot](https://documentation.s3ns.fr/kubernetes-engine/docs/concepts/autopilot-resource-requests#autopilot-resource-management).
-
-
-
 Feature 
 
 
@@ -27005,7 +27293,7 @@ The following vulnerabilities were discovered in the Linux kernel that can lead 
 
 - CVE-2024-26925
 
-For more details, see the [GCP-2024-045 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-045).
+For more details, see the [GCP-2024-045 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-045).
 
 
 
@@ -27173,7 +27461,7 @@ The following vulnerabilities were discovered in the Linux kernel that can lead 
 
 - CVE-2024-26921
 
-For more details, see the [GCP-2024-043 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-043).
+For more details, see the [GCP-2024-043 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-043).
 
 
 
@@ -27184,7 +27472,7 @@ The following vulnerabilities were discovered in the Linux kernel that can lead 
 
 - CVE-2024-36972
 
-For more details, see the [GCP-2024-044 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-044).
+For more details, see the [GCP-2024-044 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-044).
 
 
 
@@ -27205,7 +27493,7 @@ The following vulnerabilities were discovered in the Linux kernel that can lead 
 
 - CVE-2024-26809
 
-For more details, see the [GCP-2024-042 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-042).
+For more details, see the [GCP-2024-042 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-042).
 
 
 
@@ -27587,7 +27875,7 @@ The following vulnerabilities were discovered in the Linux kernel that can lead 
 
 - CVE-2023-52656
 
-For more information, see the [GCP-2024-041 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-041).
+For more information, see the [GCP-2024-041 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-041).
 
 
 
@@ -27923,7 +28211,7 @@ Security
 
 A remote code execution vulnerability, [CVE-2024-6387](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-6387), was recently discovered in OpenSSH. The vulnerability exploits a race condition that can be used to obtain access to a remote shell, enabling attackers to gain root access. This vulnerability has a Critical severity for GKE. An expedited rollout is in progress to make patch versions available.
 
-For patch versions and mitigation steps, see the [GCP-2024-040 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-040).
+For patch versions and mitigation steps, see the [GCP-2024-040 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-040).
 
 
 
@@ -27961,7 +28249,7 @@ Impacted GKE versions include:
 
 - 1.27.14-gke.1100000
 
-Mount failures will log errors indicating difficulties verifying and re-linking the GCE Persistent Disk. You will see log errors like this:
+Mount failures will log errors indicating difficulties verifying and re-linking the Compute Engine Persistent Disk. You will see log errors like this:
 
 `"Error when getting device path: rpc error: code = Internal desc = error verifying GCE PD ("$PVC") is attached: failed to find and re-link disk $PVC with udevadm after retrying for 3s: couldn't get serial number for disk $PVC at device path /dev/$NVME_PATH: google_nvme_id failed for device "/dev/$NVME_PATH" with output [**numbers**]: exit status 1"`
 
@@ -27970,17 +28258,6 @@ This issue will be resolved in the next GKE releases. In the meantime, if you ar
 
 
 ## June 28, 2024
-
-
-Security 
-
-
-The following vulnerabilities were discovered in the Linux kernel that can lead to a privilege escalation on Container-Optimized OS and Ubuntu nodes:
-
-- CVE-2024-26923
-
-For more information, see the [GCP-2024-039 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-039).
-
 
 
 Change 
@@ -27997,6 +28274,17 @@ Resource requests for `anetd` Pods have been increased from 200mil CPU and 110m 
 
 
 
+Security 
+
+
+The following vulnerabilities were discovered in the Linux kernel that can lead to a privilege escalation on Container-Optimized OS and Ubuntu nodes:
+
+- CVE-2024-26923
+
+For more information, see the [GCP-2024-039 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-039).
+
+
+
 ## June 27, 2024
 
 
@@ -28007,7 +28295,7 @@ The following vulnerabilities were discovered in the Linux kernel that can lead 
 
 - CVE-2024-26924
 
-For more information, see the [GCP-2024-038 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-038).
+For more information, see the [GCP-2024-038 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-038).
 
 
 
@@ -28183,7 +28471,7 @@ The following vulnerabilities were discovered in the Linux kernel that can lead 
 
 - CVE-2024-26584
 
-For more information, see the [GCP-2024-036 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-036).
+For more information, see the [GCP-2024-036 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-036).
 
 
 
@@ -28356,7 +28644,7 @@ The following vulnerabilities were discovered in the Linux kernel that can lead 
 
 - CVE-2024-26584
 
-For more information, see the [GCP-2024-035 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-035).
+For more information, see the [GCP-2024-035 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-035).
 
 
 
@@ -28505,7 +28793,7 @@ The following vulnerabilities were discovered in the Linux kernel that can lead 
 
 - CVE-2024-26583
 
-For more information, see the [GCP-2024-034 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-034).
+For more information, see the [GCP-2024-034 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-034).
 
 
 
@@ -28519,7 +28807,7 @@ The following vulnerabilities were discovered in the Linux kernel that can lead 
 
 - CVE-2022-23222
 
-For more information, see the [GCP-2024-033 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-033).
+For more information, see the [GCP-2024-033 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-033).
 
 
 
@@ -28859,7 +29147,7 @@ A new vulnerability (CVE-2024-4323) has been discovered in Fluent Bit that could
 
 GKE doesn't use a vulnerable version of Fluent Bit and is **unaffected**.
 
-For more information, see the [GCP-2024-031 security bulletin](https://documentation.s3ns.fr/anthos/clusters/docs/security-bulletins#gcp-2024-031).
+For more information, see the [GCP-2024-031 security bulletin](https://documentation.s3ns.fr/kubernetes-engine/security-bulletins#gcp-2024-031).
 
 
 

@@ -1,7 +1,7 @@
 # Service agents
 
 Source: https://berlin.devsitetest.how/iam/docs/service-agents
-Last updated: 2026-10-13
+Last updated: 2026-10-14
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/iam/docs/tpc-differences) for more details.
 
@@ -5898,6 +5898,22 @@ Granted on the project.
 Granted on the project.
 
 
+| 
+|
+
+| 
+
+
+#### Memory Bank Service Agent
+
+Service agent for `aiplatform.googleapis.com`. 
+
+
+`service- PROJECT_NUMBER @gcp-sa-vertex-memory.eu0-system.iam.gserviceaccount.com`
+
+| 
+
+None
 | 
 |
 

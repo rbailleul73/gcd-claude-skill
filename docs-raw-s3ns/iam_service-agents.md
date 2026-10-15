@@ -1,7 +1,7 @@
 # Service agents
 
 Source: https://documentation.s3ns.fr/iam/docs/service-agents
-Last updated: 2026-10-13
+Last updated: 2026-10-14
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/iam/docs/tpc-differences) for more details.
 
@@ -5898,6 +5898,22 @@ Granted on the project.
 Granted on the project.
 
 
+| 
+|
+
+| 
+
+
+#### Memory Bank Service Agent
+
+Service agent for `aiplatform.googleapis.com`. 
+
+
+`service- PROJECT_NUMBER @gcp-sa-vertex-memory.s3ns-system.iam.gserviceaccount.com`
+
+| 
+
+None
 | 
 |
 
