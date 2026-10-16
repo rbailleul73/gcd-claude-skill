@@ -212,9 +212,9 @@
   "/bigquery/docs/quickstarts/query-public-dataset-console": {
     "title": "Try BigQuery using the sandbox",
     "filename": "bigquery_quickstarts_query-public-dataset-console.md",
-    "size": 9723,
+    "size": 9738,
     "url": "https://berlin.devsitetest.how/bigquery/docs/quickstarts/query-public-dataset-console",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-15"
   },
   "/bigquery/docs/quickstarts/quickstart-client-libraries": {
     "title": "Query a public dataset with the BigQuery client libraries",
@@ -289,9 +289,9 @@
   "/compute/docs/reference/rest/v1": {
     "title": "Compute Engine API",
     "filename": "compute_reference_rest_v1.md",
-    "size": 516928,
+    "size": 515407,
     "url": "https://berlin.devsitetest.how/compute/docs/reference/rest/v1",
-    "last_updated": "2026-09-28"
+    "last_updated": "2026-10-15"
   },
   "/compute/docs/release-notes": {
     "title": "Compute Engine release notes",
@@ -590,7 +590,7 @@
   "/docs/discovery/list": {
     "title": "Discovery Document: list",
     "filename": "discovery_list.md",
-    "size": 3612,
+    "size": 3590,
     "url": "https://berlin.devsitetest.how/docs/discovery/list",
     "last_updated": "2025-06-16"
   },
@@ -900,7 +900,7 @@
     "filename": "quotas_custom-constraints.md",
     "size": 26676,
     "url": "https://berlin.devsitetest.how/docs/quotas/custom-constraints",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-15"
   },
   "/docs/quotas/development-environment": {
     "title": "Set up the Cloud Quotas API",
@@ -919,7 +919,7 @@
   "/docs/quotas/help/request_increase": {
     "title": "View and manage quotas",
     "filename": "quotas_help_request_increase.md",
-    "size": 19066,
+    "size": 19064,
     "url": "https://berlin.devsitetest.how/docs/quotas/help/request_increase",
     "last_updated": "2026-10-13"
   },
@@ -985,6 +985,202 @@
     "size": 132278,
     "url": "https://berlin.devsitetest.how/docs/quotas/reference/libraries",
     "last_updated": "2026-10-13"
+  },
+  "/docs/quotas/reference/rest": {
+    "title": "Cloud Quotas API",
+    "filename": "quotas_reference_rest.md",
+    "size": 8812,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/ListQuotaInfosResponse": {
+    "title": "ListQuotaInfosResponse",
+    "filename": "quotas_reference_rest_v1_ListQuotaInfosResponse.md",
+    "size": 1353,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/ListQuotaInfosResponse",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/ListQuotaPreferencesResponse": {
+    "title": "ListQuotaPreferencesResponse",
+    "filename": "quotas_reference_rest_v1_ListQuotaPreferencesResponse.md",
+    "size": 1526,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/ListQuotaPreferencesResponse",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/QuotaSafetyCheck": {
+    "title": "QuotaSafetyCheck",
+    "filename": "quotas_reference_rest_v1_QuotaSafetyCheck.md",
+    "size": 1137,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/QuotaSafetyCheck",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences": {
+    "title": "REST Resource: folders.locations.quotaPreferences",
+    "filename": "quotas_reference_rest_v1_folders.locations.quotaPreferences.md",
+    "size": 8472,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/create": {
+    "title": "Method: folders.locations.quotaPreferences.create",
+    "filename": "quotas_reference_rest_v1_folders.locations.quotaPreferences_create.md",
+    "size": 3058,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/create",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/get": {
+    "title": "Method: folders.locations.quotaPreferences.get",
+    "filename": "quotas_reference_rest_v1_folders.locations.quotaPreferences_get.md",
+    "size": 2429,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/get",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/list": {
+    "title": "Method: folders.locations.quotaPreferences.list",
+    "filename": "quotas_reference_rest_v1_folders.locations.quotaPreferences_list.md",
+    "size": 3589,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/list",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/patch": {
+    "title": "Method: folders.locations.quotaPreferences.patch",
+    "filename": "quotas_reference_rest_v1_folders.locations.quotaPreferences_patch.md",
+    "size": 4045,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/patch",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.services.quotaInfos": {
+    "title": "REST Resource: folders.locations.services.quotaInfos",
+    "filename": "quotas_reference_rest_v1_folders.locations.services.quotaInfos.md",
+    "size": 10372,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/folders.locations.services.quotaInfos",
+    "last_updated": "2026-01-21"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.services.quotaInfos/get": {
+    "title": "Method: folders.locations.services.quotaInfos.get",
+    "filename": "quotas_reference_rest_v1_folders.locations.services.quotaInfos_get.md",
+    "size": 2512,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/folders.locations.services.quotaInfos/get",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.services.quotaInfos/list": {
+    "title": "Method: folders.locations.services.quotaInfos.list",
+    "filename": "quotas_reference_rest_v1_folders.locations.services.quotaInfos_list.md",
+    "size": 3122,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/folders.locations.services.quotaInfos/list",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences": {
+    "title": "REST Resource: organizations.locations.quotaPreferences",
+    "filename": "quotas_reference_rest_v1_organizations.locations.quotaPreferences.md",
+    "size": 6074,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/create": {
+    "title": "Method: organizations.locations.quotaPreferences.create",
+    "filename": "quotas_reference_rest_v1_organizations.locations.quotaPreferences_create.md",
+    "size": 3082,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/create",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/get": {
+    "title": "Method: organizations.locations.quotaPreferences.get",
+    "filename": "quotas_reference_rest_v1_organizations.locations.quotaPreferences_get.md",
+    "size": 2453,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/get",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/list": {
+    "title": "Method: organizations.locations.quotaPreferences.list",
+    "filename": "quotas_reference_rest_v1_organizations.locations.quotaPreferences_list.md",
+    "size": 3613,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/list",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/patch": {
+    "title": "Method: organizations.locations.quotaPreferences.patch",
+    "filename": "quotas_reference_rest_v1_organizations.locations.quotaPreferences_patch.md",
+    "size": 4069,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/patch",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.services.quotaInfos": {
+    "title": "REST Resource: organizations.locations.services.quotaInfos",
+    "filename": "quotas_reference_rest_v1_organizations.locations.services.quotaInfos.md",
+    "size": 5171,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/organizations.locations.services.quotaInfos",
+    "last_updated": "2026-01-21"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.services.quotaInfos/get": {
+    "title": "Method: organizations.locations.services.quotaInfos.get",
+    "filename": "quotas_reference_rest_v1_organizations.locations.services.quotaInfos_get.md",
+    "size": 2536,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/organizations.locations.services.quotaInfos/get",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.services.quotaInfos/list": {
+    "title": "Method: organizations.locations.services.quotaInfos.list",
+    "filename": "quotas_reference_rest_v1_organizations.locations.services.quotaInfos_list.md",
+    "size": 3146,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/organizations.locations.services.quotaInfos/list",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences": {
+    "title": "REST Resource: projects.locations.quotaPreferences",
+    "filename": "quotas_reference_rest_v1_projects.locations.quotaPreferences.md",
+    "size": 6039,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/create": {
+    "title": "Method: projects.locations.quotaPreferences.create",
+    "filename": "quotas_reference_rest_v1_projects.locations.quotaPreferences_create.md",
+    "size": 3065,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/create",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/get": {
+    "title": "Method: projects.locations.quotaPreferences.get",
+    "filename": "quotas_reference_rest_v1_projects.locations.quotaPreferences_get.md",
+    "size": 2436,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/get",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/list": {
+    "title": "Method: projects.locations.quotaPreferences.list",
+    "filename": "quotas_reference_rest_v1_projects.locations.quotaPreferences_list.md",
+    "size": 3596,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/list",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/patch": {
+    "title": "Method: projects.locations.quotaPreferences.patch",
+    "filename": "quotas_reference_rest_v1_projects.locations.quotaPreferences_patch.md",
+    "size": 4052,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/patch",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.services.quotaInfos": {
+    "title": "REST Resource: projects.locations.services.quotaInfos",
+    "filename": "quotas_reference_rest_v1_projects.locations.services.quotaInfos.md",
+    "size": 5146,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/projects.locations.services.quotaInfos",
+    "last_updated": "2026-01-21"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.services.quotaInfos/get": {
+    "title": "Method: projects.locations.services.quotaInfos.get",
+    "filename": "quotas_reference_rest_v1_projects.locations.services.quotaInfos_get.md",
+    "size": 2519,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/projects.locations.services.quotaInfos/get",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.services.quotaInfos/list": {
+    "title": "Method: projects.locations.services.quotaInfos.list",
+    "filename": "quotas_reference_rest_v1_projects.locations.services.quotaInfos_list.md",
+    "size": 3129,
+    "url": "https://berlin.devsitetest.how/docs/quotas/reference/rest/v1/projects.locations.services.quotaInfos/list",
+    "last_updated": "2025-12-10"
   },
   "/docs/quotas/release-notes": {
     "title": "Cloud Quotas release notes",
@@ -1570,7 +1766,7 @@
   "/logging/docs/reference/libraries": {
     "title": "Logging client libraries",
     "filename": "logging_reference_libraries.md",
-    "size": 28025,
+    "size": 28007,
     "url": "https://berlin.devsitetest.how/logging/docs/reference/libraries",
     "last_updated": "2026-10-13"
   },
@@ -1607,7 +1803,7 @@
     "filename": "logging_view_logs-viewer-interface.md",
     "size": 41470,
     "url": "https://berlin.devsitetest.how/logging/docs/view/logs-viewer-interface",
-    "last_updated": "2026-10-12"
+    "last_updated": "2026-10-13"
   },
   "/logging/docs/write-query-log-entries-gcloud": {
     "title": "Quickstart: Write and query log entries with the gcloud CLI",
@@ -1626,9 +1822,9 @@
   "/monitoring/docs/reference/libraries": {
     "title": "Monitoring client libraries",
     "filename": "monitoring_reference_libraries.md",
-    "size": 39367,
+    "size": 39376,
     "url": "https://berlin.devsitetest.how/monitoring/docs/reference/libraries",
-    "last_updated": "2026-10-09"
+    "last_updated": "2026-10-13"
   },
   "/monitoring/docs/release-notes": {
     "title": "Monitoring release notes",
@@ -1950,7 +2146,7 @@
     "filename": "sql_release-notes.md",
     "size": 67792,
     "url": "https://berlin.devsitetest.how/sql/docs/release-notes",
-    "last_updated": "2026-10-15"
+    "last_updated": "2026-10-16"
   },
   "/sql/docs/tpc-differences": {
     "title": "Cloud SQL in Google Cloud Dedicated versus Google Cloud",
@@ -1969,7 +2165,7 @@
   "/storage/docs/creating-buckets": {
     "title": "Create a bucket",
     "filename": "storage_creating-buckets.md",
-    "size": 32891,
+    "size": 32894,
     "url": "https://berlin.devsitetest.how/storage/docs/creating-buckets",
     "last_updated": "2026-10-13"
   },
@@ -1990,7 +2186,7 @@
   "/storage/docs/reference/libraries": {
     "title": "Cloud Storage client libraries",
     "filename": "storage_reference_libraries.md",
-    "size": 22360,
+    "size": 22363,
     "url": "https://berlin.devsitetest.how/storage/docs/reference/libraries",
     "last_updated": "2026-10-13"
   },

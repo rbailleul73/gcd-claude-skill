@@ -1,7 +1,7 @@
 # Try BigQuery using the sandbox
 
 Source: https://berlin.devsitetest.how/bigquery/docs/quickstarts/query-public-dataset-console
-Last updated: 2026-10-13
+Last updated: 2026-10-15
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -185,9 +185,9 @@ working with public datasets, see [BigQuery public datasets](/bigquery/public-da
 
 - 
 
-In the Google Cloud Dedicated console, go to the **BigQuery** page.
+In the Google Cloud Dedicated console, go to **BigQuery Studio**.
 
-[Go to BigQuery](https://console.cloud.berlin-build0.goog/bigquery)
+[Go to BigQuery Studio](https://console.cloud.berlin-build0.goog/bigquery)
 
 You can also open BigQuery in the Google Cloud Dedicated console
 by entering the following URL in your browser:
@@ -312,9 +312,9 @@ launched in September 2013.
 
 - 
 
-In the Google Cloud Dedicated console, go to the **BigQuery** page.
+In the Google Cloud Dedicated console, go to **BigQuery Studio**.
 
-[Go to BigQuery](https://console.cloud.berlin-build0.goog/bigquery) 
+[Go to BigQuery Studio](https://console.cloud.berlin-build0.goog/bigquery) 
 
 - 
 
@@ -362,10 +362,10 @@ generate a heatmap in the integrated geography data viewer.
 
 - 
 
-In the Google Cloud Dedicated console, open the
-**BigQuery** page.
+In the Google Cloud Dedicated console, open
+**BigQuery Studio**.
 
-[Go to BigQuery](https://console.cloud.berlin-build0.goog/bigquery) 
+[Go to BigQuery Studio](https://console.cloud.berlin-build0.goog/bigquery) 
 
 - 
 

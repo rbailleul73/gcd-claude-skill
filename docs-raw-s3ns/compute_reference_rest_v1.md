@@ -1,7 +1,7 @@
 # Compute Engine API
 
 Source: https://documentation.s3ns.fr/compute/docs/reference/rest/v1
-Last updated: 2026-09-28
+Last updated: 2026-10-15
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/compute/docs/tpc-differences) for more details.
 
@@ -157,7 +157,6 @@ APIs & Reference
 - [ REST Resource: v1.globalOrganizationOperations ](#rest-resource:-v1.globalorganizationoperations)
 - [ REST Resource: v1.globalPublicDelegatedPrefixes ](#rest-resource:-v1.globalpublicdelegatedprefixes)
 - [ REST Resource: v1.globalVmExtensionPolicies ](#rest-resource:-v1.globalvmextensionpolicies)
-- [ REST Resource: v1.haControllers ](#rest-resource:-v1.hacontrollers)
 - [ REST Resource: v1.healthChecks ](#rest-resource:-v1.healthchecks)
 - [ REST Resource: v1.hosts ](#rest-resource:-v1.hosts)
 - [ REST Resource: v1.httpHealthChecks ](#rest-resource:-v1.httphealthchecks)
@@ -472,8 +471,6 @@ Creates and runs virtual machines on Cloud Platform.
 - [REST Resource: v1.globalPublicDelegatedPrefixes](#v1.globalPublicDelegatedPrefixes)
 
 - [REST Resource: v1.globalVmExtensionPolicies](#v1.globalVmExtensionPolicies)
-
-- [REST Resource: v1.haControllers](#v1.haControllers)
 
 - [REST Resource: v1.healthChecks](#v1.healthChecks)
 
@@ -1028,10 +1025,7 @@ A [service endpoint](https://documentation.s3ns.fr/apis/design/glossary#api_serv
 
 
 A regional service endpoint is a base URL that specifies the network address of an API service in a single region. A service that is available in multiple regions might have multiple regional endpoints. Select a location to see its regional service endpoint for this service. 
-global Select an option global 
-
-- [global](?rep_location=global)
-
+global 
 
 - `https://compute.s3nsapis.fr` 
 
@@ -1057,9 +1051,9 @@ Methods |
 
 | 
 
-`[aggregated List](/compute/docs/reference/rest/v1/acceleratorTypes/aggregatedList)` | 
+`[aggregatedList](/compute/docs/reference/rest/v1/acceleratorTypes/aggregatedList)` | 
 
-`GET / compute/ v1/ projects/ {project}/ aggregated/ accelerator Types` 
+`GET /compute/v1/projects/{project}/aggregated/acceleratorTypes` 
 
 Retrieves an aggregated list of accelerator types. | 
 |
@@ -2875,76 +2869,6 @@ The method `compute.v1.GlobalVmExtensionPoliciesService.List` is not available i
 `[update](/compute/docs/reference/rest/v1/globalVmExtensionPolicies/update)` | 
 
 The method `compute.v1.GlobalVmExtensionPoliciesService.Update` is not available in Cloud de Confiance by S3NS. | 
-|
-
-
-
-
-
-
-## REST Resource: [v1.haControllers](/compute/docs/reference/rest/v1/haControllers)
-
-
-
-
-
-
-
-
-
-| 
-Methods | 
-|
-
-
-
-| 
-
-`[aggregatedList](/compute/docs/reference/rest/v1/haControllers/aggregatedList)` | 
-
-The method `compute.v1.HaControllersService.AggregatedList` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[delete](/compute/docs/reference/rest/v1/haControllers/delete)` | 
-
-The method `compute.v1.HaControllersService.Delete` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[failover](/compute/docs/reference/rest/v1/haControllers/failover)` | 
-
-The method `compute.v1.HaControllersService.Failover` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[get](/compute/docs/reference/rest/v1/haControllers/get)` | 
-
-The method `compute.v1.HaControllersService.Get` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[insert](/compute/docs/reference/rest/v1/haControllers/insert)` | 
-
-The method `compute.v1.HaControllersService.Insert` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[list](/compute/docs/reference/rest/v1/haControllers/list)` | 
-
-The method `compute.v1.HaControllersService.List` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[patch](/compute/docs/reference/rest/v1/haControllers/patch)` | 
-
-The method `compute.v1.HaControllersService.Update` is not available in Cloud de Confiance by S3NS. | 
 |
 
 
@@ -5818,13 +5742,6 @@ The method `compute.v1.NetworksService.CancelRequestRemovePeering` is not availa
 `[requestRemovePeering](/compute/docs/reference/rest/v1/networks/requestRemovePeering)` | 
 
 The method `compute.v1.NetworksService.RequestRemovePeering` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[updateNetworkProfile](/compute/docs/reference/rest/v1/networks/updateNetworkProfile)` | 
-
-The method `compute.v1.NetworksService.UpdateNetworkProfile` is not available in Cloud de Confiance by S3NS. | 
 |
 
 
@@ -15679,6 +15596,13 @@ The method `compute.beta.InterconnectsService.Patch` is not available in Cloud d
 `[setLabels](/compute/docs/reference/rest/beta/interconnects/setLabels)` | 
 
 The method `compute.beta.InterconnectsService.SetLabels` is not available in Cloud de Confiance by S3NS. | 
+|
+
+| 
+
+`[setName](/compute/docs/reference/rest/beta/interconnects/setName)` | 
+
+The method `compute.beta.InterconnectsService.SetName` is not available in Cloud de Confiance by S3NS. | 
 |
 
 | 

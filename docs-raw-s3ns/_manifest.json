@@ -226,9 +226,9 @@
   "/bigquery/docs/quickstarts/query-public-dataset-console": {
     "title": "Try BigQuery using the sandbox",
     "filename": "bigquery_quickstarts_query-public-dataset-console.md",
-    "size": 9649,
+    "size": 9664,
     "url": "https://documentation.s3ns.fr/bigquery/docs/quickstarts/query-public-dataset-console",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-15"
   },
   "/bigquery/docs/quickstarts/quickstart-client-libraries": {
     "title": "Query a public dataset with the BigQuery client libraries",
@@ -317,9 +317,9 @@
   "/compute/docs/disks/hyperdisks": {
     "title": "Google Cloud Hyperdisk overview",
     "filename": "compute_disks_hyperdisks.md",
-    "size": 34321,
+    "size": 34479,
     "url": "https://documentation.s3ns.fr/compute/docs/disks/hyperdisks",
-    "last_updated": "2026-10-14"
+    "last_updated": "2026-10-15"
   },
   "/compute/docs/gpus": {
     "title": "GPU machine types",
@@ -345,9 +345,9 @@
   "/compute/docs/reference/rest/v1": {
     "title": "Compute Engine API",
     "filename": "compute_reference_rest_v1.md",
-    "size": 528104,
+    "size": 526501,
     "url": "https://documentation.s3ns.fr/compute/docs/reference/rest/v1",
-    "last_updated": "2026-09-28"
+    "last_updated": "2026-10-15"
   },
   "/compute/docs/release-notes": {
     "title": "Compute Engine release notes",
@@ -513,7 +513,7 @@
   "/docs/authentication/external/externally-sourced-credentials": {
     "title": "Authenticate with client libraries",
     "filename": "authentication_external_externally-sourced-credentials.md",
-    "size": 13681,
+    "size": 13680,
     "url": "https://documentation.s3ns.fr/docs/authentication/external/externally-sourced-credentials",
     "last_updated": "2026-10-13"
   },
@@ -970,12 +970,12 @@
     "filename": "quotas_custom-constraints.md",
     "size": 26569,
     "url": "https://documentation.s3ns.fr/docs/quotas/custom-constraints",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-15"
   },
   "/docs/quotas/development-environment": {
     "title": "Set up the Cloud Quotas API",
     "filename": "quotas_development-environment.md",
-    "size": 2680,
+    "size": 2681,
     "url": "https://documentation.s3ns.fr/docs/quotas/development-environment",
     "last_updated": "2026-10-13"
   },
@@ -989,7 +989,7 @@
   "/docs/quotas/help/request_increase": {
     "title": "View and manage quotas",
     "filename": "quotas_help_request_increase.md",
-    "size": 18882,
+    "size": 18877,
     "url": "https://documentation.s3ns.fr/docs/quotas/help/request_increase",
     "last_updated": "2026-10-13"
   },
@@ -1055,6 +1055,202 @@
     "size": 131881,
     "url": "https://documentation.s3ns.fr/docs/quotas/reference/libraries",
     "last_updated": "2026-10-13"
+  },
+  "/docs/quotas/reference/rest": {
+    "title": "Cloud Quotas API",
+    "filename": "quotas_reference_rest.md",
+    "size": 8761,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/ListQuotaInfosResponse": {
+    "title": "ListQuotaInfosResponse",
+    "filename": "quotas_reference_rest_v1_ListQuotaInfosResponse.md",
+    "size": 1352,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/ListQuotaInfosResponse",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/ListQuotaPreferencesResponse": {
+    "title": "ListQuotaPreferencesResponse",
+    "filename": "quotas_reference_rest_v1_ListQuotaPreferencesResponse.md",
+    "size": 1525,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/ListQuotaPreferencesResponse",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/QuotaSafetyCheck": {
+    "title": "QuotaSafetyCheck",
+    "filename": "quotas_reference_rest_v1_QuotaSafetyCheck.md",
+    "size": 1136,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/QuotaSafetyCheck",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences": {
+    "title": "REST Resource: folders.locations.quotaPreferences",
+    "filename": "quotas_reference_rest_v1_folders.locations.quotaPreferences.md",
+    "size": 8423,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/create": {
+    "title": "Method: folders.locations.quotaPreferences.create",
+    "filename": "quotas_reference_rest_v1_folders.locations.quotaPreferences_create.md",
+    "size": 3043,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/create",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/get": {
+    "title": "Method: folders.locations.quotaPreferences.get",
+    "filename": "quotas_reference_rest_v1_folders.locations.quotaPreferences_get.md",
+    "size": 2414,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/get",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/list": {
+    "title": "Method: folders.locations.quotaPreferences.list",
+    "filename": "quotas_reference_rest_v1_folders.locations.quotaPreferences_list.md",
+    "size": 3574,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/list",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/patch": {
+    "title": "Method: folders.locations.quotaPreferences.patch",
+    "filename": "quotas_reference_rest_v1_folders.locations.quotaPreferences_patch.md",
+    "size": 4018,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/folders.locations.quotaPreferences/patch",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.services.quotaInfos": {
+    "title": "REST Resource: folders.locations.services.quotaInfos",
+    "filename": "quotas_reference_rest_v1_folders.locations.services.quotaInfos.md",
+    "size": 10353,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/folders.locations.services.quotaInfos",
+    "last_updated": "2026-01-21"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.services.quotaInfos/get": {
+    "title": "Method: folders.locations.services.quotaInfos.get",
+    "filename": "quotas_reference_rest_v1_folders.locations.services.quotaInfos_get.md",
+    "size": 2497,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/folders.locations.services.quotaInfos/get",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/folders.locations.services.quotaInfos/list": {
+    "title": "Method: folders.locations.services.quotaInfos.list",
+    "filename": "quotas_reference_rest_v1_folders.locations.services.quotaInfos_list.md",
+    "size": 3107,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/folders.locations.services.quotaInfos/list",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences": {
+    "title": "REST Resource: organizations.locations.quotaPreferences",
+    "filename": "quotas_reference_rest_v1_organizations.locations.quotaPreferences.md",
+    "size": 6049,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/create": {
+    "title": "Method: organizations.locations.quotaPreferences.create",
+    "filename": "quotas_reference_rest_v1_organizations.locations.quotaPreferences_create.md",
+    "size": 3067,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/create",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/get": {
+    "title": "Method: organizations.locations.quotaPreferences.get",
+    "filename": "quotas_reference_rest_v1_organizations.locations.quotaPreferences_get.md",
+    "size": 2438,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/get",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/list": {
+    "title": "Method: organizations.locations.quotaPreferences.list",
+    "filename": "quotas_reference_rest_v1_organizations.locations.quotaPreferences_list.md",
+    "size": 3598,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/list",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/patch": {
+    "title": "Method: organizations.locations.quotaPreferences.patch",
+    "filename": "quotas_reference_rest_v1_organizations.locations.quotaPreferences_patch.md",
+    "size": 4042,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/organizations.locations.quotaPreferences/patch",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.services.quotaInfos": {
+    "title": "REST Resource: organizations.locations.services.quotaInfos",
+    "filename": "quotas_reference_rest_v1_organizations.locations.services.quotaInfos.md",
+    "size": 5164,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/organizations.locations.services.quotaInfos",
+    "last_updated": "2026-01-21"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.services.quotaInfos/get": {
+    "title": "Method: organizations.locations.services.quotaInfos.get",
+    "filename": "quotas_reference_rest_v1_organizations.locations.services.quotaInfos_get.md",
+    "size": 2521,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/organizations.locations.services.quotaInfos/get",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/organizations.locations.services.quotaInfos/list": {
+    "title": "Method: organizations.locations.services.quotaInfos.list",
+    "filename": "quotas_reference_rest_v1_organizations.locations.services.quotaInfos_list.md",
+    "size": 3131,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/organizations.locations.services.quotaInfos/list",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences": {
+    "title": "REST Resource: projects.locations.quotaPreferences",
+    "filename": "quotas_reference_rest_v1_projects.locations.quotaPreferences.md",
+    "size": 6014,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/create": {
+    "title": "Method: projects.locations.quotaPreferences.create",
+    "filename": "quotas_reference_rest_v1_projects.locations.quotaPreferences_create.md",
+    "size": 3050,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/create",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/get": {
+    "title": "Method: projects.locations.quotaPreferences.get",
+    "filename": "quotas_reference_rest_v1_projects.locations.quotaPreferences_get.md",
+    "size": 2421,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/get",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/list": {
+    "title": "Method: projects.locations.quotaPreferences.list",
+    "filename": "quotas_reference_rest_v1_projects.locations.quotaPreferences_list.md",
+    "size": 3581,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/list",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/patch": {
+    "title": "Method: projects.locations.quotaPreferences.patch",
+    "filename": "quotas_reference_rest_v1_projects.locations.quotaPreferences_patch.md",
+    "size": 4025,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/projects.locations.quotaPreferences/patch",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.services.quotaInfos": {
+    "title": "REST Resource: projects.locations.services.quotaInfos",
+    "filename": "quotas_reference_rest_v1_projects.locations.services.quotaInfos.md",
+    "size": 5139,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/projects.locations.services.quotaInfos",
+    "last_updated": "2026-01-21"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.services.quotaInfos/get": {
+    "title": "Method: projects.locations.services.quotaInfos.get",
+    "filename": "quotas_reference_rest_v1_projects.locations.services.quotaInfos_get.md",
+    "size": 2504,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/projects.locations.services.quotaInfos/get",
+    "last_updated": "2025-12-10"
+  },
+  "/docs/quotas/reference/rest/v1/projects.locations.services.quotaInfos/list": {
+    "title": "Method: projects.locations.services.quotaInfos.list",
+    "filename": "quotas_reference_rest_v1_projects.locations.services.quotaInfos_list.md",
+    "size": 3114,
+    "url": "https://documentation.s3ns.fr/docs/quotas/reference/rest/v1/projects.locations.services.quotaInfos/list",
+    "last_updated": "2025-12-10"
   },
   "/docs/quotas/release-notes": {
     "title": "Cloud Quotas release notes",
@@ -1640,7 +1836,7 @@
   "/logging/docs/reference/libraries": {
     "title": "Logging client libraries",
     "filename": "logging_reference_libraries.md",
-    "size": 27853,
+    "size": 27835,
     "url": "https://documentation.s3ns.fr/logging/docs/reference/libraries",
     "last_updated": "2026-10-13"
   },
@@ -1677,7 +1873,7 @@
     "filename": "logging_view_logs-viewer-interface.md",
     "size": 41358,
     "url": "https://documentation.s3ns.fr/logging/docs/view/logs-viewer-interface",
-    "last_updated": "2026-10-12"
+    "last_updated": "2026-10-13"
   },
   "/logging/docs/write-query-log-entries-gcloud": {
     "title": "Quickstart: Write and query log entries with the gcloud CLI",
@@ -1696,9 +1892,9 @@
   "/monitoring/docs/reference/libraries": {
     "title": "Monitoring client libraries",
     "filename": "monitoring_reference_libraries.md",
-    "size": 39152,
+    "size": 39161,
     "url": "https://documentation.s3ns.fr/monitoring/docs/reference/libraries",
-    "last_updated": "2026-10-09"
+    "last_updated": "2026-10-13"
   },
   "/monitoring/docs/release-notes": {
     "title": "Monitoring release notes",
@@ -2048,7 +2244,7 @@
     "filename": "sql_release-notes.md",
     "size": 67712,
     "url": "https://documentation.s3ns.fr/sql/docs/release-notes",
-    "last_updated": "2026-10-15"
+    "last_updated": "2026-10-16"
   },
   "/sql/docs/tpc-differences": {
     "title": "Cloud SQL in Cloud de Confiance versus Google Cloud",
@@ -2067,7 +2263,7 @@
   "/storage/docs/creating-buckets": {
     "title": "Create a bucket",
     "filename": "storage_creating-buckets.md",
-    "size": 32650,
+    "size": 32653,
     "url": "https://documentation.s3ns.fr/storage/docs/creating-buckets",
     "last_updated": "2026-10-13"
   },
@@ -2088,7 +2284,7 @@
   "/storage/docs/reference/libraries": {
     "title": "Cloud Storage client libraries",
     "filename": "storage_reference_libraries.md",
-    "size": 22288,
+    "size": 22291,
     "url": "https://documentation.s3ns.fr/storage/docs/reference/libraries",
     "last_updated": "2026-10-13"
   },
