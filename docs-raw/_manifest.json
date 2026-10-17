@@ -165,7 +165,7 @@
     "filename": "bigquery_controlling-costs.md",
     "size": 53090,
     "url": "https://berlin.devsitetest.how/bigquery/docs/controlling-costs",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/bigquery/docs/create-machine-learning-model": {
     "title": "Create an ML model in BigQuery ML by using SQL",
@@ -191,14 +191,14 @@
   "/bigquery/docs/exporting-data": {
     "title": "Export table data to Cloud Storage",
     "filename": "bigquery_exporting-data.md",
-    "size": 72587,
+    "size": 72585,
     "url": "https://berlin.devsitetest.how/bigquery/docs/exporting-data",
     "last_updated": "2026-10-13"
   },
   "/bigquery/docs/loading-data-cloud-storage-csv": {
     "title": "Load CSV data from Cloud Storage",
     "filename": "bigquery_loading-data-cloud-storage-csv.md",
-    "size": 139413,
+    "size": 139416,
     "url": "https://berlin.devsitetest.how/bigquery/docs/loading-data-cloud-storage-csv",
     "last_updated": "2026-10-13"
   },
@@ -219,7 +219,7 @@
   "/bigquery/docs/quickstarts/quickstart-client-libraries": {
     "title": "Query a public dataset with the BigQuery client libraries",
     "filename": "bigquery_quickstarts_quickstart-client-libraries.md",
-    "size": 42644,
+    "size": 42647,
     "url": "https://berlin.devsitetest.how/bigquery/docs/quickstarts/quickstart-client-libraries",
     "last_updated": "2026-10-14"
   },
@@ -233,23 +233,23 @@
   "/bigquery/docs/tables": {
     "title": "Create and use tables",
     "filename": "bigquery_tables.md",
-    "size": 161786,
+    "size": 161792,
     "url": "https://berlin.devsitetest.how/bigquery/docs/tables",
     "last_updated": "2026-10-13"
   },
   "/bigquery/docs/tpc-differences": {
     "title": "BigQuery in Google Cloud Dedicated versus Google Cloud",
     "filename": "bigquery_tpc-differences.md",
-    "size": 5952,
+    "size": 6366,
     "url": "https://berlin.devsitetest.how/bigquery/docs/tpc-differences",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/bigquery/docs/troubleshoot-quotas": {
     "title": "Troubleshoot quota and limit errors",
     "filename": "bigquery_troubleshoot-quotas.md",
-    "size": 62623,
+    "size": 66360,
     "url": "https://berlin.devsitetest.how/bigquery/docs/troubleshoot-quotas",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/billing/docs": {
     "title": "Cloud Billing documentation",
@@ -289,7 +289,7 @@
   "/compute/docs/reference/rest/v1": {
     "title": "Compute Engine API",
     "filename": "compute_reference_rest_v1.md",
-    "size": 515407,
+    "size": 538130,
     "url": "https://berlin.devsitetest.how/compute/docs/reference/rest/v1",
     "last_updated": "2026-10-15"
   },
@@ -555,9 +555,9 @@
   "/docs/databases": {
     "title": "Databases",
     "filename": "databases.md",
-    "size": 1378,
+    "size": 1698,
     "url": "https://berlin.devsitetest.how/docs/databases",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/docs/devtools": {
     "title": "Google Cloud Dedicated SDK, languages, frameworks, and tools",
@@ -590,7 +590,7 @@
   "/docs/discovery/list": {
     "title": "Discovery Document: list",
     "filename": "discovery_list.md",
-    "size": 3590,
+    "size": 3612,
     "url": "https://berlin.devsitetest.how/docs/discovery/list",
     "last_updated": "2025-06-16"
   },
@@ -844,7 +844,7 @@
     "filename": "overview_tpc-overview.md",
     "size": 9956,
     "url": "https://berlin.devsitetest.how/docs/overview/tpc-overview",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-15"
   },
   "/docs/product-list": {
     "title": "Google Cloud products at a glance",
@@ -900,12 +900,12 @@
     "filename": "quotas_custom-constraints.md",
     "size": 26676,
     "url": "https://berlin.devsitetest.how/docs/quotas/custom-constraints",
-    "last_updated": "2026-10-15"
+    "last_updated": "2026-10-16"
   },
   "/docs/quotas/development-environment": {
     "title": "Set up the Cloud Quotas API",
     "filename": "quotas_development-environment.md",
-    "size": 2714,
+    "size": 2713,
     "url": "https://berlin.devsitetest.how/docs/quotas/development-environment",
     "last_updated": "2026-10-13"
   },
@@ -919,7 +919,7 @@
   "/docs/quotas/help/request_increase": {
     "title": "View and manage quotas",
     "filename": "quotas_help_request_increase.md",
-    "size": 19064,
+    "size": 19066,
     "url": "https://berlin.devsitetest.how/docs/quotas/help/request_increase",
     "last_updated": "2026-10-13"
   },
@@ -1409,7 +1409,7 @@
   "/docs/terraform/install-configure-terraform": {
     "title": "Install Terraform",
     "filename": "terraform_install-configure-terraform.md",
-    "size": 4845,
+    "size": 4844,
     "url": "https://berlin.devsitetest.how/docs/terraform/install-configure-terraform",
     "last_updated": "2026-10-13"
   },
@@ -1453,7 +1453,7 @@
     "filename": "terraform_resource-management_store-state.md",
     "size": 11074,
     "url": "https://berlin.devsitetest.how/docs/terraform/resource-management/store-state",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-15"
   },
   "/docs/terraform/resources": {
     "title": "Resources",
@@ -1542,7 +1542,7 @@
   "/iam/docs/granting-changing-revoking-access": {
     "title": "Manage access to projects, folders, and organizations",
     "filename": "iam_granting-changing-revoking-access.md",
-    "size": 91456,
+    "size": 91312,
     "url": "https://berlin.devsitetest.how/iam/docs/granting-changing-revoking-access",
     "last_updated": "2026-10-13"
   },
@@ -1556,7 +1556,7 @@
   "/iam/docs/permissions-change-log": {
     "title": "IAM permissions change log",
     "filename": "iam_permissions-change-log.md",
-    "size": 2229912,
+    "size": 2293381,
     "url": "https://berlin.devsitetest.how/iam/docs/permissions-change-log",
     "last_updated": "2026-10-15"
   },
@@ -1754,21 +1754,21 @@
     "filename": "logging_audit.md",
     "size": 21227,
     "url": "https://berlin.devsitetest.how/logging/docs/audit",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/logging/docs/buckets": {
     "title": "Configure log buckets",
     "filename": "logging_buckets.md",
     "size": 27561,
     "url": "https://berlin.devsitetest.how/logging/docs/buckets",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/logging/docs/reference/libraries": {
     "title": "Logging client libraries",
     "filename": "logging_reference_libraries.md",
-    "size": 28007,
+    "size": 28025,
     "url": "https://berlin.devsitetest.how/logging/docs/reference/libraries",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/logging/docs/reference/v2/rest": {
     "title": "Cloud Logging API",
@@ -1796,21 +1796,21 @@
     "filename": "logging_view_building-queries.md",
     "size": 23828,
     "url": "https://berlin.devsitetest.how/logging/docs/view/building-queries",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/logging/docs/view/logs-viewer-interface": {
     "title": "View and analyze log entries",
     "filename": "logging_view_logs-viewer-interface.md",
     "size": 41470,
     "url": "https://berlin.devsitetest.how/logging/docs/view/logs-viewer-interface",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/logging/docs/write-query-log-entries-gcloud": {
     "title": "Quickstart: Write and query log entries with the gcloud CLI",
     "filename": "logging_write-query-log-entries-gcloud.md",
     "size": 12313,
     "url": "https://berlin.devsitetest.how/logging/docs/write-query-log-entries-gcloud",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/monitoring/docs": {
     "title": "Cloud Monitoring documentation",
@@ -2146,7 +2146,7 @@
     "filename": "sql_release-notes.md",
     "size": 67792,
     "url": "https://berlin.devsitetest.how/sql/docs/release-notes",
-    "last_updated": "2026-10-16"
+    "last_updated": "2026-10-17"
   },
   "/sql/docs/tpc-differences": {
     "title": "Cloud SQL in Google Cloud Dedicated versus Google Cloud",

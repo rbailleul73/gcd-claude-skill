@@ -1,7 +1,7 @@
 # Databases
 
 Source: https://berlin.devsitetest.how/docs/databases
-Last updated: 2026-10-13
+Last updated: 2026-10-16
 
 - 
 
@@ -54,6 +54,124 @@ Documentation
 Databases
 
 ](https://berlin.devsitetest.how/docs/databases)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Non-relational databases
+
+
+
+
+
+Expand this section to see relevant products and documentation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### [
+Bigtable
+](/bigtable/docs)
+
+
+Store terabytes or petabytes of data using a NoSQL wide-column database service.
 
 
 

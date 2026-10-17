@@ -179,7 +179,7 @@
     "filename": "bigquery_controlling-costs.md",
     "size": 52906,
     "url": "https://documentation.s3ns.fr/bigquery/docs/controlling-costs",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/bigquery/docs/create-machine-learning-model": {
     "title": "Create an ML model in BigQuery ML by using SQL",
@@ -205,14 +205,14 @@
   "/bigquery/docs/exporting-data": {
     "title": "Export table data to Cloud Storage",
     "filename": "bigquery_exporting-data.md",
-    "size": 72313,
+    "size": 72311,
     "url": "https://documentation.s3ns.fr/bigquery/docs/exporting-data",
     "last_updated": "2026-10-13"
   },
   "/bigquery/docs/loading-data-cloud-storage-csv": {
     "title": "Load CSV data from Cloud Storage",
     "filename": "bigquery_loading-data-cloud-storage-csv.md",
-    "size": 138939,
+    "size": 138942,
     "url": "https://documentation.s3ns.fr/bigquery/docs/loading-data-cloud-storage-csv",
     "last_updated": "2026-10-13"
   },
@@ -233,7 +233,7 @@
   "/bigquery/docs/quickstarts/quickstart-client-libraries": {
     "title": "Query a public dataset with the BigQuery client libraries",
     "filename": "bigquery_quickstarts_quickstart-client-libraries.md",
-    "size": 42497,
+    "size": 42500,
     "url": "https://documentation.s3ns.fr/bigquery/docs/quickstarts/quickstart-client-libraries",
     "last_updated": "2026-10-14"
   },
@@ -247,23 +247,23 @@
   "/bigquery/docs/tables": {
     "title": "Create and use tables",
     "filename": "bigquery_tables.md",
-    "size": 161105,
+    "size": 161111,
     "url": "https://documentation.s3ns.fr/bigquery/docs/tables",
     "last_updated": "2026-10-13"
   },
   "/bigquery/docs/tpc-differences": {
     "title": "BigQuery in Cloud de Confiance versus Google Cloud",
     "filename": "bigquery_tpc-differences.md",
-    "size": 5868,
+    "size": 6270,
     "url": "https://documentation.s3ns.fr/bigquery/docs/tpc-differences",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/bigquery/docs/troubleshoot-quotas": {
     "title": "Troubleshoot quota and limit errors",
     "filename": "bigquery_troubleshoot-quotas.md",
-    "size": 62513,
+    "size": 66246,
     "url": "https://documentation.s3ns.fr/bigquery/docs/troubleshoot-quotas",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/billing/docs": {
     "title": "Cloud Billing documentation",
@@ -319,14 +319,14 @@
     "filename": "compute_disks_hyperdisks.md",
     "size": 34479,
     "url": "https://documentation.s3ns.fr/compute/docs/disks/hyperdisks",
-    "last_updated": "2026-10-15"
+    "last_updated": "2026-10-16"
   },
   "/compute/docs/gpus": {
     "title": "GPU machine types",
     "filename": "compute_gpus.md",
-    "size": 37368,
+    "size": 41898,
     "url": "https://documentation.s3ns.fr/compute/docs/gpus",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/compute/docs/instances/create-start-instance": {
     "title": "Create and start a Compute Engine instance",
@@ -513,7 +513,7 @@
   "/docs/authentication/external/externally-sourced-credentials": {
     "title": "Authenticate with client libraries",
     "filename": "authentication_external_externally-sourced-credentials.md",
-    "size": 13680,
+    "size": 13681,
     "url": "https://documentation.s3ns.fr/docs/authentication/external/externally-sourced-credentials",
     "last_updated": "2026-10-13"
   },
@@ -632,9 +632,9 @@
   "/docs/databases": {
     "title": "Databases",
     "filename": "databases.md",
-    "size": 1374,
+    "size": 1694,
     "url": "https://documentation.s3ns.fr/docs/databases",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/docs/devtools": {
     "title": "Cloud de Confiance SDK, languages, frameworks, and tools",
@@ -914,7 +914,7 @@
     "filename": "overview_tpc-overview.md",
     "size": 10029,
     "url": "https://documentation.s3ns.fr/docs/overview/tpc-overview",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-15"
   },
   "/docs/product-list": {
     "title": "Google Cloud products at a glance",
@@ -970,12 +970,12 @@
     "filename": "quotas_custom-constraints.md",
     "size": 26569,
     "url": "https://documentation.s3ns.fr/docs/quotas/custom-constraints",
-    "last_updated": "2026-10-15"
+    "last_updated": "2026-10-16"
   },
   "/docs/quotas/development-environment": {
     "title": "Set up the Cloud Quotas API",
     "filename": "quotas_development-environment.md",
-    "size": 2681,
+    "size": 2680,
     "url": "https://documentation.s3ns.fr/docs/quotas/development-environment",
     "last_updated": "2026-10-13"
   },
@@ -989,7 +989,7 @@
   "/docs/quotas/help/request_increase": {
     "title": "View and manage quotas",
     "filename": "quotas_help_request_increase.md",
-    "size": 18877,
+    "size": 18880,
     "url": "https://documentation.s3ns.fr/docs/quotas/help/request_increase",
     "last_updated": "2026-10-13"
   },
@@ -1523,7 +1523,7 @@
     "filename": "terraform_resource-management_store-state.md",
     "size": 11661,
     "url": "https://documentation.s3ns.fr/docs/terraform/resource-management/store-state",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-15"
   },
   "/docs/terraform/resources": {
     "title": "Resources",
@@ -1605,14 +1605,14 @@
   "/iam/docs/grant-role-console": {
     "title": "Quickstart: Grant roles in the Cloud de Confiance console",
     "filename": "iam_grant-role-console.md",
-    "size": 7646,
+    "size": 7647,
     "url": "https://documentation.s3ns.fr/iam/docs/grant-role-console",
     "last_updated": "2026-10-13"
   },
   "/iam/docs/granting-changing-revoking-access": {
     "title": "Manage access to projects, folders, and organizations",
     "filename": "iam_granting-changing-revoking-access.md",
-    "size": 91087,
+    "size": 90943,
     "url": "https://documentation.s3ns.fr/iam/docs/granting-changing-revoking-access",
     "last_updated": "2026-10-13"
   },
@@ -1626,7 +1626,7 @@
   "/iam/docs/permissions-change-log": {
     "title": "IAM permissions change log",
     "filename": "iam_permissions-change-log.md",
-    "size": 2229838,
+    "size": 2293307,
     "url": "https://documentation.s3ns.fr/iam/docs/permissions-change-log",
     "last_updated": "2026-10-15"
   },
@@ -1824,21 +1824,21 @@
     "filename": "logging_audit.md",
     "size": 21037,
     "url": "https://documentation.s3ns.fr/logging/docs/audit",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/logging/docs/buckets": {
     "title": "Configure log buckets",
     "filename": "logging_buckets.md",
     "size": 27299,
     "url": "https://documentation.s3ns.fr/logging/docs/buckets",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/logging/docs/reference/libraries": {
     "title": "Logging client libraries",
     "filename": "logging_reference_libraries.md",
-    "size": 27835,
+    "size": 27853,
     "url": "https://documentation.s3ns.fr/logging/docs/reference/libraries",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/logging/docs/reference/v2/rest": {
     "title": "Cloud Logging API",
@@ -1866,21 +1866,21 @@
     "filename": "logging_view_building-queries.md",
     "size": 23728,
     "url": "https://documentation.s3ns.fr/logging/docs/view/building-queries",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/logging/docs/view/logs-viewer-interface": {
     "title": "View and analyze log entries",
     "filename": "logging_view_logs-viewer-interface.md",
     "size": 41358,
     "url": "https://documentation.s3ns.fr/logging/docs/view/logs-viewer-interface",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/logging/docs/write-query-log-entries-gcloud": {
     "title": "Quickstart: Write and query log entries with the gcloud CLI",
     "filename": "logging_write-query-log-entries-gcloud.md",
     "size": 12219,
     "url": "https://documentation.s3ns.fr/logging/docs/write-query-log-entries-gcloud",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-16"
   },
   "/monitoring/docs": {
     "title": "Cloud Monitoring documentation",
@@ -2244,7 +2244,7 @@
     "filename": "sql_release-notes.md",
     "size": 67712,
     "url": "https://documentation.s3ns.fr/sql/docs/release-notes",
-    "last_updated": "2026-10-16"
+    "last_updated": "2026-10-17"
   },
   "/sql/docs/tpc-differences": {
     "title": "Cloud SQL in Cloud de Confiance versus Google Cloud",

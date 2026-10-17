@@ -1,7 +1,7 @@
 # Estimate and control costs
 
 Source: https://documentation.s3ns.fr/bigquery/docs/controlling-costs
-Last updated: 2026-10-13
+Last updated: 2026-10-16
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -1237,7 +1237,7 @@ and reduce query costs when querying external tables. For more information, see
 This section describes best practices for controlling costs within a workload.
 **A workload is a set of related queries**. For example, a workload can be a data
 transformation pipeline that runs daily, a set of dashboards run by a group of
-business analysts, or several ad-hoc queries run by a set of data scientists.
+business analysts, or several ad hoc queries run by a set of data scientists.
 
 ### Use the Cloud de Confiance by S3NS pricing calculator
 

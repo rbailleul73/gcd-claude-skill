@@ -1,7 +1,7 @@
 # Troubleshoot quota and limit errors
 
 Source: https://berlin.devsitetest.how/bigquery/docs/troubleshoot-quotas
-Last updated: 2026-10-13
+Last updated: 2026-10-16
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -139,6 +139,7 @@ Guides
 - [ Exceeded extract bytes per day quota error ](#ts-exceeded-extract-bytes-per-day-quota)
 - [ Maximum tabledata.list bytes per second per project quota errors ](#ts-maximum-tabledata-list-bytes-per-second-per-project-quota)
 - [ Maximum number of API requests limit errors ](#ts-maximum-api-request-limit)
+- [ API rate and metadata evaluation limit errors ](#ts-api-limit-rate-and-metadata)
 - [ Maximum Python UDF image storage bytes per project per region ](#ts-maximum-python-udf-storage)
 - [ Maximum concurrent Python UDFs ](#ts-max-concurrent-python-udfs)
 - [ Python UDF execution rate limits or capacity errors ](#ts-python-udf-execution-rate-limits)
@@ -155,6 +156,7 @@ Guides
 - [ Quota exceeded for quota metric 'Authorized Views per dataset' and limit '2500'. ](#quota_exceeded_for_quota_metric_authorized_views_per_dataset_and_limit_2500)
 - [ Too many DML statements outstanding against table ](#ts-too-many-dml-statements-against-table-quota)
 - [ Loading CSV files quota errors ](#ts-load-csv-files-quota)
+- [ Cross-region dataset replica creation limit errors ](#ts-dataset-replica-limit)
 - [ Your user exceeded quota for concurrent project.lists requests ](#your_user_exceeded_quota_for_concurrent_projectlists_requests)
 
 - 
@@ -791,6 +793,11 @@ When you encounter this error, [diagnose](#ts-maximum-api-request-limit-diagnose
 issue and then [follow the recommended steps](#ts-maximum-api-request-limit-resolution)
 to resolve it.
 
+If the error has reason `apiLimitExceeded`, see
+[API rate and metadata evaluation limit errors](#ts-api-limit-rate-and-metadata)
+or, for dataset replica errors,
+[Cross-region dataset replica creation limit errors](#ts-dataset-replica-limit).
+
 #### Diagnosis
 
 If you have not identified the method that has reached this rate limit, do the
@@ -902,6 +909,61 @@ Requesting a quota increase might take several days to process. To provide more
 information for your request, we recommend that
 your request includes the priority of the job, the user running the query, and
 the affected method.
+
+### API rate and metadata evaluation limit errors
+
+BigQuery returns an HTTP `403 Forbidden` error with reason
+`apiLimitExceeded` when a request exceeds API rate limits or concurrent metadata
+and access evaluation limits.
+
+**Error messages**
+
+- `Quota exceeded for the project...`
+
+- `API limit exceeded: Quota exceeded for quota metric 'Read requests'...`
+
+#### Diagnosis
+
+This error can occur in the following scenarios:
+
+- **High volume of concurrent API requests.** An application submits a burst
+of concurrent API calls (such as `jobs.insert`, `tables.get`, or rapid job
+status polling) that exceeds BigQuery API request limits.
+
+- **BigLake Metastore concurrency.** Queries against external tables backed by
+BigLake Metastore generate a high volume of concurrent metadata read
+requests.
+
+- **Complex IAM or row-level security evaluation.** Concurrent
+queries reference a large number of datasets, tables, or row-level security
+(RLS) policies, exhausting backend access-evaluation limits.
+
+If the error message is `Quota exceeded: Your user_method exceeded quota for
+concurrent api requests per user per method`, see
+[Maximum number of API requests limit errors](#ts-maximum-api-request-limit).
+
+#### Resolution
+
+To resolve this error, do the following:
+
+- **Retry with truncated exponential backoff.** Configure your client
+application or script to retry failed requests by using truncated
+exponential backoff.
+
+- **Batch and consolidate API operations.** Load or query data in fewer,
+larger batches rather than issuing high-frequency single-row or per-table
+API calls, and reduce the frequency of `jobs.get` polling calls.
+
+- **Simplify IAM and security configurations.** Prefer Google
+Groups and dataset-level IAM role bindings over large numbers
+of granular per-table IAM bindings or overlapping row-level
+security policies to reduce access-check overhead.
+
+- **Check quota usage in the Google Cloud Dedicated console.** Review the
+[**Quotas & System Limits** page](/docs/quotas/view-manage#viewing_your_quota_console)
+to identify whether an adjustable BigQuery or BigLake API
+quota is being reached. If you have a sustained need for more capacity,
+request a quota adjustment.
 
 ### Maximum Python UDF image storage bytes per project per region
 
@@ -1613,6 +1675,40 @@ To resolve this quota error, do the following:
 
 For more information about limits that apply when you load data into
 BigQuery, see [Load jobs](/bigquery/quotas#load_jobs).
+
+### Cross-region dataset replica creation limit errors
+
+BigQuery returns this error (`reason: apiLimitExceeded`) when you
+configure [cross-region dataset replication](/bigquery/docs/data-replication)
+(`ALTER SCHEMA ... ADD REPLICA`) and exceed the maximum number of dataset
+replicas that can be added for a region within a rolling time window.
+
+**Error message**
+
+
+```
+API limit exceeded: Cannot add more than LIMIT replicas for a region within WINDOW day(s)
+```
+
+
+#### Diagnosis
+
+This error frequently happens when an automated script or
+Infrastructure-as-Code (IaC) tool repeatedly creates and drops dataset replicas
+(`ADD REPLICA` and `DROP REPLICA`) in a loop.
+
+#### Resolution
+
+To resolve this error, do the following:
+
+- **Audit automation and Infrastructure-as-Code scripts.** Inspect any
+Terraform, deployment scripts, or scheduled jobs managing dataset replicas
+to ensure they aren't repeatedly dropping and recreating replicas on every
+run.
+
+- **Wait for the rolling window to elapse.** Wait until the rolling day window
+specified in the error message passes before running `ALTER SCHEMA ... ADD
+REPLICA` again for that region.
 
 ### Your user exceeded quota for concurrent `project.lists` requests
 

@@ -1,7 +1,7 @@
 # BigQuery in Cloud de Confiance versus Google Cloud
 
 Source: https://documentation.s3ns.fr/bigquery/docs/tpc-differences
-Last updated: 2026-10-13
+Last updated: 2026-10-16
 
 - 
 
@@ -116,13 +116,12 @@ Guides
 - On this page 
 - [ Key differences ](#key-differences)
 
-- [ API and service availability ](#security-differences)
-- [ Regions and zones ](#security-differences)
+- [ API and service availability ](#api-differences)
+- [ Regions and zones ](#regions-and-zones)
 - [ Cost management ](#cost-management-differences)
 - [ Security and access control ](#security-differences)
 - [ Integrations ](#integrations-differences)
 - [ Workflows and tools ](#workflow-differences)
-- [ BigQuery Data Transfer Service ](#data-transfer-service)
 
 - [ Related guides ](#related-guides)
 - 
@@ -161,11 +160,11 @@ Some notable differences include the following:
 
 
 
-- Many external connections to data sources are unavailable. These include
+- Most external connections to data sources are unavailable. These include
 services such as BigQuery Migration Service,
 BigQuery sharing (formerly known as Analytics Hub),
 BigQuery Connection API and BigQuery Omni
-(AWS and Azure connections), and BigLake APIs.
+(AWS and Azure connections), and Lakehouse APIs
 
 - Certain advanced query features are unavailable. These include saved
 queries and notebooks, Gemini in BigQuery features,
@@ -205,6 +204,12 @@ The following BigQuery APIs and services are unavailable in Cloud de Confiance b
 
 - Data Transfer API
 
+- Data Policy API
+
+- Connection API
+
+- BigQuery Omni
+
 ### Regions and zones
 
 
@@ -212,7 +217,7 @@ The following BigQuery APIs and services are unavailable in Cloud de Confiance b
 | 
 **Regions and zones**
 | 
-Trusted Cloud has only a single region, though with multiple zones.
+Cloud de Confiance has only a single region, though with multiple zones.
 Multi-region features and cross-region failover are not supported.
 | 
 |
@@ -220,7 +225,7 @@ Multi-region features and cross-region failover are not supported.
 | 
 **Cross region replication & failover**
 | 
-Cross region replication and failover are not available in Trusted Cloud.
+Cross region replication and failover are not available in Cloud de Confiance.
 | 
 |
 
@@ -285,16 +290,15 @@ provisioning. |
 Cloud Asset Inventory is unavailable. | 
 |
 
+| 
+**Active Assist** | 
+Recommendations are unavailable. | 
+|
+
 
 ### Workflows and tools
 
 
-
-| 
-**Client libraries** | 
-Most client libraries are available for supported APIs.
-| 
-|
 
 | 
 **Terraform support** | 
@@ -312,24 +316,43 @@ Gemini in BigQuery is unavailable. |
 |
 
 | 
+**bq command-line tool** | 
+Because Cloud Shell is unavailable in Cloud de Confiance, the bq command-line tool must be installed locally. | 
+|
+
+| 
 **Public datasets** | 
-BigQuery public datasets are not available in Cloud de Confiance. You must import your own data to try BigQuery, including following our tutorials. | 
+BigQuery public datasets are not available in Cloud de Confiance. You must import your own data to try BigQuery, including when following our tutorials. | 
 |
 
 | 
 **Scheduled queries** | 
-BigQuery scheduled queries are unavailable. | 
+Scheduled queries are unavailable. | 
 |
 
-
-### BigQuery Data Transfer Service
-
-
+| 
+**Continuous queries** | 
+Continuous queries are unavailable. | 
+|
 
 | 
-**Transfer run notifications** | 
-[Email notifications](/bigquery/docs/transfer-run-notifications#email_notifications) are unavailable.
+**Saved queries and notebooks** | 
+Saved queries and notebooks are unavailable in BigQuery Studio. | 
+|
+
 | 
+**Table sources** | 
+Only Cloud Storage and local data can be used as sources for BigQuery tables. Other sources are unavailable. | 
+|
+
+| 
+**Lakehouse (formerly BigLake)** | 
+Lakehouse (BigLake) tables are not available. | 
+|
+
+| 
+**BigQuery pipelines** | 
+Pipelines are not available. | 
 |
 
 

@@ -1,7 +1,7 @@
 # GPU machine types
 
 Source: https://documentation.s3ns.fr/compute/docs/gpus
-Last updated: 2026-10-13
+Last updated: 2026-10-16
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/compute/docs/tpc-differences) for more details.
 
@@ -136,19 +136,32 @@ Guides
 - [ A4X machine type (NVIDIA GB200) ](#gb200-gpus)
 
 - [ A4 machine series (NVIDIA B200) ](#b200-gpus)
+
+- [ A4 machine type notes ](#a4_machine_type_notes)
+
 - [ A3 machine series ](#a3-series)
 
 - [ A3 Ultra machine type (NVIDIA H200) ](#h200-gpus)
 - [ A3 Mega, High, and Edge machine types (NVIDIA H100) ](#h100-gpus)
 
 - [ A2 machine series (NVIDIA A100) ](#a100-gpus)
+
+- [ A2 machine type notes ](#a2_machine_type_notes)
+
 - [ G4 machine series (NVIDIA RTX PRO 6000) ](#rtx-6000-gpus)
+
+- [ G4 machine type notes ](#g4_machine_type_notes)
+
 - [ G2 machine series (NVIDIA L4) ](#l4-gpus)
+
+- [ G2 machine type notes ](#g2_machine_type_notes)
+
 - [ N1 machine series ](#n1-gpus)
 
 - [ N1+T4 GPUs ](#t4-gpus)
 - [ N1+P4 GPUs ](#p4-gpus)
 - [ N1+V100 GPUs ](#v100-gpus)
+- [ Maintenance experience for N1 instances with GPUs ](#n1-maintenance)
 
 - [ General comparison chart ](#general-comp)
 - [ Tensor Core and standard CUDA core performance ](#cuda-tensor-performance)
@@ -392,27 +405,22 @@ A4X Max is an exascale platform based on
 NVL72](https://www.nvidia.com/en-us/data-center/gb300-nvl72/). Each machine has two sockets with NVIDIA Grace CPUs with Arm
 Neoverse V2 cores. These CPUs are connected to four NVIDIA B300 Blackwell GPUs with fast
 chip-to-chip ([NVLink-C2C](https://www.nvidia.com/en-us/data-center/nvlink-c2c/))
-communication.
+communication. For information about machine type limitations, see
+[A4X Max and A4X limitations](/compute/docs/accelerator-optimized-machines#a4x-limitations).
 
 
 
 
-
-| 
-| 
-Attached NVIDIA GB300 Grace Blackwell Ultra Superchips | 
-|
 
 | 
 Machine type | 
-vCPU count 1 | 
+vCPU count | 
 Instance memory (GB) | 
 Attached Local SSD (GiB) | 
 Physical NIC count | 
-Maximum network bandwidth (Gbps) 2 | 
-GPU count | 
-GPU memory 3 
-(GB HBM3e) | 
+Maximum network bandwidth (Gbps) | 
+NVIDIA GB300 GPU count | 
+GPU memory (GB HBM3e) | 
 |
 
 
@@ -430,22 +438,23 @@ GPU memory 3
 
 
 
+#### A4X Max machine type notes
+
+The following notes apply to the preceding table:
 
 
-1 A vCPU is implemented as a single hardware hyper-thread on one of
+- **vCPU count**: a vCPU is implemented as a single hardware hyper-thread on one of
 the available [CPU platforms](/compute/docs/cpu-platforms).
 
-2 Maximum egress bandwidth cannot exceed the number given. Actual
+- **Maximum network bandwidth**: maximum egress bandwidth can't exceed the number given. Actual
 egress bandwidth depends on the destination IP address and other factors.
 For more information about network bandwidth,
 see [Network bandwidth](/compute/docs/network-bandwidth).
 
-3 GPU memory is the memory on a GPU device that can be used for
+- **GPU memory**: GPU memory is the memory on a GPU device that can be used for
 temporary storage of data. It is separate from the instance's memory and is
 specifically designed to handle the higher bandwidth demands of your
 graphics-intensive workloads.
-
-
 
 ### A4X machine type (NVIDIA GB200)
 
@@ -463,27 +472,22 @@ A4X is an exascale platform based on
 NVL72](https://www.nvidia.com/en-us/data-center/gb200-nvl72/). Each machine has two sockets with NVIDIA Grace CPUs with Arm
 Neoverse V2 cores. These CPUs are connected to four NVIDIA B200 Blackwell GPUs with fast
 chip-to-chip ([NVLink-C2C](https://www.nvidia.com/en-us/data-center/nvlink-c2c/))
-communication.
+communication. For information about machine type limitations, see
+[A4X Max and A4X limitations](/compute/docs/accelerator-optimized-machines#a4x-limitations).
 
 
 
 
-
-| 
-| 
-Attached NVIDIA GB200 Grace Blackwell Superchips | 
-|
 
 | 
 Machine type | 
-vCPU count 1 | 
+vCPU count | 
 Instance memory (GB) | 
 Attached Local SSD (GiB) | 
 Physical NIC count | 
-Maximum network bandwidth (Gbps) 2 | 
-GPU count | 
-GPU memory 3 
-(GB HBM3e) | 
+Maximum network bandwidth (Gbps) | 
+NVIDIA GB200 GPU count | 
+GPU memory (GB HBM3e) | 
 |
 
 
@@ -501,22 +505,23 @@ GPU memory 3
 
 
 
+#### A4X machine type notes
+
+The following notes apply to the preceding table:
 
 
-1 A vCPU is implemented as a single hardware hyper-thread on one of
+- **vCPU count**: a vCPU is implemented as a single hardware hyper-thread on one of
 the available [CPU platforms](/compute/docs/cpu-platforms).
 
-2 Maximum egress bandwidth cannot exceed the number given. Actual
+- **Maximum network bandwidth**: maximum egress bandwidth can't exceed the number given. Actual
 egress bandwidth depends on the destination IP address and other factors.
 For more information about network bandwidth,
 see [Network bandwidth](/compute/docs/network-bandwidth).
 
-3 GPU memory is the memory on a GPU device that can be used for
+- **GPU memory**: GPU memory is the memory on a GPU device that can be used for
 temporary storage of data. It is separate from the instance's memory and is
 specifically designed to handle the higher bandwidth demands of your
 graphics-intensive workloads.
-
-
 
 ## A4 machine series (NVIDIA B200)
 
@@ -525,26 +530,21 @@ graphics-intensive workloads.
 machine types have
 [NVIDIA B200 Blackwell GPUs](https://www.nvidia.com/en-us/data-center/b200/)
 (`nvidia-b200`) attached and are ideal for foundation model
-training and serving.
+training and serving. For information about machine type limitations, see
+[A4 limitations](/compute/docs/accelerator-optimized-machines#a4-limitations).
 
 
 
-
-| 
-| 
-Attached NVIDIA B200 Blackwell GPUs | 
-|
 
 | 
 Machine type | 
-vCPU count 1 | 
+vCPU count | 
 Instance memory (GB) | 
 Attached Local SSD (GiB) | 
 Physical NIC count | 
-Maximum network bandwidth (Gbps) 2 | 
-GPU count | 
-GPU memory 3 
-(GB HBM3e) | 
+Maximum network bandwidth (Gbps) | 
+NVIDIA B200 Blackwell GPU count | 
+GPU memory (GB HBM3e) | 
 |
 
 
@@ -562,22 +562,23 @@ GPU memory 3
 
 
 
+### A4 machine type notes
+
+The following notes apply to the preceding table:
 
 
-1 A vCPU is implemented as a single hardware hyper-thread on one of
+- **vCPU count**: a vCPU is implemented as a single hardware hyper-thread on one of
 the available [CPU platforms](/compute/docs/cpu-platforms).
 
-2 Maximum egress bandwidth cannot exceed the number given. Actual
+- **Maximum network bandwidth**: maximum egress bandwidth can't exceed the number given. Actual
 egress bandwidth depends on the destination IP address and other factors.
 For more information about network bandwidth, see
 [Network bandwidth](/compute/docs/network-bandwidth).
 
-3 GPU memory is the memory on a GPU device that can be used for
+- **GPU memory**: GPU memory is the memory on a GPU device that can be used for
 temporary storage of data. It is separate from the instance's memory and is
 specifically designed to handle the higher bandwidth demands of your
 graphics-intensive workloads.
-
-
 
 ## A3 machine series
 
@@ -588,28 +589,23 @@ machine types have NVIDIA H100 SXM or NVIDIA H200 SXM GPUs attached.
 
 [A3 Ultra](/compute/docs/accelerator-optimized-machines#a3-ultra-vms)
 machine types have [NVIDIA H200 SXM GPUs](https://www.nvidia.com/en-us/data-center/h200/)
-(`nvidia-h200-141gb`) attached and provides the highest network
+(`nvidia-h200-141gb`) attached and provide the highest network
 performance in the A3 series. A3 Ultra machine types are ideal for foundation model training and
-serving.
+serving. For information about machine type limitations, see
+[A3 Ultra limitations](/compute/docs/accelerator-optimized-machines#a3-ultra-limitations).
 
 
 
-
-| 
-| 
-Attached NVIDIA H200 GPUs | 
-|
 
 | 
 Machine type | 
-vCPU count 1 | 
+vCPU count | 
 Instance memory (GB) | 
 Attached Local SSD (GiB) | 
 Physical NIC count | 
-Maximum network bandwidth (Gbps) 2 | 
-GPU count | 
-GPU memory 3 
-(GB HBM3e) | 
+Maximum network bandwidth (Gbps) | 
+NVIDIA H200 GPU count | 
+GPU memory (GB HBM3e) | 
 |
 
 
@@ -627,22 +623,23 @@ GPU memory 3
 
 
 
+#### A3 Ultra machine type notes
+
+The following notes apply to the preceding table:
 
 
-1 A vCPU is implemented as a single hardware hyper-thread on one of
+- **vCPU count**: a vCPU is implemented as a single hardware hyper-thread on one of
 the available [CPU platforms](/compute/docs/cpu-platforms).
 
-2 Maximum egress bandwidth cannot exceed the number given. Actual
+- **Maximum network bandwidth**: maximum egress bandwidth can't exceed the number given. Actual
 egress bandwidth depends on the destination IP address and other factors.
 For more information about network bandwidth,
 see [Network bandwidth](/compute/docs/network-bandwidth).
 
-3 GPU memory is the memory on a GPU device that can be used for
+- **GPU memory**: GPU memory is the memory on a GPU device that can be used for
 temporary storage of data. It is separate from the instance's memory and is
 specifically designed to handle the higher bandwidth demands of your
 graphics-intensive workloads.
-
-
 
 ### A3 Mega, High, and Edge machine types (NVIDIA H100)
 
@@ -657,7 +654,7 @@ To use [NVIDIA H100 SXM GPUs](https://www.nvidia.com/en-us/data-center/h100/), y
 
 
 [A3 Mega](#a3-mega) [A3 High](#a3-high) [A3 Edge](#a3-edge) 
-More 
+**More 
 
 
 
@@ -667,22 +664,16 @@ More
 
 
 
-
-| 
-| 
-Attached NVIDIA H100 GPUs | 
-|
 
 | 
 Machine type | 
-vCPU count 1 | 
+vCPU count | 
 Instance memory (GB) | 
 Attached Local SSD (GiB) | 
 Physical NIC count | 
-Maximum network bandwidth (Gbps) 2 | 
-GPU count | 
-GPU memory 3 
-(GB HBM3) | 
+Maximum network bandwidth (Gbps) | 
+NVIDIA H100 GPU count | 
+GPU memory (GB HBM3) | 
 |
 
 
@@ -711,20 +702,14 @@ GPU memory 3
 
 
 | 
-| 
-Attached NVIDIA H100 GPUs | 
-|
-
-| 
 Machine type | 
-vCPU count 1 | 
+vCPU count | 
 Instance memory (GB) | 
 Attached Local SSD (GiB) | 
 Physical NIC count | 
-Maximum network bandwidth (Gbps) 2 | 
-GPU count | 
-GPU memory 3 
-(GB HBM3) | 
+Maximum network bandwidth (Gbps) | 
+NVIDIA H100 GPU count | 
+GPU memory (GB HBM3) | 
 |
 
 
@@ -786,20 +771,14 @@ GPU memory 3
 
 
 | 
-| 
-Attached NVIDIA H100 GPUs | 
-|
-
-| 
 Machine type | 
-vCPU count 1 | 
+vCPU count | 
 Instance memory (GB) | 
 Attached Local SSD (GiB) | 
 Physical NIC count | 
-Maximum network bandwidth (Gbps) 2 | 
-GPU count | 
-GPU memory 3 
-(GB HBM3) | 
+Maximum network bandwidth (Gbps) | 
+NVIDIA H100 GPU count | 
+GPU memory (GB HBM3) | 
 |
 
 
@@ -810,16 +789,7 @@ GPU memory 3
 1,872 | 
 6,000 | 
 5 | 
-
-
-
-
-- 600: *for asia-south1 and northamerica-northeast2*
-
-- 400: *for all other [A3 Edge regions](/compute/docs/gpus/gpu-regions-zones#view-using-table)*
-
-
-| 
+600 (`asia-south1` and `northamerica-northeast2`) or 400 (all other [A3 Edge regions](/compute/docs/gpus/gpu-regions-zones#view-using-table)) | 
 8 | 
 640 | 
 |
@@ -831,22 +801,23 @@ GPU memory 3
 
 
 
+#### A3 Mega, High, and Edge machine type notes
+
+The following notes apply to the preceding table:
 
 
-1 A vCPU is implemented as a single hardware hyper-thread on one of
+- vCPU count**: a vCPU is implemented as a single hardware hyper-thread on one of
 the available [CPU platforms](/compute/docs/cpu-platforms).
 
-2 Maximum egress bandwidth cannot exceed the number given. Actual
+- **Maximum network bandwidth**: maximum egress bandwidth can't exceed the number given. Actual
 egress bandwidth depends on the destination IP address and other factors.
 For more information about network bandwidth,
 see [Network bandwidth](/compute/docs/network-bandwidth).
 
-3 GPU memory is the memory on a GPU device that can be used for
+- **GPU memory**: GPU memory is the memory on a GPU device that can be used for
 temporary storage of data. It is separate from the instance's memory and is
 specifically designed to handle the higher bandwidth demands of your
 graphics-intensive workloads.
-
-
 
 ## A2 machine series (NVIDIA A100)
 
@@ -869,7 +840,7 @@ you can attach, see
 
 
 [A2 Ultra](#a2-ultra) [A2 Standard](#a2-standard) 
-More 
+**More 
 
 
 
@@ -878,21 +849,15 @@ More
 
 
 
-
-| 
-| 
-Attached NVIDIA A100 80GB GPUs | 
-|
 
 | 
 Machine type | 
-vCPU count 1 | 
+vCPU count | 
 Instance memory (GB) | 
 Attached Local SSD (GiB) | 
-Maximum network bandwidth (Gbps) 2 | 
-GPU count | 
-GPU memory 3 
-(GB HBM2e) | 
+Maximum network bandwidth (Gbps) | 
+NVIDIA A100 80GB GPU count | 
+GPU memory (GB HBM2e) | 
 |
 
 
@@ -949,19 +914,13 @@ GPU memory 3
 
 
 | 
-| 
-Attached NVIDIA A100 40GB GPUs | 
-|
-
-| 
 Machine type | 
-vCPU count 1 | 
+vCPU count | 
 Instance memory (GB) | 
 Local SSD supported | 
-Maximum network bandwidth (Gbps) 2 | 
-GPU count | 
-GPU memory 3 
-(GB HBM2) | 
+Maximum network bandwidth (Gbps) | 
+NVIDIA A100 40GB GPU count | 
+GPU memory (GB HBM2) | 
 |
 
 
@@ -1023,22 +982,23 @@ Yes |
 
 
 
+### A2 machine type notes
+
+The following notes apply to the preceding table:
 
 
-1 A vCPU is implemented as a single hardware hyper-thread on one of
+- vCPU count**: a vCPU is implemented as a single hardware hyper-thread on one of
 the available [CPU platforms](/compute/docs/cpu-platforms).
 
-2 Maximum egress bandwidth cannot exceed the number given. Actual
+- **Maximum network bandwidth**: maximum egress bandwidth can't exceed the number given. Actual
 egress bandwidth depends on the destination IP address and other factors.
 For more information about network bandwidth,
 see [Network bandwidth](/compute/docs/network-bandwidth).
 
-3 GPU memory is the memory on a GPU device that can be used for
+- **GPU memory**: GPU memory is the memory on a GPU device that can be used for
 temporary storage of data. It is separate from the instance's memory and is
 specifically designed to handle the higher bandwidth demands of your
 graphics-intensive workloads.
-
-
 
 ## G4 machine series (NVIDIA RTX PRO 6000)
 
@@ -1055,6 +1015,15 @@ transcoding, and virtual desktops. G4 machine types also provide a low-cost solu
 performing single host inference and model tuning compared with A series machine types.
 
 
+
+
+You can also add Titanium SSD disks when you create a G4 instance. For the number of disks
+you can attach, see
+[Machine types that require you to choose a number of Local SSD disks](/compute/docs/disks/local-ssd#lssd_disk_options).
+For information about machine type limitations, see
+[G4 limitations](/compute/docs/accelerator-optimized-machines#g4-limitations).
+
+
 A key feature of the G4 series is support for direct GPU peer-to-peer (P2P) communication
 on multi-GPU machine types (`g4-standard-96`, `g4-standard-192`,
 `g4-standard-384`). This allows GPUs within the same instance to
@@ -1066,20 +1035,14 @@ G4 GPU peer-to-peer communication, see
 
 
 | 
-| 
-Attached NVIDIA RTX PRO 6000 GPUs | 
-|
-
-| 
 Machine type | 
-vCPU count 1 | 
+vCPU count | 
 Instance memory (GB) | 
-Maximum Titanium SSD supported (GiB) 2 | 
+Maximum Titanium SSD supported (GiB) | 
 Physical NIC count | 
-Maximum network bandwidth (Gbps) 3 | 
-GPU count | 
-GPU memory 4 
-(GB GDDR7) | 
+Maximum network bandwidth (Gbps) | 
+NVIDIA RTX PRO 6000 GPU count | 
+GPU memory (GB GDDR7) | 
 |
 
 
@@ -1163,25 +1126,22 @@ GPU memory 4
 
 
 
+### G4 machine type notes
+
+The following notes apply to the preceding table:
 
 
-1 A vCPU is implemented as a single hardware hyper-thread on one of
+- **vCPU count**: a vCPU is implemented as a single hardware hyper-thread on one of
 the available [CPU platforms](/compute/docs/cpu-platforms).
 
-2 You can add Titanium SSD disks when creating a G4 instance. For the number of disks
-you can attach, see
-[Machine types that require you to choose a number of Local SSD disks](/compute/docs/disks/local-ssd#lssd_disk_options).
-
-3 Maximum egress bandwidth cannot exceed the number given. Actual
+- **Maximum network bandwidth**: maximum egress bandwidth can't exceed the number given. Actual
 egress bandwidth depends on the destination IP address and other factors.
-See [Network bandwidth](/compute/docs/network-bandwidth).
+For more information about network bandwidth, see [Network bandwidth](/compute/docs/network-bandwidth).
 
-4 GPU memory is the memory on a GPU device that can be used for
+- **GPU memory**: GPU memory is the memory on a GPU device that can be used for
 temporary storage of data. It is separate from the instance's memory and is
 specifically designed to handle the higher bandwidth demands of your
 graphics-intensive workloads.
-
-
 
 ## G2 machine series (NVIDIA L4)
 
@@ -1197,23 +1157,21 @@ SSD disks when creating a G2 instance. For the number of disks
 you can attach, see
 [Machine types that require you to choose a number of Local SSD disks](/compute/docs/disks/local-ssd#lssd_disk_options).
 
+For information about machine type limitations, see
+[G2 limitations](/compute/docs/accelerator-optimized-machines#g2-limitations).
 
 
 
-| 
-| 
-Attached NVIDIA L4 GPUs | 
-|
 
 | 
 Machine type | 
-vCPU count 1 | 
+vCPU count | 
 Default instance memory (GB) | 
 Custom instance memory range (GB) | 
 Max Local SSD supported (GiB) | 
-Maximum network bandwidth (Gbps) 2 | 
-GPU count | 
-GPU memory 3 (GB GDDR6) | 
+Maximum network bandwidth (Gbps) | 
+NVIDIA L4 GPU count | 
+GPU memory (GB GDDR6) | 
 |
 
 
@@ -1308,22 +1266,23 @@ GPU memory 3 (GB GDDR6) |
 
 
 
+### G2 machine type notes
+
+The following notes apply to the preceding table:
 
 
-1 A vCPU is implemented as a single hardware hyper-thread on one of
+- **vCPU count**: a vCPU is implemented as a single hardware hyper-thread on one of
 the available [CPU platforms](/compute/docs/cpu-platforms).
 
-2 Maximum egress bandwidth cannot exceed the number given. Actual
+- **Maximum network bandwidth**: maximum egress bandwidth can't exceed the number given. Actual
 egress bandwidth depends on the destination IP address and other factors.
 For more information about network bandwidth,
 see [Network bandwidth](/compute/docs/network-bandwidth).
 
-3 GPU memory is the memory on a GPU device that can be used for
+- **GPU memory**: GPU memory is the memory on a GPU device that can be used for
 temporary storage of data. It is separate from the instance's memory and is
 specifically designed to handle the higher bandwidth demands of your
 graphics-intensive workloads.
-
-
 
 ## N1 machine series
 
@@ -1349,8 +1308,8 @@ GPUs to N1 general-purpose instances with the following instance configurations.
 
 | 
 Accelerator type | 
-GPU count | 
-GPU memory 1 (GB GDDR6) | 
+NVIDIA T4 GPU count | 
+GPU memory (GB GDDR6) | 
 vCPU count | 
 Instance memory (GB) | 
 Local SSD supported | 
@@ -1359,11 +1318,7 @@ Local SSD supported |
 
 
 | 
-
-`nvidia-tesla-t4` or 
-
-`nvidia-tesla-t4-vws`
-| 
+`nvidia-tesla-t4` or `nvidia-tesla-t4-vws` | 
 1 | 
 16 | 
 1 to 48 | 
@@ -1372,6 +1327,7 @@ Yes |
 |
 
 | 
+`nvidia-tesla-t4` or `nvidia-tesla-t4-vws` | 
 2 | 
 32 | 
 1 to 48 | 
@@ -1380,6 +1336,7 @@ Yes |
 |
 
 | 
+`nvidia-tesla-t4` or `nvidia-tesla-t4-vws` | 
 4 | 
 64 | 
 1 to 96 | 
@@ -1389,94 +1346,94 @@ Yes |
 
 
 
+#### N1+T4 machine type notes
+
+The following note applies to the preceding table:
 
 
-1 GPU memory is the memory available on a GPU device that you can use
+- **GPU memory**: GPU memory is the memory available on a GPU device that you can use
 for temporary data storage. It is separate from the instance's memory and is
 specifically designed to handle the higher bandwidth demands of your
 graphics-intensive workloads.
-
-
 
 ### N1+P4 GPUs
 
 You can attach
 [NVIDIA P4](https://images.nvidia.com/content/pdf/tesla/184457-Tesla-P4-Datasheet-NV-Final-Letter-Web.pdf)
 GPUs to N1 general-purpose instances with the following instance configurations.
+For instances with attached NVIDIA P4 GPUs, Local SSD disks are only supported
+in the `us-central1-c` and `northamerica-northeast1-b` zones.
 
 
 
 
 | 
 Accelerator type | 
-GPU count | 
-GPU memory 1 (GB GDDR5) | 
+NVIDIA P4 GPU count | 
+GPU memory (GB GDDR5) | 
 vCPU count | 
 Instance memory (GB) | 
-Local SSD supported 2 | 
+Local SSD supported | 
 |
 
 
 
 | 
-
-`nvidia-tesla-p4` or 
-
-`nvidia-tesla-p4-vws`
-| 
+`nvidia-tesla-p4` or `nvidia-tesla-p4-vws` | 
 1 | 
 8 | 
 1 to 24 | 
 1 to 156 | 
-Yes | 
+Yes (`us-central1-c` and `northamerica-northeast1-b` only) | 
 |
 
 | 
+`nvidia-tesla-p4` or `nvidia-tesla-p4-vws` | 
 2 | 
 16 | 
 1 to 48 | 
 1 to 312 | 
-Yes | 
+Yes (`us-central1-c` and `northamerica-northeast1-b` only) | 
 |
 
 | 
+`nvidia-tesla-p4` or `nvidia-tesla-p4-vws` | 
 4 | 
 32 | 
 1 to 96 | 
 1 to 624 | 
-Yes | 
+Yes (`us-central1-c` and `northamerica-northeast1-b` only) | 
 |
 
 
 
+#### N1+P4 machine type notes
+
+The following note applies to the preceding table:
 
 
-1 GPU memory is the memory that is available on a GPU device
-that you can use for temporary data storage. It is separate from the instance's
-memory and is specifically designed to handle the higher bandwidth demands of
-your graphics-intensive workloads. 
-
-2 For instances with attached NVIDIA P4 GPUs, Local SSD disks
-are only supported in zones `us-central1-c` and
-`northamerica-northeast1-b`.
-
-
+- **GPU memory**: GPU memory is the memory available on a GPU device that you can use
+for temporary data storage. It is separate from the instance's memory and is
+specifically designed to handle the higher bandwidth demands of your
+graphics-intensive workloads.
 
 ### N1+V100 GPUs
 
 You can attach [NVIDIA V100](https://www.nvidia.com/en-us/data-center/v100/)
 GPUs to N1 general-purpose instances with the following instance configurations.
+For instances with attached NVIDIA V100 GPUs, Local SSD disks aren't supported
+in the `us-east1-c` zone.
 
 
 
 
 | 
 Accelerator type | 
-GPU count | 
-GPU memory 1 (GB HBM2) | 
+NVIDIA V100 GPU count | 
+GPU memory (GB HBM2) | 
 vCPU count | 
 Instance memory (GB) | 
-Local SSD supported 2 | 
+Local SSD supported | 
 |
 
 
@@ -1487,30 +1444,145 @@ Local SSD supported 2 |
 16 | 
 1 to 12 | 
 1 to 78 | 
-Yes | 
+Yes (except `us-east1-c`) | 
 |
 
 | 
+`nvidia-tesla-v100` | 
 2 | 
 32 | 
 1 to 24 | 
 1 to 156 | 
-Yes | 
+Yes (except `us-east1-c`) | 
 |
 
 | 
+`nvidia-tesla-v100` | 
 4 | 
 64 | 
 1 to 48 | 
 1 to 312 | 
-Yes | 
+Yes (except `us-east1-c`) | 
 |
 
 | 
+`nvidia-tesla-v100` | 
 8 | 
 128 | 
 1 to 96 | 
 1 to 624 | 
+Yes (except `us-east1-c`) | 
+|
+
+
+
+#### N1+V100 machine type notes
+
+The following note applies to the preceding table:
+
+
+- **GPU memory**: GPU memory is the memory available on a GPU device that you can use
+for temporary data storage. It is separate from the instance's memory and is
+specifically designed to handle the higher bandwidth demands of your
+graphics-intensive workloads.
+
+### Maintenance experience for N1 instances with GPUs
+
+During the [lifecycle of a
+Compute Engine instance](/compute/docs/instances/instance-lifecycle), the host machine that your instance runs on undergoes multiple
+*host events*.
+
+A host event can include the regular maintenance of
+Compute Engine infrastructure, or in rare cases, a host error. Compute Engine also
+applies some non-disruptive lightweight upgrades for the hypervisor and network
+in the background.
+
+The following table describes the host maintenance features for
+N1 with attached GPU
+
+machine types:
+
+
+
+
+| 
+Machine type | 
+Number of GPUs | 
+Typical scheduled maintenance event frequency | 
+Maintenance behavior | 
+Advanced notification for scheduled maintenance | 
+
+On-demand maintenance | 
+Simulate maintenance | 
+|
+
+
+
+
+
+
+
+
+
+
+
+| 
+N1+T4 | 
+1 or 2 | 
+Minimum of 15 days | 
+Terminate and restart | 
+7 days | 
+No | 
+Yes | 
+|
+
+| 
+N1+T4 | 
+4 | 
+Minimum of 30 days | 
+Terminate and restart | 
+7 days | 
+Yes | 
+Yes | 
+|
+
+| 
+N1+P4 | 
+1 or 2 | 
+Minimum of 15 days | 
+Terminate and restart | 
+7 days | 
+No | 
+Yes | 
+|
+
+| 
+N1+P4 | 
+4 | 
+Minimum of 30 days | 
+Terminate and restart | 
+7 days | 
+Yes | 
+Yes | 
+|
+
+| 
+N1+V100 | 
+1, 2, or 4 | 
+Minimum of 15 days | 
+Terminate and restart | 
+7 days | 
+No | 
+Yes | 
+|
+
+| 
+N1+V100 | 
+8 | 
+Minimum of 30 days | 
+Terminate and restart | 
+7 days | 
+Yes | 
 Yes | 
 |
 
@@ -1518,14 +1590,13 @@ Yes |
 
 
 
-1 GPU memory is the memory available on a GPU device that you can use
-for temporary data storage. It is separate from the instance's memory and is
-specifically designed to handle the higher bandwidth demands of your
-graphics-intensive workloads.
+The following notes apply to the preceding table:
 
 
-2 For instances with attached NVIDIA V100 GPUs, Local SSD disks
-aren't supported in `us-east1-c`.
+- **Typical scheduled maintenance event frequency**: 
+
+The maintenance frequencies shown in the previous table are approximations, not guarantees.
+Compute Engine might occasionally perform maintenance more frequently.
 
 
 
@@ -1541,7 +1612,7 @@ In the following table, `N/A` indicates that the metric is not applicable or not
 
 | 
 Machine type (GPU model) | 
-GPU memory | 
+GPU memory and bandwidth | 
 Interconnect | 
 NVIDIA RTX Virtual Workstation (vWS) support | 
 Best used for | 
@@ -1551,102 +1622,102 @@ Best used for |
 
 | 
 A4X Max (GB300) | 
-279 GB HBM3e @ 8 TBps | 
-NVLink Full Mesh @ 1,800 GBps | 
-| 
+279 GB HBM3e (8 TBps) | 
+NVLink Full Mesh (1,800 GBps) | 
+No | 
 Large-scale distributed training and inference of MoE LLMs, Recommenders, HPC | 
 |
 
 | 
 A4X (GB200) | 
-186 GB HBM3e @ 8 TBps | 
-NVLink Full Mesh @ 1,800 GBps | 
-| 
+186 GB HBM3e (8 TBps) | 
+NVLink Full Mesh (1,800 GBps) | 
+No | 
 Large-scale distributed training and inference of LLMs, Recommenders, HPC | 
 |
 
 | 
 A4 (B200) | 
-180 GB HBM3e @ 8 TBps | 
-NVLink Full Mesh @ 1,800 GBps | 
-| 
+180 GB HBM3e (8 TBps) | 
+NVLink Full Mesh (1,800 GBps) | 
+No | 
 Large-scale distributed training and inference of LLMs, Recommenders, HPC | 
 |
 
 | 
 A3 Ultra (H200) | 
-141 GB HBM3e @ 4.8 TBps | 
-NVLink Full Mesh @ 900 GBps | 
-| 
-Large models with massive data tables for ML Training, Inference, HPC,
+141 GB HBM3e (4.8 TBps) | 
+NVLink Full Mesh (900 GBps) | 
+No | 
+Large models with large data tables for ML Training, Inference, HPC,
 BERT, DLRM | 
 |
 
 | 
 A3 Mega, A3 High, A3 Edge (H100) | 
-80 GB HBM3 @ 3.35 TBps | 
-NVLink Full Mesh @ 900 GBps | 
-| 
-Large models with massive data tables for ML Training, Inference, HPC,
+80 GB HBM3 (3.35 TBps) | 
+NVLink Full Mesh (900 GBps) | 
+No | 
+Large models with large data tables for ML Training, Inference, HPC,
 BERT, DLRM | 
 |
 
 | 
 A2 Ultra (A100 80GB) | 
-80 GB HBM2e @ 1.9 TBps | 
-NVLink Full Mesh @ 600 GBps | 
-| 
-Large models with massive data tables for ML Training, Inference, HPC,
+80 GB HBM2e (1.9 TBps) | 
+NVLink Full Mesh (600 GBps) | 
+No | 
+Large models with large data tables for ML Training, Inference, HPC,
 BERT, DLRM | 
 |
 
 | 
 A2 Standard (A100 40GB) | 
-40 GB HBM2 @ 1.6 TBps | 
-NVLink Full Mesh @ 600 GBps | 
-| 
+40 GB HBM2 (1.6 TBps) | 
+NVLink Full Mesh (600 GBps) | 
+No | 
 ML Training, Inference, HPC | 
 |
 
 | 
 G4 (RTX PRO 6000) | 
-96 GB GDDR7 with ECC @ 1597 GBps | 
+96 GB GDDR7 (1.597 TBps) | 
 N/A | 
-| 
+Yes | 
 ML Inference, Training, Remote Visualization Workstations,
 Video Transcoding, HPC | 
 |
 
 | 
 G2 (L4) | 
-24 GB GDDR6 @ 300 GBps | 
+24 GB GDDR6 (300 GBps) | 
 N/A | 
-| 
+Yes | 
 ML Inference, Training, Remote Visualization Workstations,
 Video Transcoding, HPC | 
 |
 
 | 
 N1 (T4) | 
-16 GB GDDR6 @ 320 GBps | 
+16 GB GDDR6 (320 GBps) | 
 N/A | 
-| 
+Yes | 
 ML Inference, Training, Remote Visualization Workstations, Video Transcoding | 
 |
 
 | 
 N1 (P4) | 
-8 GB GDDR5 @ 192 GBps | 
+8 GB GDDR5 (192 GBps) | 
 N/A | 
-| 
+Yes | 
 Remote Visualization Workstations, ML Inference, and Video Transcoding | 
 |
 
 | 
 N1 (V100) | 
-16 GB HBM2 @ 900 GBps | 
-NVLink Ring @ 300 GBps | 
-| 
+16 GB HBM2 (900 GBps) | 
+NVLink Ring (300 GBps) | 
+No | 
 ML Training, Inference, HPC | 
 |
 
@@ -1691,35 +1762,33 @@ The A4X Max, A4X, A4, and G4 machine types run on NVIDIA's
 
 
 [Tensor Core](#tensor-core) [Standard CUDA cores](#standard-cuda-cores) 
-More 
+**More 
 
 
 
 
 NVIDIA's Blackwell architecture, used by these machine types,
 introduces Tensor Core support for FP4 precision and expanded INT4
-capabilities for breakthrough performance in large-model inference.
+capabilities for high performance in large-model inference.
 
 In the following table, `N/A` indicates that the metric is not
-applicable or not available for this GPU model.
+applicable or not available for this GPU model. The following notes also apply:
+
+
+- TF32, Mixed FP16/32, INT8, FP8, and FP4**: the Blackwell architecture supports [structural sparsity](https://developer.nvidia.com/blog/structured-sparsity-in-the-nvidia-ampere-architecture-and-applications-in-search-engines/) for these precision metrics, which can double computational throughput. The performance values in this table assume dense matrix multiplication. If you use structural sparsity, performance is doubled.
+
+- **Mixed FP16/32**: for mixed-precision training, GPUs that run on the Blackwell architecture also support the `bfloat16` data type.
 
 
 
 | 
-Machine type
-(GPU model) | 
-FP64
-(TFLOPS) | 
-TF32
-(TFLOPS) 1 | 
-Mixed FP16/32
-(TFLOPS) 1,2 | 
-INT8
-(TFLOPS) 1 | 
-FP8
-(TFLOPS) 1 | 
-FP4
-(TFLOPS) 1 | 
+Machine type (GPU model) | 
+FP64 (TFLOPS) | 
+TF32 (TFLOPS) | 
+Mixed FP16/32 (TFLOPS) | 
+INT8 (TFLOPS) | 
+FP8 (TFLOPS) | 
+FP4 (TFLOPS) | 
 |
 
 
@@ -1767,16 +1836,6 @@ N/A |
 
 
 
-1 The Blackwell architecture supports [structural sparsity](https://developer.nvidia.com/blog/structured-sparsity-in-the-nvidia-ampere-architecture-and-applications-in-search-engines/) for TF32, FP16/32, INT8, FP8, and FP4 precision metrics, which can double computational throughput. The performance values in this
-section assume dense matrix multiplication—if you use structural sparsity,
-performance is doubled.
-
-2 For mixed precision training, GPUs that run on Blackwell
-architecture also support the `bfloat16` data type.
-
-
-
-
 
 The machine types that use the Blackwell architecture
 provide high-performance FP64 and FP32 operations for demanding HPC and AI workloads.
@@ -1788,26 +1847,25 @@ benefit from the reduced memory usage and bandwidth requirements of FP16
 precision, even when not using Tensor Cores.
 
 In the following table, `N/A` indicates that the metric is not applicable or
-not available for this GPU model.
+not available for this GPU model. The following note also applies:
+
+
+- **A4X Max (GB300) FP64**: FP64 performance on GB300 is reduced to prioritize FP4 performance.
 
 
 
 | 
-Machine type
-(GPU model) | 
-FP64
-(TFLOPS) | 
-FP32
-(TFLOPS) | 
-FP16
-(TFLOPS) | 
+Machine type (GPU model) | 
+FP64 (TFLOPS) | 
+FP32 (TFLOPS) | 
+FP16 (TFLOPS) | 
 |
 
 
 
 | 
 A4X Max (GB300) | 
-1.39 1 | 
+1.39 | 
 45 | 
 N/A | 
 |
@@ -1836,11 +1894,6 @@ G4 (RTX PRO 6000) |
 
 
 
-1 FP64 performance on GB300 is reduced to prioritize FP4 performance.
-
-
-
-
 
 
 ### Hopper, Ada Lovelace, and Ampere architectures
@@ -1857,7 +1910,7 @@ video transcoding, and graphics workloads.
 
 
 [Tensor Core](#tensor-core) [Standard CUDA cores](#standard-cuda-cores) 
-More 
+**More 
 
 
 
@@ -1867,23 +1920,22 @@ Cores that accelerate TF32, FP16, FP8, and INT8 data types, providing high
 throughput for mixed-precision training and inference.
 
 In the following table, `N/A` indicates that the metric is not applicable or
-not available for this GPU model.
+not available for this GPU model. The following notes also apply:
+
+
+- TF32, Mixed FP16/32, INT8, and FP8**: the Hopper, Ada Lovelace, and Ampere architectures support [structural sparsity](https://developer.nvidia.com/blog/structured-sparsity-in-the-nvidia-ampere-architecture-and-applications-in-search-engines/) for these precision metrics (and INT4), which can double computational throughput. The performance values in this table assume dense matrix multiplication. If you use structural sparsity, performance is doubled.
+
+- **Mixed FP16/32**: for mixed-precision training, NVIDIA H200, H100, A100, and L4 GPUs also support the `bfloat16` data type.
 
 
 
 | 
-Machine type
-(GPU model) | 
-FP64
-(TFLOPS) | 
-TF32
-(TFLOPS) 1 | 
-Mixed FP16/32
-(TFLOPS) 1,2 | 
-INT8
-(TOPS) 1 | 
-FP8
-(TFLOPS) 1 | 
+Machine type (GPU model) | 
+FP64 (TFLOPS) | 
+TF32 (TFLOPS) | 
+Mixed FP16/32 (TFLOPS) | 
+INT8 (TOPS) | 
+FP8 (TFLOPS) | 
 |
 
 
@@ -1936,17 +1988,6 @@ N/A |
 
 
 
-1 The Hopper, Ada Lovelace, and Ampere architectures support [structural sparsity](https://developer.nvidia.com/blog/structured-sparsity-in-the-nvidia-ampere-architecture-and-applications-in-search-engines/) for TF32, FP16/32, INT8, INT4, and FP8 precision metrics,
-which can double computational throughput. The performance values in this
-section assume dense matrix multiplication—if you use structural sparsity,
-performance is doubled.
-
-2 For mixed precision training, NVIDIA H200, H100, A100, and L4 also support
-the `bfloat16` data type.
-
-
-
-
 
 The machine types that use the Hopper, Ada Lovelace, and Ampere architectures
 provide high-performance FP64 and FP32 operations for demanding HPC and AI workloads.
@@ -1957,12 +1998,9 @@ applicable or not available for this GPU model.
 
 
 | 
-Machine type
-(GPU model) | 
-FP64
-(TFLOPS) | 
-FP32
-(TFLOPS) | 
+Machine type (GPU model) | 
+FP64 (TFLOPS) | 
+FP32 (TFLOPS) | 
 |
 
 
