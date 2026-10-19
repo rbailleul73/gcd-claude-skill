@@ -73,33 +73,6 @@ Get started
 
 
 
-- On this page 
-- [ Service and feature availability ](#service_and_feature_availability)
-- [ Service and platform management ](#service_and_platform_management)
-
-- [ Service level agreements ](#sla)
-
-- [ Key differences for developers ](#key_differences_for_developers)
-- [ Key differences for architects and operators ](#key_differences_for_architects_and_operators)
-- [ Redirected links ](#redirect)
-- [ General differences ](#general_differences)
-
-- [ Hardware and OS ](#hardware_and_os)
-- [ Availability and disaster recovery ](#availability_and_disaster_recovery)
-- [ Cost management ](#cost_management)
-- [ Integrations ](#integrations)
-- [ Security and access control ](#security_and_access_control)
-- [ Network ](#network)
-- [ Workflows and tools ](#workflows_and_tools)
-- [ Organization setup ](#organization_setup)
-- [ Project identifiers ](#project_identifiers)
-- [ Service names, endpoints, and resources ](#service_names_endpoints_and_resources)
-- [ Service accounts ](#service_accounts)
-- [ Documentation ](#documentation)
-
-- [ What's next ](#whats_next)
-- 
-
 
 
 
@@ -279,7 +252,7 @@ To learn more about additional differences between Google Cloud
 and Cloud de Confiance, review the
 product-specific differences page for each product.
 
-## Redirected links 
+## Redirected links
 
 If you followed a link to a product or feature that isn't available in
 Cloud de Confiance, you might have been
@@ -291,7 +264,7 @@ Cloud de Confiance, see
 between your universe and Google Cloud, see the other sections
 in this page.
 
-## General differences 
+## General differences
 
 The following sections detail some key top-level differences between
 Cloud de Confiance and
@@ -305,7 +278,7 @@ Cloud de Confiance.
 If you run into any issues,
 [contact support](https://support.s3ns.fr).
 
-### Hardware and OS 
+### Hardware and OS
 
 - Cloud de Confiance doesn't provide the same
 hardware and OS support as Google Cloud. For example,
@@ -318,7 +291,7 @@ information.
 Google Cloud doesn't indicate future support in
 Cloud de Confiance.
 
-### Availability and disaster recovery 
+### Availability and disaster recovery
 
 - Cloud de Confiance doesn't have multiple
 regions. Instead, Cloud de Confiance runs in
@@ -561,31 +534,31 @@ Usage |
 |
 
 | 
-`developer. gserviceaccount. com` | 
-`developer. s3ns-system. iam. gserviceaccount. com` | 
+`developer.gserviceaccount.com` | 
+`developer.s3ns-system.iam.gserviceaccount.com` | 
 Used in the Compute Engine default service account. | 
 |
 
 | 
-`iam. gserviceaccount. com` | 
-`s3ns. iam. gserviceaccount. com` | 
+`iam.gserviceaccount.com` | 
+`s3ns.iam.gserviceaccount.com` | 
 Used in domains for most user-managed service accounts. | 
 |
 
 | 
-`s3ns-system. iam. gserviceaccount. com` | 
+`s3ns-system.iam.gserviceaccount.com` | 
 Used for some service agents. | 
 |
 
 | 
-`system. gserviceaccount. com` | 
-`s3ns-system. system. gserviceaccount. com` | 
+`system.gserviceaccount.com` | 
+`s3ns-system.system.gserviceaccount.com` | 
 Used for some service agents. | 
 |
 
 | 
-Other uses of `gserviceaccount. com` | 
-`s3ns-system. system. gserviceaccount. com` | 
+Other uses of `gserviceaccount.com` | 
+`s3ns-system.system.gserviceaccount.com` | 
 Used for some service agents. | 
 |
 

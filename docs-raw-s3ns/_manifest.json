@@ -51,7 +51,7 @@
   "/access-context-manager/docs/tpc-differences": {
     "title": "Access Context Manager in Cloud de Confiance versus Google Cloud",
     "filename": "access-context-manager_tpc-differences.md",
-    "size": 3847,
+    "size": 3689,
     "url": "https://documentation.s3ns.fr/access-context-manager/docs/tpc-differences",
     "last_updated": "2026-10-13"
   },
@@ -86,21 +86,21 @@
   "/api-keys/docs/tpc-differences": {
     "title": "Key differences between Cloud de Confiance and Google Cloud",
     "filename": "api-keys_tpc-differences.md",
-    "size": 21541,
+    "size": 20466,
     "url": "https://documentation.s3ns.fr/api-keys/docs/tpc-differences",
     "last_updated": "2026-10-13"
   },
   "/api-registry/docs": {
     "title": "Key differences between Cloud de Confiance and Google Cloud",
     "filename": "api-registry.md",
-    "size": 21555,
+    "size": 20454,
     "url": "https://documentation.s3ns.fr/api-registry/docs",
     "last_updated": "2026-10-13"
   },
   "/api-registry/docs/tpc-differences": {
     "title": "Key differences between Cloud de Confiance and Google Cloud",
     "filename": "api-registry_tpc-differences.md",
-    "size": 21571,
+    "size": 20470,
     "url": "https://documentation.s3ns.fr/api-registry/docs/tpc-differences",
     "last_updated": "2026-10-13"
   },
@@ -114,7 +114,7 @@
   "/armor/docs/tpc-differences": {
     "title": "Cloud Armor in Cloud de Confiance versus Google Cloud",
     "filename": "armor_tpc-differences.md",
-    "size": 4788,
+    "size": 4504,
     "url": "https://documentation.s3ns.fr/armor/docs/tpc-differences",
     "last_updated": "2026-10-14"
   },
@@ -156,7 +156,7 @@
   "/artifact-registry/docs/tpc-differences": {
     "title": "Artifact Registry in Cloud de Confiance versus Google Cloud",
     "filename": "artifact-registry_tpc-differences.md",
-    "size": 4490,
+    "size": 4186,
     "url": "https://documentation.s3ns.fr/artifact-registry/docs/tpc-differences",
     "last_updated": "2026-10-13"
   },
@@ -177,7 +177,7 @@
   "/bigquery/docs/controlling-costs": {
     "title": "Estimate and control costs",
     "filename": "bigquery_controlling-costs.md",
-    "size": 52907,
+    "size": 52906,
     "url": "https://documentation.s3ns.fr/bigquery/docs/controlling-costs",
     "last_updated": "2026-10-16"
   },
@@ -205,14 +205,14 @@
   "/bigquery/docs/exporting-data": {
     "title": "Export table data to Cloud Storage",
     "filename": "bigquery_exporting-data.md",
-    "size": 72311,
+    "size": 72304,
     "url": "https://documentation.s3ns.fr/bigquery/docs/exporting-data",
     "last_updated": "2026-10-13"
   },
   "/bigquery/docs/loading-data-cloud-storage-csv": {
     "title": "Load CSV data from Cloud Storage",
     "filename": "bigquery_loading-data-cloud-storage-csv.md",
-    "size": 138942,
+    "size": 138944,
     "url": "https://documentation.s3ns.fr/bigquery/docs/loading-data-cloud-storage-csv",
     "last_updated": "2026-10-13"
   },
@@ -233,7 +233,7 @@
   "/bigquery/docs/quickstarts/quickstart-client-libraries": {
     "title": "Query a public dataset with the BigQuery client libraries",
     "filename": "bigquery_quickstarts_quickstart-client-libraries.md",
-    "size": 42500,
+    "size": 42502,
     "url": "https://documentation.s3ns.fr/bigquery/docs/quickstarts/quickstart-client-libraries",
     "last_updated": "2026-10-14"
   },
@@ -247,14 +247,14 @@
   "/bigquery/docs/tables": {
     "title": "Create and use tables",
     "filename": "bigquery_tables.md",
-    "size": 161111,
+    "size": 161115,
     "url": "https://documentation.s3ns.fr/bigquery/docs/tables",
     "last_updated": "2026-10-13"
   },
   "/bigquery/docs/tpc-differences": {
     "title": "BigQuery in Cloud de Confiance versus Google Cloud",
     "filename": "bigquery_tpc-differences.md",
-    "size": 6270,
+    "size": 5869,
     "url": "https://documentation.s3ns.fr/bigquery/docs/tpc-differences",
     "last_updated": "2026-10-16"
   },
@@ -513,7 +513,7 @@
   "/docs/authentication/external/externally-sourced-credentials": {
     "title": "Authenticate with client libraries",
     "filename": "authentication_external_externally-sourced-credentials.md",
-    "size": 13680,
+    "size": 13681,
     "url": "https://documentation.s3ns.fr/docs/authentication/external/externally-sourced-credentials",
     "last_updated": "2026-10-13"
   },
@@ -975,7 +975,7 @@
   "/docs/quotas/development-environment": {
     "title": "Set up the Cloud Quotas API",
     "filename": "quotas_development-environment.md",
-    "size": 2681,
+    "size": 2680,
     "url": "https://documentation.s3ns.fr/docs/quotas/development-environment",
     "last_updated": "2026-10-13"
   },
@@ -989,7 +989,7 @@
   "/docs/quotas/help/request_increase": {
     "title": "View and manage quotas",
     "filename": "quotas_help_request_increase.md",
-    "size": 18877,
+    "size": 18879,
     "url": "https://documentation.s3ns.fr/docs/quotas/help/request_increase",
     "last_updated": "2026-10-13"
   },
@@ -1479,7 +1479,7 @@
   "/docs/terraform/install-configure-terraform": {
     "title": "Install Terraform",
     "filename": "terraform_install-configure-terraform.md",
-    "size": 4779,
+    "size": 4778,
     "url": "https://documentation.s3ns.fr/docs/terraform/install-configure-terraform",
     "last_updated": "2026-10-13"
   },
@@ -2244,7 +2244,7 @@
     "filename": "sql_release-notes.md",
     "size": 67712,
     "url": "https://documentation.s3ns.fr/sql/docs/release-notes",
-    "last_updated": "2026-10-18"
+    "last_updated": "2026-10-19"
   },
   "/sql/docs/tpc-differences": {
     "title": "Cloud SQL in Cloud de Confiance versus Google Cloud",

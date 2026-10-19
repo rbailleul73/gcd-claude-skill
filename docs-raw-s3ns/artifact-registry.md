@@ -120,7 +120,8 @@ Artifact Registry
 
 
 
-# Artifact Registry documentation 
+
+# Artifact Registry documentation
 
 
 

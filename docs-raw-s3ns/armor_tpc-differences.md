@@ -113,17 +113,6 @@ Guides
 
 
 
-- On this page 
-- [ Key differences ](#key-differences)
-
-- [ Cost management ](#network-differences)
-- [ Integrations ](#integrations-differences)
-- [ Security and access control ](#security-differences)
-- [ Network ](#network-differences)
-
-- [ Related guides ](#related-guides)
-- 
-
 
 
 
@@ -149,7 +138,7 @@ Cloud Armor documentation.
 
 
 
-## Key differences 
+## Key differences
 
 
 

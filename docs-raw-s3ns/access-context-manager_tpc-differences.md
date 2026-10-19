@@ -113,14 +113,6 @@ Guides
 
 
 
-- On this page 
-- [ Key differences ](#key-differences)
-
-- [ Security and access control ](#security-differences)
-
-- [ Related guides ](#related-guides)
-- 
-
 
 
 
@@ -145,7 +137,7 @@ Access Context Manager documentation.
 
 
 
-## Key differences 
+## Key differences
 
 
 
