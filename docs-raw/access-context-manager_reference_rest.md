@@ -1,7 +1,7 @@
 # Access Context Manager API
 
 Source: https://berlin.devsitetest.how/access-context-manager/docs/reference/rest
-Last updated: 2026-04-21
+Last updated: 2026-10-20
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/access-context-manager/docs/tpc-differences) for more details.
 
@@ -138,9 +138,11 @@ Reference
 - [ REST Resource: v1.accessPolicies.accessLevels ](#rest-resource:-v1.accesspolicies.accesslevels)
 - [ REST Resource: v1.accessPolicies.authorizedOrgsDescs ](#rest-resource:-v1.accesspolicies.authorizedorgsdescs)
 - [ REST Resource: v1.accessPolicies.servicePerimeters ](#rest-resource:-v1.accesspolicies.serviceperimeters)
+- [ REST Resource: v1.folders ](#rest-resource:-v1.folders)
 - [ REST Resource: v1.operations ](#rest-resource:-v1.operations)
 - [ REST Resource: v1.organizations.gcpUserAccessBindings ](#rest-resource:-v1.organizations.gcpuseraccessbindings)
 - [ REST Resource: v1.permissions ](#rest-resource:-v1.permissions)
+- [ REST Resource: v1.projects ](#rest-resource:-v1.projects)
 - [ REST Resource: v1.services ](#rest-resource:-v1.services)
 - 
 
@@ -169,11 +171,15 @@ An API for setting attribute based access control to requests to Google Cloud De
 
 - [REST Resource: v1.accessPolicies.servicePerimeters](#v1.accessPolicies.servicePerimeters)
 
+- [REST Resource: v1.folders](#v1.folders)
+
 - [REST Resource: v1.operations](#v1.operations)
 
 - [REST Resource: v1.organizations.gcpUserAccessBindings](#v1.organizations.gcpUserAccessBindings)
 
 - [REST Resource: v1.permissions](#v1.permissions)
+
+- [REST Resource: v1.projects](#v1.projects)
 
 - [REST Resource: v1.services](#v1.services)
 
@@ -529,7 +535,7 @@ Updates a `[service perimeter](/access-context-manager/docs/reference/rest/v1/ac
 
 `POST /v1/{parent=accessPolicies/*}/servicePerimeters:replaceAll` 
 
-Replace all existing `[service perimeters](/access-context-manager/docs/reference/rest/v1/accessPolicies.servicePerimeters#ServicePerimeter)` in an `[access policy](/access-context-manager/docs/reference/rest/v1/accessPolicies#AccessPolicy)` with the `[service perimeters](/access-context-manager/docs/reference/rest/v1/accessPolicies.servicePerimeters#ServicePerimeter)` provided. | 
+Replaces all existing `[service perimeters](/access-context-manager/docs/reference/rest/v1/accessPolicies.servicePerimeters#ServicePerimeter)` in an `[access policy](/access-context-manager/docs/reference/rest/v1/accessPolicies#AccessPolicy)` with the `[service perimeters](/access-context-manager/docs/reference/rest/v1/accessPolicies.servicePerimeters#ServicePerimeter)` provided. | 
 |
 
 | 
@@ -539,6 +545,34 @@ Replace all existing `[service perimeters](/access-context-manager/docs/referenc
 `POST /v1/{resource=accessPolicies/*/servicePerimeters/*}:testIamPermissions` 
 
 Returns the IAM permissions that the caller has on the specified Access Context Manager resource. | 
+|
+
+
+
+
+
+
+## REST Resource: [v1.folders](/access-context-manager/docs/reference/rest/v1/folders)
+
+
+
+
+
+
+
+
+
+| 
+Methods | 
+|
+
+
+
+| 
+
+`[lookupConfiguredServicePerimeter](/access-context-manager/docs/reference/rest/v1/folders/lookupConfiguredServicePerimeter)` | 
+
+The method `google.identity.accesscontextmanager.v1.AccessContextManager.LookupConfiguredServicePerimeter` is not available in Google Cloud Dedicated in Germany. | 
 |
 
 
@@ -680,6 +714,34 @@ Methods |
 `[list](/access-context-manager/docs/reference/rest/v1/permissions/list)` | 
 
 The method `google.identity.accesscontextmanager.v1.AccessContextManager.ListSupportedPermissions` is not available in Google Cloud Dedicated in Germany. | 
+|
+
+
+
+
+
+
+## REST Resource: [v1.projects](/access-context-manager/docs/reference/rest/v1/projects)
+
+
+
+
+
+
+
+
+
+| 
+Methods | 
+|
+
+
+
+| 
+
+`[lookupConfiguredServicePerimeter](/access-context-manager/docs/reference/rest/v1/projects/lookupConfiguredServicePerimeter)` | 
+
+The method `google.identity.accesscontextmanager.v1.AccessContextManager.LookupConfiguredServicePerimeter` is not available in Google Cloud Dedicated in Germany. | 
 |
 
 

@@ -1,7 +1,7 @@
 # Create and use tables
 
 Source: https://berlin.devsitetest.how/bigquery/docs/tables
-Last updated: 2026-10-13
+Last updated: 2026-10-19
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -6204,7 +6204,7 @@ collation specification is returned if it exists; otherwise,
 `rounding_mode` | 
 `STRING` | 
 
-The mode of rounding that's used when applying precision and scale to+
+The mode of rounding that's used when applying precision and scale to
 parameterized `NUMERIC` or `BIGNUMERIC` values;
 otherwise, the value is `NULL`.
 | 
@@ -6243,7 +6243,7 @@ following format:
 for example,
 ``bigquery-public-data`.github_repos.INFORMATION_SCHEMA.COLUMN_FIELD_PATHS`.
 
-The `commits` table contains the following nested and nested and repeated
+The `commits` table contains the following nested and repeated
 columns:
 
 - `author`: nested `RECORD` column

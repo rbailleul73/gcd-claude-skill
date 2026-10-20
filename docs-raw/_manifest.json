@@ -28,18 +28,18 @@
     "last_updated": "2026-10-13"
   },
   "/access-context-manager/docs/manage-access-levels": {
-    "title": "Managing access levels",
+    "title": "Manage access levels",
     "filename": "access-context-manager_manage-access-levels.md",
-    "size": 19600,
+    "size": 19830,
     "url": "https://berlin.devsitetest.how/access-context-manager/docs/manage-access-levels",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-19"
   },
   "/access-context-manager/docs/reference/rest": {
     "title": "Access Context Manager API",
     "filename": "access-context-manager_reference_rest.md",
-    "size": 16303,
+    "size": 17363,
     "url": "https://berlin.devsitetest.how/access-context-manager/docs/reference/rest",
-    "last_updated": "2026-04-21"
+    "last_updated": "2026-10-20"
   },
   "/access-context-manager/docs/release-notes": {
     "title": "Access Context Manager release notes",
@@ -163,7 +163,7 @@
   "/bigquery/docs/controlling-costs": {
     "title": "Estimate and control costs",
     "filename": "bigquery_controlling-costs.md",
-    "size": 53089,
+    "size": 53090,
     "url": "https://berlin.devsitetest.how/bigquery/docs/controlling-costs",
     "last_updated": "2026-10-16"
   },
@@ -200,7 +200,7 @@
     "filename": "bigquery_loading-data-cloud-storage-csv.md",
     "size": 139418,
     "url": "https://berlin.devsitetest.how/bigquery/docs/loading-data-cloud-storage-csv",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-19"
   },
   "/bigquery/docs/quickstarts/load-data-bq": {
     "title": "Use the bq tool",
@@ -233,9 +233,9 @@
   "/bigquery/docs/tables": {
     "title": "Create and use tables",
     "filename": "bigquery_tables.md",
-    "size": 161796,
+    "size": 161784,
     "url": "https://berlin.devsitetest.how/bigquery/docs/tables",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-19"
   },
   "/bigquery/docs/tpc-differences": {
     "title": "BigQuery in Google Cloud Dedicated versus Google Cloud",
@@ -289,7 +289,7 @@
   "/compute/docs/reference/rest/v1": {
     "title": "Compute Engine API",
     "filename": "compute_reference_rest_v1.md",
-    "size": 538130,
+    "size": 538128,
     "url": "https://berlin.devsitetest.how/compute/docs/reference/rest/v1",
     "last_updated": "2026-10-15"
   },
@@ -548,9 +548,9 @@
   "/docs/data": {
     "title": "Data analytics",
     "filename": "data.md",
-    "size": 2825,
+    "size": 3312,
     "url": "https://berlin.devsitetest.how/docs/data",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-19"
   },
   "/docs/databases": {
     "title": "Databases",
@@ -982,7 +982,7 @@
   "/docs/quotas/reference/libraries": {
     "title": "Cloud Quotas client libraries",
     "filename": "quotas_reference_libraries.md",
-    "size": 132278,
+    "size": 132580,
     "url": "https://berlin.devsitetest.how/docs/quotas/reference/libraries",
     "last_updated": "2026-10-13"
   },
@@ -1250,14 +1250,14 @@
     "filename": "security.md",
     "size": 3194,
     "url": "https://berlin.devsitetest.how/docs/security",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-19"
   },
   "/docs/storage": {
     "title": "Storage",
     "filename": "storage.md",
-    "size": 794,
+    "size": 927,
     "url": "https://berlin.devsitetest.how/docs/storage",
-    "last_updated": "2026-10-13"
+    "last_updated": "2026-10-19"
   },
   "/docs/terraform": {
     "title": "Terraform on Google Cloud documentation",
@@ -2146,7 +2146,7 @@
     "filename": "sql_release-notes.md",
     "size": 67792,
     "url": "https://berlin.devsitetest.how/sql/docs/release-notes",
-    "last_updated": "2026-10-19"
+    "last_updated": "2026-10-20"
   },
   "/sql/docs/tpc-differences": {
     "title": "Cloud SQL in Google Cloud Dedicated versus Google Cloud",

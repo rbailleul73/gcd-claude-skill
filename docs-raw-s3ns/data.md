@@ -1,7 +1,7 @@
 # Data analytics
 
 Source: https://documentation.s3ns.fr/docs/data
-Last updated: 2026-10-13
+Last updated: 2026-10-19
 
 - 
 
@@ -336,6 +336,133 @@ Enable intelligent data management with unified metadata and governance and secu
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Data integration and orchestration
+
+
+
+
+
+Ingest, transform, and load data from disparate data sources in a scalable and secure fashion, and build end-to-end orchestration for the enterprise.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### [
+Managed Service for Apache Airflow
+](/composer/docs)
+
+
+Create, schedule, monitor, and manage workflows using a fully managed orchestration service built on Apache Airflow.
 
 
 

@@ -1,7 +1,7 @@
 # Load CSV data from Cloud Storage
 
 Source: https://berlin.devsitetest.how/bigquery/docs/loading-data-cloud-storage-csv
-Last updated: 2026-10-13
+Last updated: 2026-10-19
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -518,7 +518,7 @@ table.
 
 - In the **Schema** section, enter the [schema](/bigquery/docs/schemas)
 definition.
-To enable the [auto detection](/bigquery/docs/schema-detect) of a schema,
+To enable the [auto-detection](/bigquery/docs/schema-detect) of a schema,
 select **Auto detect**.
 
 
@@ -2866,7 +2866,7 @@ table.
 
 - In the **Schema** section, enter the [schema](/bigquery/docs/schemas)
 definition.
-To enable the [auto detection](/bigquery/docs/schema-detect) of a schema,
+To enable the [auto-detection](/bigquery/docs/schema-detect) of a schema,
 select **Auto detect**.
 
 
