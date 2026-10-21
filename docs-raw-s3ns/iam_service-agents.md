@@ -1,7 +1,7 @@
 # Service agents
 
 Source: https://documentation.s3ns.fr/iam/docs/service-agents
-Last updated: 2026-10-14
+Last updated: 2026-10-20
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/iam/docs/tpc-differences) for more details.
 
@@ -5555,6 +5555,33 @@ None
 [Infrastructure Manager Service Agent](/iam/docs/roles-permissions/cloudconfig#cloudconfig.serviceAgent)
 
 (`roles/cloudconfig.serviceAgent`)
+
+
+
+
+Granted on the project.
+
+
+| 
+|
+
+| 
+
+
+#### Infrastructure Manager Worker Service Account
+
+Service agent for `config.googleapis.com`. 
+
+
+`service- PROJECT_NUMBER @gcp-sa-config-worker.s3ns-system.iam.gserviceaccount.com`
+
+| 
+
+
+
+[Cloud Infrastructure Manager Agent](/iam/docs/roles-permissions/config#config.agent)
+
+(`roles/config.agent`)
 
 
 

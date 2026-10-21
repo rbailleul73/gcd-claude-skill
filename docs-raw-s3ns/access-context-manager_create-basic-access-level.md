@@ -1,7 +1,7 @@
 # Creating a basic access level
 
 Source: https://documentation.s3ns.fr/access-context-manager/docs/create-basic-access-level
-Last updated: 2026-10-13
+Last updated: 2026-10-20
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/access-context-manager/docs/tpc-differences) for more details.
 
@@ -229,9 +229,10 @@ must create or update the access level using the gcloud CLI or the API.
 - 
 
 Use the **When condition is met, return** option to specify whether
-you want the condition to require that a request meet all
-specified attributes (**TRUE**) or whether the request must
-meet anything but those attributes (**FALSE**).
+the condition is evaluated as an **AND** operation that requires a
+request to meet all specified attributes (**TRUE**), or as a
+negated (**NAND**) operation that is met when a request doesn't
+meet at least one specified attribute (**FALSE**).
 
 For example, if you want to deny requests from a certain IP address
 range of your network, specify the IP address range using the
@@ -369,8 +370,8 @@ file for the `basic-level-spec` option. The YAML file defines one or more
 conditions for the access level. Conditions must contain at least one
 attribute. When a condition contains more than one attribute, they are
 combined as either an **AND** operation (all must be true) or as a **NAND**
-operation (none can be true), depending on whether the `negate` attribute
-is included in the condition.
+operation (at least one must be false), depending on whether the `negate`
+attribute is set to true in the condition.
 
 For a complete list of the attributes you can include in your YAML file,
 read about [access level attributes](/access-context-manager/docs/access-level-attributes).
@@ -415,9 +416,9 @@ The request body must include an [`AccessLevel`](/access-context-manager/docs/re
 resource that specifies the conditions you want for the new access level.
 Each [`Condition`](/access-context-manager/docs/reference/rest/v1/accessPolicies.accessLevels#condition) has one or more attributes that are
 evaluated as an **AND** operation (all must be true) or as a
-**NAND** operation (none can be true) depending on whether the `negate`
-field is set to `true`. The resulting evaluation determines whether the
-condition is met or not.
+**NAND** operation (at least one must be false) depending on whether the
+`negate` field is set to true. The resulting evaluation determines
+whether the condition is met or not.
 
 ### Response body
 

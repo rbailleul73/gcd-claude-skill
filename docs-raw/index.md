@@ -1,7 +1,7 @@
 # Google Cloud Dedicated Documentation
 
 Source: https://berlin.devsitetest.how/docs
-Last updated: 2026-10-13
+Last updated: 2026-10-20
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/docs/tpc-differences) for more details.
 
@@ -1197,6 +1197,46 @@ Kubernetes
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### [
+
+AI and ML
+
+](https://berlin.devsitetest.how/docs/ai-ml)
+
+
+
+
+
+Leverage the power of AI/ML solutions to transform your organization and solve real-world problems.
 
 
 
