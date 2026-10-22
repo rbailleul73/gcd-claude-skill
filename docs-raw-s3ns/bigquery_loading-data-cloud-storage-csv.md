@@ -1,7 +1,7 @@
 # Load CSV data from Cloud Storage
 
 Source: https://documentation.s3ns.fr/bigquery/docs/loading-data-cloud-storage-csv
-Last updated: 2026-10-19
+Last updated: 2026-10-21
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -166,15 +166,16 @@ Guides
 
 
 
-When you load CSV data from Cloud Storage, you can load the data into a new
-table or partition, or you can append to or overwrite an existing table or
-partition. When your data is loaded into BigQuery, it is
-converted into columnar format for
+BigQuery lets you load CSV data from Cloud Storage into a new
+table or partition, or append to or overwrite an existing table or partition.
+During ingestion, BigQuery converts your data into columnar
+format for
 [Capacitor](https://documentation.s3ns.fr/blog/products/bigquery/inside-capacitor-bigquerys-next-generation-columnar-storage-format)
-(BigQuery's storage format).
+(the storage format for BigQuery) for querying and analysis.
 
 For information about loading CSV data from a local file, see
-[Loading data into BigQuery from a local data source](/bigquery/docs/batch-loading-data#loading_data_from_local_files).
+[Loading data into BigQuery from a local data
+source](/bigquery/docs/batch-loading-data#loading_data_from_local_files).
 
 ## Limitations 
 
@@ -2053,7 +2054,7 @@ variable to `s3nsapis.fr`.
 require "google/cloud/bigquery" 
 
 def load_table_gcs_csv dataset_id = "your_dataset_id" 
-bigquery = Google :: Cloud :: [ Bigquery ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-bigquery-data_policies-v1/latest/Google-Cloud-Bigquery.html) . [ new ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+bigquery = Google :: Cloud :: [ Bigquery ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-bigquery-data_policies-v1beta1/latest/Google-Cloud-Bigquery.html) . [ new ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
 dataset = bigquery . dataset dataset_id 
 gcs_uri = "gs://cloud-samples-data/bigquery/us-states/us-states.csv" 
 table_id = "us_states" 

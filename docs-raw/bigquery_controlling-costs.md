@@ -1,7 +1,7 @@
 # Estimate and control costs
 
 Source: https://berlin.devsitetest.how/bigquery/docs/controlling-costs
-Last updated: 2026-10-16
+Last updated: 2026-10-20
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -1089,7 +1089,7 @@ query in slot-milliseconds (`total_slot_ms`) by inspecting the query execution
 details or querying the
 [`INFORMATION_SCHEMA.JOBS` view](/bigquery/docs/information-schema-jobs).
 
-#### Capacity-based cost attribution 
+#### Capacity-based cost attribution
 
 Cost attribution is the process of splitting and attributing reservation
 compute costs across projects, teams, or queries after workloads have run.

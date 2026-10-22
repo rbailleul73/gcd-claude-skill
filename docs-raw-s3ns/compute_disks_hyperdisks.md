@@ -1,7 +1,7 @@
 # Google Cloud Hyperdisk overview
 
 Source: https://documentation.s3ns.fr/compute/docs/disks/hyperdisks
-Last updated: 2026-10-16
+Last updated: 2026-10-21
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/compute/docs/tpc-differences) for more details.
 
@@ -165,7 +165,7 @@ Guides
 - [ Hyperdisk and preemptible VM instances ](#hyperdisk_preemptible_instances)
 
 - [ Limitations for Hyperdisk ](#limitations)
-- [ What's next? ](#whats_next)
+- [ What's next ](#whats_next)
 - 
 
 
@@ -1895,8 +1895,8 @@ Hyperdisk types:
 - 
 
 Concurrent read-only access to a single volume from multiple instances.
-This is more cost effective than having multiple disks with the same data.
-Recommended for accelerator-optimized machine learning workloads.
+This scenario is more cost effective than having multiple disks with the same
+data. Recommended for accelerator-optimized machine learning workloads.
 Supported for Hyperdisk ML volumes.
 
 To learn about disk sharing, see
@@ -2032,11 +2032,13 @@ For more pricing information, see
 
 ### Hyperdisk and committed use discounts
 
-Hyperdisk volumes are not eligible for:
-
-- Resource-based committed use discounts (CUDs)
-
-- Sustained use discounts (SUDs)
+Only [Hyperdisk Exapools](/compute/docs/disks/hyperdisk-exapools) are
+eligible for resource-based committed use discounts (CUDs).
+Hyperdisk volumes that you purchase individually outside of an
+Exapool, as well as Hyperdisk Storage Pools, aren't eligible for
+resource-based CUDs or sustained use discounts (SUDs). To receive CUDs for
+Exapools, you must purchase a
+[block storage commitment](/compute/docs/instances/signing-up-committed-use-discounts#block_storage_commitments).
 
 ### Hyperdisk and preemptible VM instances
 
@@ -2074,7 +2076,7 @@ read-write mode.
 - Confidential VMs with AMD SEV on C3D machine types don't support
 Hyperdisk Balanced and Hyperdisk Throughput.
 
-## What's next?
+## What's next
 
 - Learn how to [create a Hyperdisk volume](/compute/docs/disks/add-hyperdisk).
 

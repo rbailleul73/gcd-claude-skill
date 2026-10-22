@@ -1,7 +1,7 @@
 # Manage access levels
 
 Source: https://documentation.s3ns.fr/access-context-manager/docs/manage-access-levels
-Last updated: 2026-10-19
+Last updated: 2026-10-20
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/access-context-manager/docs/tpc-differences) for more details.
 

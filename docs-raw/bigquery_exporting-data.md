@@ -1,7 +1,7 @@
 # Export table data to Cloud Storage
 
 Source: https://berlin.devsitetest.how/bigquery/docs/exporting-data
-Last updated: 2026-10-13
+Last updated: 2026-10-21
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -139,6 +139,7 @@ Guides
 - [ Export table metadata ](#export_table_metadata)
 - [ Export query results ](#export_query_results)
 
+- [ Other ways to export data ](#other_export_options)
 - [ Avro export details ](#avro_export_details)
 - [ Parquet export details ](#parquet_export_details)
 - [ Exporting data into one or more files ](#exporting_data_into_one_or_more_files)
@@ -174,29 +175,14 @@ Guides
 
 
 
-This page describes how to export or extract data from BigQuery tables
-to Cloud Storage.
+You can export BigQuery table data to Cloud Storage in CSV,
+JSON, Avro, or Parquet format for backup, archival, or processing in other
+tools. After you [load your data into
+BigQuery](/bigquery/docs/loading-data), you can export it by
+using the Google Cloud Dedicated console, the bq command-line tool, the API, client libraries,
+or [alternative export methods](#other_export_options).
 
-After you've [loaded your data into
-BigQuery](/bigquery/docs/loading-data), you can export the data
-in several formats. BigQuery can export up to 1 GB of logical
-data size to a single file. If you are exporting more than 1 GB of data, you
-must export your data to [multiple
-files](#exporting_data_into_one_or_more_files). When you export your data to
-multiple files, the size of the files will vary. For more information and
-recommendations about exporting large tables, see [Large table export considerations](/bigquery/docs/export-intro#large_table_export_considerations).
-
-You can also export the results of a query by using the
-[`EXPORT DATA`](/bigquery/docs/reference/standard-sql/export-statements#export_data_statement)
-statement. You can use [`EXPORT DATA OPTIONS`](/bigquery/docs/reference/standard-sql/export-statements#gcs_s3_export_option)
-to specify the format of the exported data.
-
-Finally, you can use a service such as [Dataflow](/dataflow/what-is-google-cloud-dataflow)
-to read data from BigQuery instead of exporting it from BigLake. For
-more information about using Dataflow to read from and write to
-BigQuery, see [BigQuery I/O documentation](https://beam.apache.org/documentation/io/built-in/google-bigquery).
-
-## Export limitations
+## Export limitations 
 
 When you export data from BigQuery, note the following:
 
@@ -209,7 +195,9 @@ exporting more than 1 GB of data, use a [wildcard](/bigquery/docs/exporting-data
 to export the data into multiple files. When you export data to multiple
 files, the size of the files will vary. To
 [limit the exported file size](#limit_the_exported_file_size), you can
-partition your data and export each partition.
+partition your data and export each partition. For more information and
+recommendations about exporting large tables, see
+[Large table export considerations](/bigquery/docs/export-intro#large_table_export_considerations).
 
 - The generated file size when using the `EXPORT DATA` statement is not guaranteed.
 
@@ -1614,7 +1602,7 @@ require "google/cloud/bigquery"
 def extract_table bucket_name = "my-bucket" , 
 dataset_id = "my_dataset_id" , 
 table_id = "my_table_id" 
-bigquery = Google :: Cloud :: [ Bigquery ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-bigquery-data_policies-v1/latest/Google-Cloud-Bigquery.html) . [ new ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+bigquery = Google :: Cloud :: [ Bigquery ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-bigquery-data_policies-v1beta1/latest/Google-Cloud-Bigquery.html) . [ new ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
 dataset = bigquery . dataset dataset_id 
 table = dataset . table table_id 
 
@@ -1721,6 +1709,18 @@ Click **Save** to export the query results.
 
 To check on the progress of the job, expand the **Job history** pane and
 look for the job with the `EXTRACT` type.
+
+## Other ways to export data
+
+You can also export the results of a query by using the
+[`EXPORT DATA`](/bigquery/docs/reference/standard-sql/export-statements#export_data_statement)
+statement. You can use [`EXPORT DATA OPTIONS`](/bigquery/docs/reference/standard-sql/export-statements#gcs_s3_export_option)
+to specify the format of the exported data.
+
+Finally, you can use a service such as [Dataflow](/dataflow/what-is-google-cloud-dataflow)
+to read data from BigQuery instead of exporting it from BigLake. For
+more information about using Dataflow to read from and write to
+BigQuery, see [BigQuery I/O documentation](https://beam.apache.org/documentation/io/built-in/google-bigquery).
 
 ## Avro export details
 

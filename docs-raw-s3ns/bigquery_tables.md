@@ -1,7 +1,7 @@
 # Create and use tables
 
 Source: https://documentation.s3ns.fr/bigquery/docs/tables
-Last updated: 2026-10-19
+Last updated: 2026-10-21
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -1999,7 +1999,7 @@ variable to `s3nsapis.fr`.
 require "google/cloud/bigquery" 
 
 def create_table dataset_id = "my_dataset" 
-bigquery = Google :: Cloud :: [ Bigquery ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-bigquery-data_policies-v1/latest/Google-Cloud-Bigquery.html) . [ new ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+bigquery = Google :: Cloud :: [ Bigquery ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-bigquery-data_policies-v1beta1/latest/Google-Cloud-Bigquery.html) . [ new ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
 dataset = bigquery . dataset dataset_id 
 table_id = "my_table" 
 
@@ -6000,6 +6000,31 @@ The list of data policies that are attached to the column to control access and 
 |
 
 | 
+`data_governance_tags` | 
+`ARRAY ` | 
+
+The list of [data
+governance tags](/bigquery/docs/tags#data-governance-tags) that are attached to the column to control access
+and masking. Each `STRUCT` contains the following
+`STRING` fields:
+
+
+
+- `key`: the namespaced tag key, in the format
+` PROJECT_ID / TAG_KEY ` or
+` ORGANIZATION_ID / TAG_KEY `.
+
+- `value`: the short name of the tag value.
+
+
+For `STRUCT` (or `RECORD`) columns, data
+governance tags that are attached to nested fields are available in the
+[`INFORMATION_SCHEMA.COLUMN_FIELD_PATHS`](/bigquery/docs/information-schema-column-field-paths)
+view.
+| 
+|
+
+| 
 `policy_tags` | 
 `ARRAY ` | 
 
@@ -6215,6 +6240,27 @@ otherwise, the value is `NULL`.
 `STRING` | 
 
 The list of data policies that are attached to the column to control access and masking. This field is in ([Preview](https://documentation.s3ns.fr/products#product-launch-stages)).
+| 
+|
+
+| 
+`data_governance_tags` | 
+`ARRAY ` | 
+
+The list of [data
+governance tags](/bigquery/docs/tags#data-governance-tags) that are attached to the column or nested field to
+control access and masking. Each `STRUCT` contains the
+following `STRING` fields:
+
+
+
+- `key`: the namespaced tag key, in the format
+` PROJECT_ID / TAG_KEY ` or
+` ORGANIZATION_ID / TAG_KEY `.
+
+- `value`: the short name of the tag value.
+
+
 | 
 |
 
@@ -6521,7 +6567,8 @@ The result is similar to the following:
 
 ##### Example 2:
 
-The following example shows different storage bytes in GiB at the dataset(s) level for current project.
+The following example shows different storage bytes in GiB at the dataset(s)
+level for the current project.
 
 
 ```
@@ -6640,7 +6687,7 @@ The result is similar to the following:
 
 ```
 +--------------+--------------------+-----------------------+---------------------+------------------------+--------------------------+-----------------------------+------------------------------+----------------------------------+-------------------------------+----------------------------------+--------------------------------+
-| dataset_name | active_logical_gib | long_term_logical_gib | active_physical_gib | long_term_physical_gib | active_compression_ratio | long_term_compression_ratio | forecast_active_logical_cost | forecaset_long_term_logical_cost | forecast_active_physical_cost | forecast_long_term_physical_cost | forecast_total_cost_difference |
+| dataset_name | active_logical_gib | long_term_logical_gib | active_physical_gib | long_term_physical_gib | active_compression_ratio | long_term_compression_ratio | forecast_active_logical_cost | forecast_long_term_logical_cost | forecast_active_physical_cost | forecast_long_term_physical_cost | forecast_total_cost_difference |
 +--------------+--------------------+-----------------------+---------------------+------------------------+--------------------------+-----------------------------+------------------------------+----------------------------------+-------------------------------+----------------------------------+--------------------------------+
 | dataset1 | 10.0 | 10.0 | 1.0 | 1.0 | 10.0 | 10.0 | 0.2 | 0.1 | 0.04 | 0.02 | 0.24 |
 ```
@@ -7700,7 +7747,7 @@ variable to `s3nsapis.fr`.
 require "google/cloud/bigquery" 
 
 def list_tables dataset_id = "your_dataset_id" 
-bigquery = Google :: Cloud :: [ Bigquery ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-bigquery-data_policies-v1/latest/Google-Cloud-Bigquery.html) . [ new ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+bigquery = Google :: Cloud :: [ Bigquery ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-bigquery-data_policies-v1beta1/latest/Google-Cloud-Bigquery.html) . [ new ](https://documentation.s3ns.fr/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
 dataset = bigquery . dataset dataset_id 
 
 puts "Tables in dataset #{ dataset_id } :" 

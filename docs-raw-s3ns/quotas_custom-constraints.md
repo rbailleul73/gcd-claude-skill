@@ -1,7 +1,7 @@
 # Use custom organization policies
 
 Source: https://documentation.s3ns.fr/docs/quotas/custom-constraints
-Last updated: 2026-10-16
+Last updated: 2026-10-21
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/docs/quotas/tpc-differences) for more details.
 
@@ -438,6 +438,18 @@ roles](/iam/docs/roles-overview#predefined).
 
 The following table lists the Cloud Quotas resources that you can
 reference in custom constraints:
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

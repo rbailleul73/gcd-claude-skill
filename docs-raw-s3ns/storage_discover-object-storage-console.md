@@ -1,7 +1,7 @@
 # Quickstart: Discover object storage with the Cloud de Confiance console
 
 Source: https://documentation.s3ns.fr/storage/docs/discover-object-storage-console
-Last updated: 2026-10-20
+Last updated: 2026-10-22
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/storage/docs/tpc-differences) for more details.
 
@@ -152,8 +152,9 @@ Guides
 
 
 
-Learn how to get started with Cloud Storage using
-the Cloud de Confiance console.
+Cloud Storage lets you store and retrieve unstructured data at scale. In this
+quickstart, you use the Cloud de Confiance console to create a bucket, upload an
+object, and share that object.
 
 Costs that you incur in Cloud Storage are based on the resources you
 use. This quickstart typically uses less than $0.01 USD worth of

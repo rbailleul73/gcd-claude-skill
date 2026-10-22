@@ -1,7 +1,7 @@
 # Identity and Access Management (IAM) API
 
 Source: https://documentation.s3ns.fr/iam/docs/reference/rest
-Last updated: 2026-10-06
+Last updated: 2026-10-21
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/iam/docs/tpc-differences) for more details.
 
@@ -148,8 +148,6 @@ Reference
 - [ REST Resource: v1.locations.workforcePools.providers ](#rest-resource:-v1.locations.workforcepools.providers)
 - [ REST Resource: v1.locations.workforcePools.providers.keys ](#rest-resource:-v1.locations.workforcepools.providers.keys)
 - [ REST Resource: v1.locations.workforcePools.providers.operations ](#rest-resource:-v1.locations.workforcepools.providers.operations)
-- [ REST Resource: v1.locations.workforcePools.providers.scimTenants ](#rest-resource:-v1.locations.workforcepools.providers.scimtenants)
-- [ REST Resource: v1.locations.workforcePools.providers.scimTenants.tokens ](#rest-resource:-v1.locations.workforcepools.providers.scimtenants.tokens)
 - [ REST Resource: v1.locations.workforcePools.subjects ](#rest-resource:-v1.locations.workforcepools.subjects)
 - [ REST Resource: v1.organizations.roles ](#rest-resource:-v1.organizations.roles)
 - [ REST Resource: v1.permissions ](#rest-resource:-v1.permissions)
@@ -158,6 +156,8 @@ Reference
 - [ REST Resource: v1.projects.locations.workloadIdentityPools ](#rest-resource:-v1.projects.locations.workloadidentitypools)
 - [ REST Resource: v1.projects.locations.workloadIdentityPools.namespaces ](#rest-resource:-v1.projects.locations.workloadidentitypools.namespaces)
 - [ REST Resource: v1.projects.locations.workloadIdentityPools.namespaces.managedIdentities ](#rest-resource:-v1.projects.locations.workloadidentitypools.namespaces.managedidentities)
+- [ REST Resource: v1.projects.locations.workloadIdentityPools.namespaces.managedIdentities.operations ](#rest-resource:-v1.projects.locations.workloadidentitypools.namespaces.managedidentities.operations)
+- [ REST Resource: v1.projects.locations.workloadIdentityPools.namespaces.operations ](#rest-resource:-v1.projects.locations.workloadidentitypools.namespaces.operations)
 - [ REST Resource: v1.projects.locations.workloadIdentityPools.operations ](#rest-resource:-v1.projects.locations.workloadidentitypools.operations)
 - [ REST Resource: v1.projects.locations.workloadIdentityPools.providers ](#rest-resource:-v1.projects.locations.workloadidentitypools.providers)
 - [ REST Resource: v1.projects.locations.workloadIdentityPools.providers.keys ](#rest-resource:-v1.projects.locations.workloadidentitypools.providers.keys)
@@ -214,10 +214,6 @@ v1beta.projects.locations.workloadIdentityPools.providers.operations](#v1beta.pr
 
 - [REST Resource: v1.locations.workforcePools.providers.operations](#v1.locations.workforcePools.providers.operations)
 
-- [REST Resource: v1.locations.workforcePools.providers.scimTenants](#v1.locations.workforcePools.providers.scimTenants)
-
-- [REST Resource: v1.locations.workforcePools.providers.scimTenants.tokens](#v1.locations.workforcePools.providers.scimTenants.tokens)
-
 - [REST Resource: v1.locations.workforcePools.subjects](#v1.locations.workforcePools.subjects)
 
 - [REST Resource: v1.organizations.roles](#v1.organizations.roles)
@@ -234,6 +230,12 @@ v1beta.projects.locations.workloadIdentityPools.providers.operations](#v1beta.pr
 
 - [REST Resource: 
 v1.projects.locations.workloadIdentityPools.namespaces.managedIdentities](#v1.projects.locations.workloadIdentityPools.namespaces.managedIdentities)
+
+- [REST Resource: 
+v1.projects.locations.workloadIdentityPools.namespaces.managedIdentities.operations](#v1.projects.locations.workloadIdentityPools.namespaces.managedIdentities.operations)
+
+- [REST Resource: 
+v1.projects.locations.workloadIdentityPools.namespaces.operations](#v1.projects.locations.workloadIdentityPools.namespaces.operations)
 
 - [REST Resource: v1.projects.locations.workloadIdentityPools.operations](#v1.projects.locations.workloadIdentityPools.operations)
 
@@ -738,63 +740,81 @@ Methods |
 
 `[create](/iam/docs/reference/rest/v1/locations.workforcePools/create)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.CreateWorkforcePool` is not available in Cloud de Confiance by S3NS. | 
+`POST /v1/{location=locations/*}/workforcePools` 
+
+Creates a new `[WorkforcePool](/iam/docs/reference/rest/v1/locations.workforcePools#WorkforcePool)`. | 
 |
 
 | 
 
 `[delete](/iam/docs/reference/rest/v1/locations.workforcePools/delete)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.DeleteWorkforcePool` is not available in Cloud de Confiance by S3NS. | 
+`DELETE /v1/{name=locations/*/workforcePools/*}` 
+
+Deletes a `[WorkforcePool](/iam/docs/reference/rest/v1/locations.workforcePools#WorkforcePool)`. | 
 |
 
 | 
 
 `[get](/iam/docs/reference/rest/v1/locations.workforcePools/get)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.GetWorkforcePool` is not available in Cloud de Confiance by S3NS. | 
+`GET /v1/{name=locations/*/workforcePools/*}` 
+
+Gets an individual `[WorkforcePool](/iam/docs/reference/rest/v1/locations.workforcePools#WorkforcePool)`. | 
 |
 
 | 
 
 `[getIamPolicy](/iam/docs/reference/rest/v1/locations.workforcePools/getIamPolicy)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.GetIamPolicy` is not available in Cloud de Confiance by S3NS. | 
+`POST /v1/{resource=locations/*/workforcePools/*}:getIamPolicy` 
+
+Gets IAM policies on a `[WorkforcePool](/iam/docs/reference/rest/v1/locations.workforcePools#WorkforcePool)`. | 
 |
 
 | 
 
 `[list](/iam/docs/reference/rest/v1/locations.workforcePools/list)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.ListWorkforcePools` is not available in Cloud de Confiance by S3NS. | 
+`GET /v1/{location=locations/*}/workforcePools` 
+
+Lists all non-deleted `[WorkforcePool](/iam/docs/reference/rest/v1/locations.workforcePools#WorkforcePool)`s under the specified parent. | 
 |
 
 | 
 
 `[patch](/iam/docs/reference/rest/v1/locations.workforcePools/patch)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.UpdateWorkforcePool` is not available in Cloud de Confiance by S3NS. | 
+`PATCH /v1/{workforcePool.name=locations/*/workforcePools/*}` 
+
+Updates an existing `[WorkforcePool](/iam/docs/reference/rest/v1/locations.workforcePools#WorkforcePool)`. | 
 |
 
 | 
 
 `[setIamPolicy](/iam/docs/reference/rest/v1/locations.workforcePools/setIamPolicy)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.SetIamPolicy` is not available in Cloud de Confiance by S3NS. | 
+`POST /v1/{resource=locations/*/workforcePools/*}:setIamPolicy` 
+
+Sets IAM policies on a `[WorkforcePool](/iam/docs/reference/rest/v1/locations.workforcePools#WorkforcePool)`. | 
 |
 
 | 
 
 `[testIamPermissions](/iam/docs/reference/rest/v1/locations.workforcePools/testIamPermissions)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.TestIamPermissions` is not available in Cloud de Confiance by S3NS. | 
+`POST /v1/{resource=locations/*/workforcePools/*}:testIamPermissions` 
+
+Returns the caller's permissions on the `[WorkforcePool](/iam/docs/reference/rest/v1/locations.workforcePools#WorkforcePool)`. | 
 |
 
 | 
 
 `[undelete](/iam/docs/reference/rest/v1/locations.workforcePools/undelete)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.UndeleteWorkforcePool` is not available in Cloud de Confiance by S3NS. | 
+`POST /v1/{name=locations/*/workforcePools/*}:undelete` 
+
+Undeletes a `[WorkforcePool](/iam/docs/reference/rest/v1/locations.workforcePools#WorkforcePool)`, as long as it was deleted fewer than 30 days ago. | 
 |
 
 
@@ -852,42 +872,54 @@ Methods |
 
 `[create](/iam/docs/reference/rest/v1/locations.workforcePools.providers/create)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.CreateWorkforcePoolProvider` is not available in Cloud de Confiance by S3NS. | 
+`POST /v1/{parent=locations/*/workforcePools/*}/providers` 
+
+Creates a new `[WorkforcePoolProvider](/iam/docs/reference/rest/v1/locations.workforcePools.providers#WorkforcePoolProvider)` in a `[WorkforcePool](/iam/docs/reference/rest/v1/locations.workforcePools#WorkforcePool)`. | 
 |
 
 | 
 
 `[delete](/iam/docs/reference/rest/v1/locations.workforcePools.providers/delete)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.DeleteWorkforcePoolProvider` is not available in Cloud de Confiance by S3NS. | 
+`DELETE /v1/{name=locations/*/workforcePools/*/providers/*}` 
+
+Deletes a `[WorkforcePoolProvider](/iam/docs/reference/rest/v1/locations.workforcePools.providers#WorkforcePoolProvider)`. | 
 |
 
 | 
 
 `[get](/iam/docs/reference/rest/v1/locations.workforcePools.providers/get)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.GetWorkforcePoolProvider` is not available in Cloud de Confiance by S3NS. | 
+`GET /v1/{name=locations/*/workforcePools/*/providers/*}` 
+
+Gets an individual `[WorkforcePoolProvider](/iam/docs/reference/rest/v1/locations.workforcePools.providers#WorkforcePoolProvider)`. | 
 |
 
 | 
 
 `[list](/iam/docs/reference/rest/v1/locations.workforcePools.providers/list)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.ListWorkforcePoolProviders` is not available in Cloud de Confiance by S3NS. | 
+`GET /v1/{parent=locations/*/workforcePools/*}/providers` 
+
+Lists all non-deleted `[WorkforcePoolProvider](/iam/docs/reference/rest/v1/locations.workforcePools.providers#WorkforcePoolProvider)`s in a `[WorkforcePool](/iam/docs/reference/rest/v1/locations.workforcePools#WorkforcePool)`. | 
 |
 
 | 
 
 `[patch](/iam/docs/reference/rest/v1/locations.workforcePools.providers/patch)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.UpdateWorkforcePoolProvider` is not available in Cloud de Confiance by S3NS. | 
+`PATCH /v1/{workforcePoolProvider.name=locations/*/workforcePools/*/providers/*}` 
+
+Updates an existing `[WorkforcePoolProvider](/iam/docs/reference/rest/v1/locations.workforcePools.providers#WorkforcePoolProvider)`. | 
 |
 
 | 
 
 `[undelete](/iam/docs/reference/rest/v1/locations.workforcePools.providers/undelete)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.UndeleteWorkforcePoolProvider` is not available in Cloud de Confiance by S3NS. | 
+`POST /v1/{name=locations/*/workforcePools/*/providers/*}:undelete` 
+
+Undeletes a `[WorkforcePoolProvider](/iam/docs/reference/rest/v1/locations.workforcePools.providers#WorkforcePoolProvider)`, as long as it was deleted fewer than 30 days ago. | 
 |
 
 
@@ -915,35 +947,45 @@ Methods |
 
 `[create](/iam/docs/reference/rest/v1/locations.workforcePools.providers.keys/create)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.CreateWorkforcePoolProviderKey` is not available in Cloud de Confiance by S3NS. | 
+`POST /v1/{parent=locations/*/workforcePools/*/providers/*}/keys` 
+
+Creates a new `[WorkforcePoolProviderKey](/iam/docs/reference/rest/v1/locations.workforcePools.providers.keys#WorkforcePoolProviderKey)` in a `[WorkforcePoolProvider](/iam/docs/reference/rest/v1/locations.workforcePools.providers#WorkforcePoolProvider)`. | 
 |
 
 | 
 
 `[delete](/iam/docs/reference/rest/v1/locations.workforcePools.providers.keys/delete)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.DeleteWorkforcePoolProviderKey` is not available in Cloud de Confiance by S3NS. | 
+`DELETE /v1/{name=locations/*/workforcePools/*/providers/*/keys/*}` 
+
+Deletes a `[WorkforcePoolProviderKey](/iam/docs/reference/rest/v1/locations.workforcePools.providers.keys#WorkforcePoolProviderKey)`. | 
 |
 
 | 
 
 `[get](/iam/docs/reference/rest/v1/locations.workforcePools.providers.keys/get)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.GetWorkforcePoolProviderKey` is not available in Cloud de Confiance by S3NS. | 
+`GET /v1/{name=locations/*/workforcePools/*/providers/*/keys/*}` 
+
+Gets a `[WorkforcePoolProviderKey](/iam/docs/reference/rest/v1/locations.workforcePools.providers.keys#WorkforcePoolProviderKey)`. | 
 |
 
 | 
 
 `[list](/iam/docs/reference/rest/v1/locations.workforcePools.providers.keys/list)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.ListWorkforcePoolProviderKeys` is not available in Cloud de Confiance by S3NS. | 
+`GET /v1/{parent=locations/*/workforcePools/*/providers/*}/keys` 
+
+Lists all non-deleted `[WorkforcePoolProviderKey](/iam/docs/reference/rest/v1/locations.workforcePools.providers.keys#WorkforcePoolProviderKey)`s in a `[WorkforcePoolProvider](/iam/docs/reference/rest/v1/locations.workforcePools.providers#WorkforcePoolProvider)`. | 
 |
 
 | 
 
 `[undelete](/iam/docs/reference/rest/v1/locations.workforcePools.providers.keys/undelete)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.UndeleteWorkforcePoolProviderKey` is not available in Cloud de Confiance by S3NS. | 
+`POST /v1/{name=locations/*/workforcePools/*/providers/*/keys/*}:undelete` 
+
+Undeletes a `[WorkforcePoolProviderKey](/iam/docs/reference/rest/v1/locations.workforcePools.providers.keys#WorkforcePoolProviderKey)`, as long as it was deleted fewer than 30 days ago. | 
 |
 
 
@@ -981,132 +1023,6 @@ Gets the latest state of a long-running operation. |
 
 
 
-## REST Resource: [v1.locations.workforcePools.providers.scimTenants](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants)
-
-
-
-
-
-
-
-
-
-| 
-Methods | 
-|
-
-
-
-| 
-
-`[create](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants/create)` | 
-
-The method `google.iam.admin.v1.WorkforcePools.CreateWorkforcePoolProviderScimTenant` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[delete](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants/delete)` | 
-
-The method `google.iam.admin.v1.WorkforcePools.DeleteWorkforcePoolProviderScimTenant` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[get](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants/get)` | 
-
-The method `google.iam.admin.v1.WorkforcePools.GetWorkforcePoolProviderScimTenant` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[list](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants/list)` | 
-
-The method `google.iam.admin.v1.WorkforcePools.ListWorkforcePoolProviderScimTenants` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[patch](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants/patch)` | 
-
-The method `google.iam.admin.v1.WorkforcePools.UpdateWorkforcePoolProviderScimTenant` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[undelete](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants/undelete)` | 
-
-The method `google.iam.admin.v1.WorkforcePools.UndeleteWorkforcePoolProviderScimTenant` is not available in Cloud de Confiance by S3NS. | 
-|
-
-
-
-
-
-
-## REST Resource: [v1.locations.workforcePools.providers.scimTenants.tokens](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants.tokens)
-
-
-
-
-
-
-
-
-
-| 
-Methods | 
-|
-
-
-
-| 
-
-`[create](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants.tokens/create)` | 
-
-The method `google.iam.admin.v1.WorkforcePools.CreateWorkforcePoolProviderScimToken` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[delete](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants.tokens/delete)` | 
-
-The method `google.iam.admin.v1.WorkforcePools.DeleteWorkforcePoolProviderScimToken` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[get](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants.tokens/get)` | 
-
-The method `google.iam.admin.v1.WorkforcePools.GetWorkforcePoolProviderScimToken` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[list](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants.tokens/list)` | 
-
-The method `google.iam.admin.v1.WorkforcePools.ListWorkforcePoolProviderScimTokens` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[patch](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants.tokens/patch)` | 
-
-The method `google.iam.admin.v1.WorkforcePools.UpdateWorkforcePoolProviderScimToken` is not available in Cloud de Confiance by S3NS. | 
-|
-
-| 
-
-`[undelete](/iam/docs/reference/rest/v1/locations.workforcePools.providers.scimTenants.tokens/undelete)` | 
-
-The method `google.iam.admin.v1.WorkforcePools.UndeleteWorkforcePoolProviderScimToken` is not available in Cloud de Confiance by S3NS. | 
-|
-
-
-
-
-
-
 ## REST Resource: [v1.locations.workforcePools.subjects](/iam/docs/reference/rest/v1/locations.workforcePools.subjects)
 
 
@@ -1127,14 +1043,18 @@ Methods |
 
 `[delete](/iam/docs/reference/rest/v1/locations.workforcePools.subjects/delete)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.DeleteWorkforcePoolSubject` is not available in Cloud de Confiance by S3NS. | 
+`DELETE /v1/{name=locations/*/workforcePools/*/subjects/*}` 
+
+Deletes a `WorkforcePoolSubject`. | 
 |
 
 | 
 
 `[undelete](/iam/docs/reference/rest/v1/locations.workforcePools.subjects/undelete)` | 
 
-The method `google.iam.admin.v1.WorkforcePools.UndeleteWorkforcePoolSubject` is not available in Cloud de Confiance by S3NS. | 
+`POST /v1/{name=locations/*/workforcePools/*/subjects/*}:undelete` 
+
+Undeletes a `WorkforcePoolSubject`, as long as it was deleted fewer than 30 days ago. | 
 |
 
 | 
@@ -1391,6 +1311,13 @@ Methods |
 
 | 
 
+`[addAttestationRule](/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools/addAttestationRule)` | 
+
+The method `google.iam.v1.WorkloadIdentityPools.AddAttestationRule` is not available in Cloud de Confiance by S3NS. | 
+|
+
+| 
+
 `[create](/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools/create)` | 
 
 The method `google.iam.v1.WorkloadIdentityPools.CreateWorkloadIdentityPool` is not available in Cloud de Confiance by S3NS. | 
@@ -1426,9 +1353,30 @@ The method `google.iam.v1.WorkloadIdentityPools.ListWorkloadIdentityPools` is no
 
 | 
 
+`[listAttestationRules](/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools/listAttestationRules)` | 
+
+The method `google.iam.v1.WorkloadIdentityPools.ListAttestationRules` is not available in Cloud de Confiance by S3NS. | 
+|
+
+| 
+
 `[patch](/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools/patch)` | 
 
 The method `google.iam.v1.WorkloadIdentityPools.UpdateWorkloadIdentityPool` is not available in Cloud de Confiance by S3NS. | 
+|
+
+| 
+
+`[removeAttestationRule](/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools/removeAttestationRule)` | 
+
+The method `google.iam.v1.WorkloadIdentityPools.RemoveAttestationRule` is not available in Cloud de Confiance by S3NS. | 
+|
+
+| 
+
+`[setAttestationRules](/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools/setAttestationRules)` | 
+
+The method `google.iam.v1.WorkloadIdentityPools.SetAttestationRules` is not available in Cloud de Confiance by S3NS. | 
 |
 
 | 
@@ -1604,6 +1552,66 @@ The method `google.iam.v1.WorkloadIdentityPools.SetAttestationRules` is not avai
 `[undelete](/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools.namespaces.managedIdentities/undelete)` | 
 
 The method `google.iam.v1.WorkloadIdentityPools.UndeleteWorkloadIdentityPoolManagedIdentity` is not available in Cloud de Confiance by S3NS. | 
+|
+
+
+
+
+
+
+## REST Resource: [v1.projects.locations.workloadIdentityPools.namespaces.managedIdentities.operations](/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools.namespaces.managedIdentities.operations)
+
+
+
+
+
+
+
+
+
+| 
+Methods | 
+|
+
+
+
+| 
+
+`[get](/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools.namespaces.managedIdentities.operations/get)` | 
+
+`GET /v1/{name=projects/*/locations/*/workloadIdentityPools/*/namespaces/*/managedIdentities/*/operations/*}` 
+
+Gets the latest state of a long-running operation. | 
+|
+
+
+
+
+
+
+## REST Resource: [v1.projects.locations.workloadIdentityPools.namespaces.operations](/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools.namespaces.operations)
+
+
+
+
+
+
+
+
+
+| 
+Methods | 
+|
+
+
+
+| 
+
+`[get](/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools.namespaces.operations/get)` | 
+
+`GET /v1/{name=projects/*/locations/*/workloadIdentityPools/*/namespaces/*/operations/*}` 
+
+Gets the latest state of a long-running operation. | 
 |
 
 

@@ -1,7 +1,7 @@
 # Application hosting
 
 Source: https://berlin.devsitetest.how/docs/application-hosting
-Last updated: 2026-10-13
+Last updated: 2026-10-20
 
 - 
 

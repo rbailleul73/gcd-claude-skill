@@ -1,7 +1,7 @@
 # Create custom query quotas
 
 Source: https://berlin.devsitetest.how/bigquery/docs/custom-quotas
-Last updated: 2026-10-13
+Last updated: 2026-10-22
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -364,39 +364,20 @@ For more information about viewing and managing quotas, see
 
 ## Returned error messages
 
-After you set a custom quota, BigQuery returns an error when you
-exceed it:
+After you set a custom quota, BigQuery returns a
+[`quotaExceeded`](/bigquery/docs/error-messages#errortable) error when you
+exceed it. The message names the quota that you exceeded: `QueryUsagePerDay` for
+a project-level custom quota, or `QueryUsagePerUserPerDay` for a user-level
+custom quota:
 
-- 
+- `Custom quota exceeded: Your usage exceeded the custom quota for
+QueryUsagePerDay, which is set by your administrator.`
 
-If you exceed a project-level custom quota, BigQuery returns
-the [`usageQuotaExceeded`](/bigquery/troubleshooting-errors#quotaExceeded)
-error:
+- `Custom quota exceeded: Your usage exceeded the custom quota for
+QueryUsagePerUserPerDay, which is set by your administrator.`
 
-
-```
-Custom quota exceeded: Your usage exceeded the custom quota for
-QueryUsagePerDay, which is set by your administrator. For more information,
-see https://cloud.google.com/bigquery/cost-controls
-```
-
-
-- 
-
-If the user exceeds a user-level custom quota, BigQuery returns
-a [`usageQuotaExceeded`](/bigquery/troubleshooting-errors#quotaExceeded)
-error with a different error message:
-
-
-```
-Custom quota exceeded: Your usage exceeded the custom quota for
-QueryUsagePerUserPerDay, which is set by your administrator. For more
-information, see https://cloud.google.com/bigquery/cost-controls
-```
-
-
-You can run your query from another project that has access to your datasets
-and that doesn't have a custom quota or hasn't yet exceeded it.
+To diagnose and resolve these errors, see
+[Troubleshoot custom daily query quota errors](/bigquery/docs/troubleshoot-quotas#ts-custom-daily-query-quota).
 
 ## Example
 
