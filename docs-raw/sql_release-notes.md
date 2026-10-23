@@ -1,7 +1,7 @@
 # Cloud SQL release notes
 
 Source: https://berlin.devsitetest.how/sql/docs/release-notes
-Last updated: 2026-10-22
+Last updated: 2026-10-23
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/sql/docs/tpc-differences) for more details.
 
@@ -381,7 +381,7 @@ instances and replicas are unchanged, but the operation now re-encrypts the
 underlying disks in-place, without creating re-encryption backups.
 
 For more information, see [Re-encrypt an existing CMEK-enabled instance or
-replica](https://berlin.devsitetest.how/sql/docs/mysql/configure-cmek#reencrypt).
+replica](/sql/docs/mysql/configure-cmek#reencrypt).
 
 
 **Cloud SQL for PostgreSQL**
@@ -396,7 +396,7 @@ instances and replicas are unchanged, but the operation now re-encrypts the
 underlying disks in-place, without creating re-encryption backups.
 
 For more information, see [Re-encrypt an existing CMEK-enabled instance or
-replica](https://berlin.devsitetest.how/sql/docs/postgres/configure-cmek#reencrypt).
+replica](/sql/docs/postgres/configure-cmek#reencrypt).
 
 
 
@@ -434,7 +434,7 @@ Instances that use advanced disaster recovery features such as switchover and
 failover operations.
 
 For more information about Private Service Connect outbound connectivity see
-[About Private Service Connect](https://berlin.devsitetest.how/sql/docs/mysql/about-private-service-connect#psc-outbound).
+[About Private Service Connect](/sql/docs/mysql/about-private-service-connect#psc-outbound).
 
 
 **Cloud SQL for PostgreSQL**
@@ -455,7 +455,7 @@ Instances that use advanced disaster recovery features such as switchover and
 failover operations.
 
 For more information about Private Service Connect outbound connectivity see
-[About Private Service Connect](https://berlin.devsitetest.how/sql/docs/postgres/about-private-service-connect#psc-outbound).
+[About Private Service Connect](/sql/docs/postgres/about-private-service-connect#psc-outbound).
 
 
 
@@ -471,7 +471,7 @@ generally available. You can protect your CMEK-enabled Cloud SQL instances
 using Google Cloud Backup and DR Service.
 
 For more information, see [Choose your backup
-option](https://berlin.devsitetest.how/sql/docs/postgres/backup-recovery/backup-options).
+option](/sql/docs/postgres/backup-recovery/backup-options).
 
 
 
@@ -497,7 +497,8 @@ Feature
 
 
 Cloud SQL for MySQL [managed buffer pool](/sql/docs/mysql/optimize-high-memory-usage#enable-managed-buffer-pool)
-is now generally available ([GA](https://berlin.devsitetest.how/products/#product-launch-stages)).
+is now generally available
+([GA](https://berlin.devsitetest.how/products#product-launch-stages)).
 Managed buffer pool helps you avoid out-of-memory events (OOMs) on your
 Cloud SQL instance by reducing `innodb_buffer_pool_size` when memory usage is high.
 
@@ -515,7 +516,7 @@ their operational data using natural language. This feature is powered by the
 [Conversational Analytics API](/gemini/data-agents/conversational-analytics-api/overview),
 which can help you translate complex human dialog into precise database queries
 to provide actionable insights. This feature is in
-[Preview](/products#product-launch-stages).
+[Preview](https://berlin.devsitetest.how/products#product-launch-stages).
 For more information, see [Conversational analytics for Cloud SQL for PostgreSQL overview](/gemini/data-agents/conversational-analytics/sql-postgres).
 
 
@@ -527,10 +528,12 @@ For more information, see [Conversational analytics for Cloud SQL for PostgreSQL
 Feature 
 
 
-MySQL 8.0.44 is now the [default minor version](https://berlin.devsitetest.how/sql/docs/mysql/db-versions#database-version-support) for Cloud SQL for MySQL 8.0.
+MySQL 8.0.44 is now the
+[default minor version](/sql/docs/mysql/db-versions#database-version-support)
+for Cloud SQL for MySQL 8.0.
 
 For more information about minor version support in Cloud SQL for MySQL, see
-[MySQL 8.0](https://berlin.devsitetest.how/sql/docs/mysql/db-versions#mysql-8.0).
+[MySQL 8.0](/sql/docs/mysql/db-versions#mysql-8.0).
 
 
 
@@ -544,7 +547,7 @@ Feature
 Cloud SQL for MySQL now supports minor version
 [8.0.45](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-45.html).
 To upgrade your existing instance to the new minor version, see
-[Upgrade the database minor version](https://berlin.devsitetest.how/sql/docs/mysql/upgrade-minor-db-version#manual-upgrade).
+[Upgrade the database minor version](/sql/docs/mysql/upgrade-minor-db-version#manual-upgrade).
 
 
 
@@ -555,7 +558,8 @@ To upgrade your existing instance to the new minor version, see
 Feature 
 
 
-You can now execute SQL statements using the [Cloud SQL Data API](https://berlin.devsitetest.how/sql/docs/mysql/executesql-instance) for
+You can now execute SQL statements using the
+[Cloud SQL Data API](/sql/docs/mysql/executesql-instance) for
 administrative queries.
 
 
@@ -564,7 +568,8 @@ administrative queries.
 Feature 
 
 
-You can now execute SQL statements using the [Cloud SQL Data API](https://berlin.devsitetest.how/sql/docs/postgres/executesql-instance) for
+You can now execute SQL statements using the
+[Cloud SQL Data API](/sql/docs/postgres/executesql-instance) for
 administrative queries.
 
 
@@ -599,10 +604,12 @@ To enable iterative filtering for your ANN search query, set the
 You can set the flag at a session or global level.
 
 To enable and use iterative filtering for your ANN search query, you must have
-[`[MYSQL_$VERSION].R20251004.01_07`](https://berlin.devsitetest.how/sql/docs/mysql/maintenance-changelog/)
+[`[MYSQL_$VERSION].R20251004.01_07`](/sql/docs/mysql/maintenance-changelog)
 or later installed on your MySQL instance.
 
-For more information, see [Search approximate nearest neighbors (ANN)](https://berlin.devsitetest.how/sql/docs/mysql/search-filter-vector-embeddings#ann).
+For more information, see
+[Search approximate nearest neighbors (ANN)](/sql/docs/mysql/search-filter-vector-embeddings#ann)
+.
 
 
 
@@ -617,7 +624,7 @@ Cloud SQL for MySQL now supports minor version
 [8.0.44](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-44.html).
 To upgrade your existing
 instance to the new version, see
-[Upgrade the database minor version](https://berlin.devsitetest.how/sql/docs/mysql/upgrade-minor-db-version#manual-upgrade).
+[Upgrade the database minor version](/sql/docs/mysql/upgrade-minor-db-version#manual-upgrade).
 
 
 
@@ -1049,7 +1056,9 @@ Support for the [`northamerica-south1`](/sql/docs/mysql/locations) (Mexico) regi
 Feature 
 
 
-The `pgvector` extension is now upgraded from version 0.7.4 to version 0.8.0. Use this extension to store and search for vector embeddings in PostgreSQL databases. For more information, see [Configure PostgreSQL extensions](https://berlin.devsitetest.how/sql/docs/postgres/extensions). 
+The `pgvector` extension is now upgraded from version 0.7.4 to version 0.8.0.
+Use this extension to store and search for vector embeddings in PostgreSQL
+databases. For more information, see [Configure PostgreSQL extensions](/sql/docs/postgres/extensions).
 
 To use this version of the extension, update your instance to one of the following:
 
@@ -1137,7 +1146,13 @@ You can now create custom organization policies for the [`BackupRun`](/sql/docs/
 Feature 
 
 
-You can now have Cloud SQL create a Private Service Connect endpoint automatically instead of creating the endpoint manually after the instance is created. You use this endpoint to access a Cloud SQL instance through a VPC network. For more information, see [Connect to an instance using Private Service Connect](/sql/docs/mysql/configure-private-service-connect#create-endpoint-automatically). This feature is available in [Preview](https://berlin.devsitetest.how/products?e=48754805#product-launch-stages).
+You can now have Cloud SQL create a Private Service Connect endpoint
+automatically instead of creating the endpoint manually after the instance is
+created. You use this endpoint to access a Cloud SQL instance through a VPC
+network. For more information, see
+[Connect to an instance using Private Service Connect](/sql/docs/mysql/configure-private-service-connect#create-endpoint-automatically).
+This feature is available in
+[Preview](https://berlin.devsitetest.how/products#product-launch-stages).
 
 
 **Cloud SQL for PostgreSQL**
@@ -1145,7 +1160,13 @@ You can now have Cloud SQL create a Private Service Connect endpoint automatical
 Feature 
 
 
-You can now have Cloud SQL create a Private Service Connect endpoint automatically instead of creating the endpoint manually after the instance is created. You use this endpoint to access a Cloud SQL instance through a VPC network. For more information, see [Connect to an instance using Private Service Connect](/sql/docs/postgres/configure-private-service-connect#create-endpoint-automatically). This feature is available in [Preview](https://berlin.devsitetest.how/products?e=48754805#product-launch-stages).
+You can now have Cloud SQL create a Private Service Connect endpoint
+automatically instead of creating the endpoint manually after the instance is
+created. You use this endpoint to access a Cloud SQL instance through a VPC
+network. For more information, see
+[Connect to an instance using Private Service Connect](/sql/docs/postgres/configure-private-service-connect#create-endpoint-automatically).
+This feature is available in
+[Preview](https://berlin.devsitetest.how/products#product-launch-stages).
 
 
 **Cloud SQL for SQL Server**
@@ -1153,7 +1174,13 @@ You can now have Cloud SQL create a Private Service Connect endpoint automatical
 Feature 
 
 
-You can now have Cloud SQL create a Private Service Connect endpoint automatically instead of creating the endpoint manually after the instance is created. You use this endpoint to access a Cloud SQL instance through a VPC network. For more information, see [Connect to an instance using Private Service Connect](/sql/docs/sqlserver/configure-private-service-connect#create-endpoint-automatically). This feature is available in [Preview](https://berlin.devsitetest.how/products?e=48754805#product-launch-stages).
+You can now have Cloud SQL create a Private Service Connect endpoint
+automatically instead of creating the endpoint manually after the instance is
+created. You use this endpoint to access a Cloud SQL instance through a VPC
+network. For more information, see
+[Connect to an instance using Private Service Connect](/sql/docs/sqlserver/configure-private-service-connect#create-endpoint-automatically).
+This feature is available in
+[Preview](https://berlin.devsitetest.how/products#product-launch-stages).
 
 
 
@@ -1490,7 +1517,17 @@ You can now use gcloud or the Cloud SQL Admin API to switch the storage location
 Deprecated 
 
 
-Cloud SQL is discontinuing support for [legacy high availability (HA)](https://berlin.devsitetest.how/sql/docs/mysql/configure-legacy-ha) instance configuration on January 6, 2025. After this date, you can't create Cloud SQL for MySQL instances with the legacy configuration for high availability. You also can't enable the legacy configuration for high availability on existing instances. Until January 6, 2025, legacy HA instances are still covered by the [Cloud SQL SLA](https://berlin.devsitetest.how/sql/sla). We recommend that you [upgrade your existing legacy HA instances](/sql/docs/mysql/configure-legacy-ha#update-from-legacy) to regional persistent disk HA instances as soon as possible and create new HA instances using regional persistent disk instead.
+Cloud SQL is discontinuing support for
+[legacy high availability (HA)](/sql/docs/mysql/configure-legacy-ha)
+instance configuration on January 6, 2025. After this date, you can't create
+Cloud SQL for MySQL instances with the legacy configuration for high
+availability. You also can't enable the legacy configuration for high
+availability on existing instances. Until January 6, 2025, legacy HA instances
+are still covered by the [Cloud SQL SLA](https://berlin.devsitetest.how/sql/sla). We
+recommend that you
+[upgrade your existing legacy HA instances](/sql/docs/mysql/configure-legacy-ha#update-from-legacy)
+to regional persistent disk HA instances as soon as possible and create new HA
+instances using regional persistent disk instead.
 
 Starting on May 1, 2025, Cloud SQL will migrate any remaining instances that use the legacy HA configuration to the current HA configuration automatically.
 

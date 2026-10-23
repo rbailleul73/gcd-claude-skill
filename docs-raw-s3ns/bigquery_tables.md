@@ -1,7 +1,7 @@
 # Create and use tables
 
 Source: https://documentation.s3ns.fr/bigquery/docs/tables
-Last updated: 2026-10-21
+Last updated: 2026-10-22
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -175,33 +175,25 @@ Guides
 
 
 
-This document describes how to create and use [standard (built-in) tables in
-BigQuery](/bigquery/docs/tables-intro#standard-tables). For
-information about creating other table types, see the following:
+Standard tables let you store data in BigQuery storage, where you can
+query it, control who can access it, and audit its history. This document
+describes how to create
+[standard (built-in) tables](/bigquery/docs/tables-intro#standard-tables),
+control access to them, and get information about them, such as table metadata
+and the tables in a dataset.
 
-- [Create partitioned tables](/bigquery/docs/creating-partitioned-tables)
+To create other table types, see
+[Create partitioned tables](/bigquery/docs/creating-partitioned-tables) and
+[Create clustered tables](/bigquery/docs/creating-clustered-tables). To update
+table properties, copy tables, or delete tables, see
+[Manage tables](/bigquery/docs/managing-tables).
 
-- [Creating and using clustered tables](/bigquery/docs/creating-clustered-tables)
-
-After creating a table, you can do the following:
-
-- Control access to your table data.
-
-- Get information about your tables.
-
-- List the tables in a dataset.
-
-- Get table metadata.
-
-For more information about managing tables including updating table properties,
-copying a table, and deleting a table, see [Managing tables](/bigquery/docs/managing-tables).
-
-## Before you begin
+## Before you begin 
 
 Grant Identity and Access Management (IAM) roles that give users the necessary permissions to
 perform each task in this document.
 
-### Required roles
+### Required roles 
 
 
 

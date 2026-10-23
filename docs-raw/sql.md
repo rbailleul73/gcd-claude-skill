@@ -1,7 +1,7 @@
 # Cloud SQL documentation
 
 Source: https://berlin.devsitetest.how/sql/docs
-Last updated: 2026-10-20
+Last updated: 2026-10-22
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/sql/docs/tpc-differences) for more details.
 
@@ -157,7 +157,7 @@ Not sure what database option is right for you? Learn more about our [database s
 
 
 
-[Go to the Cloud SQL product page for more.](https://berlin.devsitetest.how/sql/)
+[Go to the Cloud SQL product page for more.](https://berlin.devsitetest.how/sql)
 
 
 
