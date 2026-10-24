@@ -1,7 +1,7 @@
 # Troubleshoot quota and limit errors
 
 Source: https://berlin.devsitetest.how/bigquery/docs/troubleshoot-quotas
-Last updated: 2026-10-22
+Last updated: 2026-10-23
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -971,8 +971,8 @@ might encounter this error for the [`tables.get` method](/bigquery/docs/referenc
 
 - 
 
-Set the destination table's create disposition to `CREATE_NEVER`. For more
-information, see [Create disposition](https://beam.apache.org/documentation/io/built-in/google-bigquery/#create-disposition).
+Set the create disposition of the destination table to `CREATE_NEVER`. For
+more information, see [Create disposition](https://beam.apache.org/documentation/io/built-in/google-bigquery/#create-disposition).
 
 - 
 
@@ -1561,7 +1561,7 @@ see costs of using this API, see
 
 - 
 To monitor the number of modified partitions on a table, use the
-[`INFORMATION_SCHEMA` view](https://berlin.devsitetest.how/bigquery/docs/information-schema-jobs#partitions-modified-by).
+[`INFORMATION_SCHEMA` view](/bigquery/docs/information-schema-jobs#partitions-modified-by).
 
 - For information about optimizing table load jobs to avoid reaching quota limits, see
 [Optimize load jobs](/bigquery/docs/optimize-load-jobs).
@@ -1715,7 +1715,7 @@ see costs of using this API, see
 
 - 
 To monitor the number of modified partitions on a table, use the
-[`INFORMATION_SCHEMA` view](https://berlin.devsitetest.how/bigquery/docs/information-schema-jobs#partitions-modified-by).
+[`INFORMATION_SCHEMA` view](/bigquery/docs/information-schema-jobs#partitions-modified-by).
 
 - For information about optimizing table load jobs to avoid reaching quota limits, see
 [Optimize load jobs](/bigquery/docs/optimize-load-jobs).
@@ -1909,7 +1909,7 @@ see costs of using this API, see
 
 - 
 To monitor the number of modified partitions on a table, use the
-[`INFORMATION_SCHEMA` view](https://berlin.devsitetest.how/bigquery/docs/information-schema-jobs#partitions-modified-by).
+[`INFORMATION_SCHEMA` view](/bigquery/docs/information-schema-jobs#partitions-modified-by).
 
 - For information about optimizing table load jobs to avoid reaching quota limits, see
 [Optimize load jobs](/bigquery/docs/optimize-load-jobs).

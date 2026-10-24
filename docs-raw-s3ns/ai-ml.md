@@ -1,7 +1,7 @@
 # AI and ML
 
 Source: https://documentation.s3ns.fr/docs/ai-ml
-Last updated: 2026-10-20
+Last updated: 2026-10-22
 
 - 
 

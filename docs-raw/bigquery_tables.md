@@ -1,7 +1,7 @@
 # Create and use tables
 
 Source: https://berlin.devsitetest.how/bigquery/docs/tables
-Last updated: 2026-10-22
+Last updated: 2026-10-23
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/bigquery/docs/tpc-differences) for more details.
 
@@ -170,8 +170,6 @@ Guides
 
 
 # Create and use tables 
-
-
 
 
 
@@ -697,7 +695,7 @@ on these optional parameters:
 
 If you are creating a table in a project other than your default project,
 add the project ID to the dataset in the following format:
-`project_id:dataset`.
+` PROJECT_ID : DATASET `.
 
 To create an empty table in an existing dataset with a schema definition,
 enter the following:
@@ -706,42 +704,42 @@ enter the following:
 ```
 [bq mk](/bigquery/docs/reference/bq-cli-reference#bq_mk) \ 
 --table \ 
---expiration = ** integer \ 
---description = description \ 
---label = key_1:value_1 \ 
---label = key_2:value_2 \ 
---add_tags = key_3:value_3 [ ,... ] \ 
-project_id : dataset . table \ 
-schema 
+--expiration = ** INTEGER \ 
+--description = DESCRIPTION \ 
+--label = KEY_1:VALUE_1 \ 
+--label = KEY_2:VALUE_2 \ 
+--add_tags = KEY_3:VALUE_3 [ ,... ] \ 
+PROJECT_ID : DATASET . TABLE \ 
+SCHEMA 
 ```
 
 
 Replace the following:
 
-- integer is the default lifetime (in seconds) for the table. The
+- ` INTEGER ` is the default lifetime (in seconds) for the table. The
 minimum value is 3600 seconds (one hour). The expiration time
 evaluates to the current UTC time plus the integer value. If you set the
 expiration time when you create a table, the dataset's default table
 expiration setting is ignored.
 
-- description is a description of the table in quotes.
+- ` DESCRIPTION ` is a description of the table in quotes.
 
-- key_1 : value_1 and
-key_2 : value_2 are key-value pairs
+- ` KEY_1 : VALUE_1 ` and
+` KEY_2 : VALUE_2 ` are key-value pairs
 that specify [labels](/bigquery/docs/labels).
 
-- key_3 : value_3 are key-value pairs
+- ` KEY_3 : VALUE_3 ` are key-value pairs
 that specify [tags](/bigquery/docs/tags). Add multiple tags under the
 same flag with commas between key:value pairs.
 
-- project_id is your project ID.
+- ` PROJECT_ID ` is your project ID.
 
-- dataset is a dataset in your project.
+- ` DATASET ` is a dataset in your project.
 
-- table is the name of the table you're creating.
+- ` TABLE ` is the name of the table you're creating.
 
-- schema is an inline schema definition in the format
-field:data_type,field:data_type or the path to the JSON schema
+- ` SCHEMA ` is an inline schema definition in the format
+` FIELD : DATA_TYPE , FIELD : DATA_TYPE ` or the path to the JSON schema
 file on your local machine.
 
 When you specify the schema on the command line, you cannot include a
@@ -1991,7 +1989,7 @@ variable to `apis-berlin-build0.goog`.
 require "google/cloud/bigquery" 
 
 def create_table dataset_id = "my_dataset" 
-bigquery = Google :: Cloud :: [ Bigquery ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-bigquery-data_policies-v1beta1/latest/Google-Cloud-Bigquery.html) . [ new ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+bigquery = Google :: Cloud :: [ Bigquery ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html) . [ new ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
 dataset = bigquery . dataset dataset_id 
 table_id = "my_table" 
 
@@ -3378,24 +3376,24 @@ flag can be used to control the output.
 
 If you are getting information about a table in a project other than
 your default project, add the project ID to the dataset in the following
-format: `project_id:dataset`.
+format: ` PROJECT_ID : DATASET `.
 
 
 ```
 [bq show](/bigquery/docs/reference/bq-cli-reference#bq_show) \ 
 --schema \ 
 --format = prettyjson \ 
-project_id : dataset.table 
+PROJECT_ID : DATASET . TABLE 
 ```
 
 
 Where:
 
-- project_id is your project ID.
+- ` PROJECT_ID ` is your project ID.
 
-- dataset is the name of the dataset.
+- ` DATASET ` is the name of the dataset.
 
-- table is the name of the table.
+- ` TABLE ` is the name of the table.
 
 Examples:
 
@@ -6806,7 +6804,7 @@ Issue the [`bq ls`](/bigquery/docs/reference/bq-cli-reference#bq_ls)
 command. The `--format` flag can be used to control the
 output. If you are listing tables in a project other than your default
 project, add the project ID to the dataset in the following format:
-`project_id:dataset`.
+` PROJECT_ID : DATASET `.
 
 Additional flags include:
 
@@ -6817,19 +6815,19 @@ results. The default value is `50`.
 ```
 [bq ls](/bigquery/docs/reference/bq-cli-reference#bq_ls) \ 
 --format = pretty \ 
---max_results integer \ 
-project_id:dataset 
+--max_results INTEGER \ 
+PROJECT_ID : DATASET 
 ```
 
 
 Where:
 
-- integer is an integer representing the number of tables to
+- ` INTEGER ` is an integer representing the number of tables to
 list.
 
-- project_id is your project ID.
+- ` PROJECT_ID ` is your project ID.
 
-- dataset is the name of the dataset.
+- ` DATASET ` is the name of the dataset.
 
 When you run the command, the `Type` field displays either `TABLE` or
 `VIEW`. For example:
@@ -7739,7 +7737,7 @@ variable to `apis-berlin-build0.goog`.
 require "google/cloud/bigquery" 
 
 def list_tables dataset_id = "your_dataset_id" 
-bigquery = Google :: Cloud :: [ Bigquery ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-bigquery-data_policies-v1beta1/latest/Google-Cloud-Bigquery.html) . [ new ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+bigquery = Google :: Cloud :: [ Bigquery ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html) . [ new ](https://berlin.devsitetest.how/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
 dataset = bigquery . dataset dataset_id 
 
 puts "Tables in dataset #{ dataset_id } :" 
