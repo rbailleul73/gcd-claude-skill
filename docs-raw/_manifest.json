@@ -191,14 +191,14 @@
   "/bigquery/docs/exporting-data": {
     "title": "Export table data to Cloud Storage",
     "filename": "bigquery_exporting-data.md",
-    "size": 72552,
+    "size": 72561,
     "url": "https://berlin.devsitetest.how/bigquery/docs/exporting-data",
     "last_updated": "2026-10-22"
   },
   "/bigquery/docs/loading-data-cloud-storage-csv": {
     "title": "Load CSV data from Cloud Storage",
     "filename": "bigquery_loading-data-cloud-storage-csv.md",
-    "size": 139411,
+    "size": 139413,
     "url": "https://berlin.devsitetest.how/bigquery/docs/loading-data-cloud-storage-csv",
     "last_updated": "2026-10-22"
   },
@@ -219,7 +219,7 @@
   "/bigquery/docs/quickstarts/quickstart-client-libraries": {
     "title": "Query a public dataset with the BigQuery client libraries",
     "filename": "bigquery_quickstarts_quickstart-client-libraries.md",
-    "size": 42642,
+    "size": 42643,
     "url": "https://berlin.devsitetest.how/bigquery/docs/quickstarts/quickstart-client-libraries",
     "last_updated": "2026-10-22"
   },
@@ -233,7 +233,7 @@
   "/bigquery/docs/tables": {
     "title": "Create and use tables",
     "filename": "bigquery_tables.md",
-    "size": 162809,
+    "size": 162813,
     "url": "https://berlin.devsitetest.how/bigquery/docs/tables",
     "last_updated": "2026-10-23"
   },
@@ -326,14 +326,14 @@
     "filename": "dns_policies.md",
     "size": 18145,
     "url": "https://berlin.devsitetest.how/dns/docs/policies",
-    "last_updated": "2026-10-20"
+    "last_updated": "2026-10-22"
   },
   "/dns/docs/records": {
     "title": "Add, update, and delete records",
     "filename": "dns_records.md",
     "size": 24388,
     "url": "https://berlin.devsitetest.how/dns/docs/records",
-    "last_updated": "2026-10-20"
+    "last_updated": "2026-10-22"
   },
   "/dns/docs/release-notes": {
     "title": "Cloud DNS release notes",
@@ -436,21 +436,21 @@
   "/docs/authentication/client-libraries": {
     "title": "Authenticate with client libraries",
     "filename": "authentication_client-libraries.md",
-    "size": 13700,
+    "size": 13711,
     "url": "https://berlin.devsitetest.how/docs/authentication/client-libraries",
     "last_updated": "2026-10-22"
   },
   "/docs/authentication/external/externally-sourced-credentials": {
     "title": "Authenticate with client libraries",
     "filename": "authentication_external_externally-sourced-credentials.md",
-    "size": 13723,
+    "size": 13734,
     "url": "https://berlin.devsitetest.how/docs/authentication/external/externally-sourced-credentials",
     "last_updated": "2026-10-22"
   },
   "/docs/authentication/get-id-token": {
     "title": "Get an ID token",
     "filename": "authentication_get-id-token.md",
-    "size": 18182,
+    "size": 18146,
     "url": "https://berlin.devsitetest.how/docs/authentication/get-id-token",
     "last_updated": "2026-10-22"
   },
@@ -597,7 +597,7 @@
   "/docs/discovery/list": {
     "title": "Discovery Document: list",
     "filename": "discovery_list.md",
-    "size": 3612,
+    "size": 3590,
     "url": "https://berlin.devsitetest.how/docs/discovery/list",
     "last_updated": "2025-06-16"
   },
@@ -926,7 +926,7 @@
   "/docs/quotas/help/request_increase": {
     "title": "View and manage quotas",
     "filename": "quotas_help_request_increase.md",
-    "size": 19064,
+    "size": 19066,
     "url": "https://berlin.devsitetest.how/docs/quotas/help/request_increase",
     "last_updated": "2026-10-22"
   },
@@ -989,7 +989,7 @@
   "/docs/quotas/reference/libraries": {
     "title": "Cloud Quotas client libraries",
     "filename": "quotas_reference_libraries.md",
-    "size": 132278,
+    "size": 132580,
     "url": "https://berlin.devsitetest.how/docs/quotas/reference/libraries",
     "last_updated": "2026-10-22"
   },
@@ -1383,7 +1383,7 @@
     "filename": "terraform_create-vm-instance.md",
     "size": 8401,
     "url": "https://berlin.devsitetest.how/docs/terraform/create-vm-instance",
-    "last_updated": "2026-10-20"
+    "last_updated": "2026-10-22"
   },
   "/docs/terraform/deploy-flask-web-server": {
     "title": "Deploy a basic Flask web server by using Terraform",
@@ -1397,7 +1397,7 @@
     "filename": "terraform_get-started-with-terraform.md",
     "size": 8409,
     "url": "https://berlin.devsitetest.how/docs/terraform/get-started-with-terraform",
-    "last_updated": "2026-10-20"
+    "last_updated": "2026-10-22"
   },
   "/docs/terraform/getting-support": {
     "title": "Get support for Terraform issues",
@@ -1633,7 +1633,7 @@
   "/kms/docs/destroy-restore": {
     "title": "Destroy and restore key versions",
     "filename": "kms_destroy-restore.md",
-    "size": 39619,
+    "size": 39639,
     "url": "https://berlin.devsitetest.how/kms/docs/destroy-restore",
     "last_updated": "2026-10-22"
   },
@@ -2153,7 +2153,7 @@
     "filename": "sql_release-notes.md",
     "size": 67337,
     "url": "https://berlin.devsitetest.how/sql/docs/release-notes",
-    "last_updated": "2026-10-25"
+    "last_updated": "2026-10-26"
   },
   "/sql/docs/tpc-differences": {
     "title": "Cloud SQL in Google Cloud Dedicated versus Google Cloud",
@@ -2172,7 +2172,7 @@
   "/storage/docs/creating-buckets": {
     "title": "Create a bucket",
     "filename": "storage_creating-buckets.md",
-    "size": 32894,
+    "size": 32883,
     "url": "https://berlin.devsitetest.how/storage/docs/creating-buckets",
     "last_updated": "2026-10-22"
   },
@@ -2193,7 +2193,7 @@
   "/storage/docs/reference/libraries": {
     "title": "Cloud Storage client libraries",
     "filename": "storage_reference_libraries.md",
-    "size": 22363,
+    "size": 22352,
     "url": "https://berlin.devsitetest.how/storage/docs/reference/libraries",
     "last_updated": "2026-10-22"
   },
@@ -2214,14 +2214,14 @@
   "/storage/docs/troubleshooting": {
     "title": "Troubleshooting",
     "filename": "storage_troubleshooting.md",
-    "size": 38402,
+    "size": 38391,
     "url": "https://berlin.devsitetest.how/storage/docs/troubleshooting",
     "last_updated": "2026-10-22"
   },
   "/storage/docs/uploading-objects": {
     "title": "Upload objects from a file system",
     "filename": "storage_uploading-objects.md",
-    "size": 46891,
+    "size": 46880,
     "url": "https://berlin.devsitetest.how/storage/docs/uploading-objects",
     "last_updated": "2026-10-22"
   },
