@@ -1,7 +1,7 @@
 # Cloud Quotas client libraries
 
 Source: https://berlin.devsitetest.how/docs/quotas/reference/libraries
-Last updated: 2026-10-22
+Last updated: 2026-10-26
 
 Some or all of the information on this page might not apply to Google Cloud Dedicated. See [Differences from Google Cloud](/docs/quotas/tpc-differences) for more details.
 
@@ -614,6 +614,8 @@ gem install google-cloud-cloud_quotas
 
 
 For more information, see [Setting Up a Ruby Development Environment](/ruby/docs/setup).
+
+
 
 
 
@@ -2843,6 +2845,8 @@ result = client . get_quota_info request
 p result 
 end 
 ```
+
+
 
 
 

@@ -1,7 +1,7 @@
 # Compute Engine release notes
 
 Source: https://documentation.s3ns.fr/compute/docs/release-notes
-Last updated: 2026-10-22
+Last updated: 2026-10-26
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/compute/docs/tpc-differences) for more details.
 
@@ -129,6 +129,7 @@ Resources
 
 
 - On this page 
+- [ October 26, 2026 ](#October_26_2026)
 - [ September 29, 2026 ](#September_29_2026)
 - [ July 24, 2026 ](#July_24_2026)
 - [ July 16, 2026 ](#July_16_2026)
@@ -251,6 +252,19 @@ reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the
 
 
 
+
+
+
+## October 26, 2026
+
+
+Security 
+
+
+A vulnerability (CVE-2026-85299) about incorrect authorization in
+Compute Engine was discovered and has been addressed. For more information,
+see the
+[GCP-2026-073 security bulletin](/compute/docs/security-bulletins#gcp-2026-073).
 
 
 
