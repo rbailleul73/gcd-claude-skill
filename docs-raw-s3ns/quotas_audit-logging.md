@@ -1,7 +1,7 @@
 # Cloud Quotas audit logging
 
 Source: https://documentation.s3ns.fr/docs/quotas/audit-logging
-Last updated: 2026-10-26
+Last updated: 2026-10-27
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/docs/quotas/tpc-differences) for more details.
 
@@ -131,9 +131,13 @@ Guides
 
 
 
-This document lists the audited methods for Cloud Quotas. Cloud de Confiance by S3NS services
-generate audit logs that record administrative and access activities within your Cloud de Confiance by S3NS resources.
-For more information about Cloud Audit Logs, see the following:
+Cloud Audit Logs for Cloud Quotas let you track administrative and
+data-access operations on your resources to help you monitor access and
+configuration changes. You can query these logs in the Logs Explorer and
+check which Cloud Quotas API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs,
+see the following documents:
 
 - [Types of audit logs](/logging/docs/audit#types)
 
@@ -199,8 +203,8 @@ Methods |
 | 
 `ADMIN_ READ` | 
 `google. api. cloudquotas. v1. Cloud Quotas. Get Quota Info`
-`google. api. cloudquotas. v1. Cloud Quotas. Get Quota Preference`
-`google. api. cloudquotas. v1. Cloud Quotas. List Quota Infos`
+`google.api.cloudquotas.v1.CloudQuotas.GetQuotaPreference`
+`google.api.cloudquotas.v1.CloudQuotas.ListQuotaInfos`
 `google.api.cloudquotas.v1.CloudQuotas.ListQuotaPreferences`
 `google.api.cloudquotas.v1beta.CloudQuotas.GetQuotaInfo`
 `google.api.cloudquotas.v1beta.CloudQuotas.GetQuotaPreference`

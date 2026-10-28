@@ -1,7 +1,7 @@
 # Cloud Storage client libraries
 
 Source: https://documentation.s3ns.fr/storage/docs/reference/libraries
-Last updated: 2026-10-22
+Last updated: 2026-10-26
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/storage/docs/tpc-differences) for more details.
 
@@ -453,7 +453,7 @@ the following to your dependencies:
 
 
 ```
-libraryDependencies += "com.google.cloud" % "google-cloud-storage" % "2.75.0" 
+libraryDependencies += "com.google.cloud" % "google-cloud-storage" % "2.76.0" 
 ```
 
 
@@ -667,6 +667,8 @@ gem install google-cloud-storage
 
 
 For more information, see [Setting Up a Ruby Development Environment](/ruby/docs/setup).
+
+
 
 
 
@@ -1511,6 +1513,8 @@ bucket = storage . [ create_bucket ](https://documentation.s3ns.fr/ruby/docs/ref
 puts "Bucket #{ bucket . name } was created." 
 end 
 ```
+
+
 
 
 

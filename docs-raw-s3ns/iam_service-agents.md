@@ -1,7 +1,7 @@
 # Service agents
 
 Source: https://documentation.s3ns.fr/iam/docs/service-agents
-Last updated: 2026-10-26
+Last updated: 2026-10-27
 
 Some or all of the information on this page might not apply to Cloud de Confiance by S3NS. See [Differences from Google Cloud](/iam/docs/tpc-differences) for more details.
 
@@ -1571,22 +1571,6 @@ Granted on the project.
 | 
 
 
-#### Big Query Service Agent
-
-Service agent for `bigquery.googleapis.com`. 
-
-
-`bq- PROJECT_NUMBER @bigquery-encryption.s3ns-system.iam.gserviceaccount.com`
-
-| 
-
-None
-| 
-|
-
-| 
-
-
 #### BigLake Iceberg Rest Catalog API Service Agent
 
 Service agent for `biglake.googleapis.com`. 
@@ -1741,6 +1725,22 @@ Granted on the project.
 Granted on the project.
 
 
+| 
+|
+
+| 
+
+
+#### BigQuery Encryption Service Agent
+
+Service agent for `bigquery.googleapis.com`. 
+
+
+`bq- PROJECT_NUMBER @bigquery-encryption.s3ns-system.iam.gserviceaccount.com`
+
+| 
+
+None
 | 
 |
 
@@ -2857,18 +2857,7 @@ Granted on the project.
 
 | 
 
-
-
-[GCP Network Management Service Agent](/iam/docs/roles-permissions/networkmanagement#networkmanagement.serviceAgent)
-
-(`roles/networkmanagement.serviceAgent`)
-
-
-
-
-Granted on the project.
-
-
+None
 | 
 |
 
@@ -3355,6 +3344,22 @@ None
 Granted on the project.
 
 
+| 
+|
+
+| 
+
+
+#### Cloud Storage Security Risk Assessment Service Agent
+
+Service agent for `storage.googleapis.com`. 
+
+
+`service- PROJECT_NUMBER @gcp-sa-storage-sra.s3ns-system.iam.gserviceaccount.com`
+
+| 
+
+None
 | 
 |
 
@@ -4962,6 +4967,22 @@ Granted on the project.
 | 
 
 
+#### Gemini Cloud Assist Service Agent
+
+Service agent for `geminicloudassist.googleapis.com`. 
+
+
+`service-org- ORGANIZATION_NUMBER @gcp-sa-geminicloudassist.s3ns-system.iam.gserviceaccount.com`
+
+| 
+
+None
+| 
+|
+
+| 
+
+
 #### Gemini Code Assist Management Service Agent
 
 [Primary service agent](/iam/docs/service-account-types#primary) for `geminicodeassistmanagement.googleapis.com`. 
@@ -5102,7 +5123,7 @@ Service agent used internally by Cloud de Confiance.
 
 
 
-[Editor](/iam/docs/roles-overview#basic)
+[Editor (Legacy)](/iam/docs/roles-overview#basic)
 
 (`roles/editor`)
 
@@ -5729,6 +5750,22 @@ Granted on the project.
 Granted on the project.
 
 
+| 
+|
+
+| 
+
+
+#### Lakehouse Service Agent
+
+Service agent for `biglake.googleapis.com`. 
+
+
+`lh- PROJECT_NUMBER @gcp-sa-lakehouse.s3ns-system.iam.gserviceaccount.com`
+
+| 
+
+None
 | 
 |
 
@@ -7169,6 +7206,38 @@ None
 Granted on the project.
 
 
+| 
+|
+
+| 
+
+
+#### Vertex AI Agent Environment Service Agent
+
+Service agent for `aiplatform.googleapis.com`. 
+
+
+`service- PROJECT_NUMBER @gcp-sa-vertex-agenv.s3ns-system.iam.gserviceaccount.com`
+
+| 
+
+None
+| 
+|
+
+| 
+
+
+#### Vertex AI Agent Learning Service Agent
+
+Service agent for `aiplatform.googleapis.com`. 
+
+
+`service- PROJECT_NUMBER @gcp-sa-vertex-al.s3ns-system.iam.gserviceaccount.com`
+
+| 
+
+None
 | 
 |
 

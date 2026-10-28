@@ -1,7 +1,7 @@
 # Set up the Google Cloud CLI for Cloud de Confiance
 
 Source: https://documentation.s3ns.fr/docs/get-started-tpc/setup-gcloud
-Last updated: 2026-10-26
+Last updated: 2026-10-27
 
 - 
 
@@ -170,8 +170,8 @@ Linux 64-bit
 (x86_64) 
 | 
 [google-cloud-cli-linux-x86_64.tar.gz](https://storage.s3nsapis.fr/cloud-sdk-release/google-cloud-cli-linux-x86_64.tar.gz) | 
-93.8 MB | 
-b0dc27650a82e50321aa7c9d068cdc01443aa348f15489af9e5dec0a94623ae6 | 
+94.4 MB | 
+8b8c1be16284f7072359de05d31fe5ce52b6052fb295404a62a54b7d03ec4326 | 
 |
 
 | 
@@ -180,8 +180,8 @@ Linux 64-bit
 (Arm) 
 | 
 [google-cloud-cli-linux-arm.tar.gz](https://storage.s3nsapis.fr/cloud-sdk-release/google-cloud-cli-linux-arm.tar.gz) | 
-89.9 MB | 
-c9e8618c9257b3289deb7cb5483479230d5d96230bd68a80fce17f592d0d3012 | 
+90.4 MB | 
+c134c741f7232131e2556d77991bc8eaeb70054cfad426e06c533b3586ab69e6 | 
 |
 
 | 
@@ -190,8 +190,8 @@ Linux 32-bit
 (x86) 
 | 
 [google-cloud-cli-linux-x86.tar.gz](https://storage.s3nsapis.fr/cloud-sdk-release/google-cloud-cli-linux-x86.tar.gz) | 
-54.2 MB | 
-b9a98b7ce9bc744c7bc955d8e42e2e862747d75d43b58d3b6a0bb16ed39b2da9 | 
+54.4 MB | 
+de8c17292832482c411cbfa0fe203b89cb4679325530e24aedfcc77898160efe | 
 |
 
 
@@ -308,9 +308,9 @@ macOS 64-bit
 ](https://storage.s3nsapis.fr/cloud-sdk-release/google-cloud-cli-darwin-x86_64.tar.gz)
 
 | 
-54.3 MB | 
+54.6 MB | 
 
-f6a222b32bac56fca8d787098a01c8e92cd0de52dd8c144ee74ca0c246c65b56 
+c2381ccfdeb7ed1c0a7186a8d030c317375092232d8135331d826eece6bc48f5 
 | 
 |
 
@@ -328,9 +328,9 @@ macOS 64-bit
 ](https://storage.s3nsapis.fr/cloud-sdk-release/google-cloud-cli-darwin-arm.tar.gz)
 
 | 
-54.2 MB | 
+54.5 MB | 
 
-71a0aab59d239e08f3a4ea69ef33b4eecbd21f79ed5567e3fd4745f81ec8e003 
+3b7bbaaf2dd0287fab5320359fb61c678cbd6e8d6d58b884470def1bf96589a1 
 | 
 |
 
@@ -348,9 +348,9 @@ macOS 32-bit
 ](https://storage.s3nsapis.fr/cloud-sdk-release/google-cloud-cli-darwin-x86.tar.gz)
 
 | 
-52.7 MB | 
+52.9 MB | 
 
-e2a62c407607f789770071ac356a34576965571e3bf2451fe7876b56feae60b6 
+a0a2214f423215221801fad85210e853cdf737fec576eeaab8ea2e83fe2a1497 
 | 
 |
 
