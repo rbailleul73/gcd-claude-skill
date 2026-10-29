@@ -226,6 +226,10 @@ On **Cloud de Confiance by S3NS** (`u-france-east1`, PREMI3NS offering), service
 | API Discovery Service | Available | — | API metadata and discovery documents |
 | Terraform | Available | — | Infrastructure provisioning via the Google Terraform provider |
 
+<!-- AUTO-SYNC:ADDITIONAL-CATEGORY-SERVICES:START -->
+
+<!-- AUTO-SYNC:ADDITIONAL-CATEGORY-SERVICES:END -->
+
 ---
 
 ## Discovered Documentation Inventory (Auto-Synced)

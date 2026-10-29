@@ -224,10 +224,9 @@ When uncertain whether a feature is available, query the docs directly
 
 ### Service availability
 
-- [ ] No references to unavailable services: Cloud Functions / Cloud Run functions,
-      App Engine, Dataflow, Spanner, Firestore, Memorystore, AlloyDB, Cloud Tasks,
-      Cloud Scheduler, Cloud Build, Cloud CDN, Certificate Manager, or proprietary
-      Vertex AI / Gemini APIs.
+<!-- AUTO-SYNC:UNAVAILABLE-SERVICES-CHECKLIST:START -->
+- [ ] No references to unavailable services: Cloud Functions / Cloud Run functions, App Engine, Dataflow, Spanner, Firestore, Memorystore, AlloyDB, Cloud Tasks, Cloud Scheduler, Cloud Build, Cloud CDN, Certificate Manager, or proprietary Vertex AI / Gemini APIs.
+<!-- AUTO-SYNC:UNAVAILABLE-SERVICES-CHECKLIST:END -->
 <!-- AUTO-SYNC:SECNUMCLOUD-CHECKLIST:START -->
 - [ ] For S3NS workloads requiring strict **SecNumCloud 3.2** qualification, verify
       that every used service is **Qualifié SecNumCloud 3.2** (29 qualified) and flag

@@ -312,6 +312,10 @@ SECNUMCLOUD_NAME_TO_SLUG = {
     "google kubernetes engine autopilot": "kubernetes-engine",
     "virtual private cloud": "vpc",
     "identity and access management": "iam",
+    "cloud spanner": "spanner",
+    "cloud build": "build",
+    "cloud asset inventory": "asset-inventory",
+    "network connectivity center": "network-connectivity",
 }
 
 # Additional baseline API services that are part of core cross-cutting docs
@@ -348,7 +352,7 @@ def load_secnumcloud_status() -> dict:
     return json.loads(status_path.read_text(encoding="utf-8"))
 
 
-def slug_from_secnumcloud_item(item: dict) -> str | None:
+def slug_from_secnumcloud_item(item: dict, available_products: dict | None = None) -> str | None:
     name_lower = item.get("name", "").strip().lower()
     # Sub-features of BigQuery or IAM that have their own cards on PREMI3NS
     # should not overwrite the parent product slug if they match a sub-page URL
@@ -366,10 +370,38 @@ def slug_from_secnumcloud_item(item: dict) -> str | None:
     url = item.get("url", "")
     if url:
         parsed = urlparse(url)
-        slug = slug_from_manifest_entry(parsed.path, "")
-        if slug:
-            return slug
-    return None
+        clean_path = parsed.path.rstrip("/")
+        # Only use slug_from_manifest_entry directly if it's a documentation URL (/.../docs...)
+        if "/docs" in clean_path:
+            slug = slug_from_manifest_entry(clean_path, "")
+            if slug:
+                return slug
+        # Otherwise handle marketing URLs like /spanner or /products/alloydb
+        parts = [p for p in clean_path.strip("/").split("/") if p]
+        candidates = []
+        if len(parts) == 1 and parts[0] not in ("docs", "products"):
+            candidates.append(parts[0])
+            candidates.append(parts[0].removesuffix("-service").removesuffix("-center"))
+        elif len(parts) == 2 and parts[0] == "products":
+            candidates.append(parts[1])
+            candidates.append(parts[1].removesuffix("-service").removesuffix("-center"))
+        for cand in candidates:
+            if available_products and cand in available_products:
+                return cand
+            if not available_products and cand:
+                return cand
+
+    # Fallback: normalized name matching against discovered products
+    norm_name = re.sub(r"^(?:google\s+cloud\s+|cloud\s+|google\s+)", "", name_lower)
+    norm_name = re.sub(r"\s+service$", "", norm_name).strip()
+    norm_slug = re.sub(r"[^a-z0-9]+", "-", norm_name).strip("-")
+    if available_products:
+        if norm_slug in available_products:
+            return norm_slug
+        for p_slug, p_info in available_products.items():
+            if p_info.get("display", "").lower() == name_lower or p_info.get("display", "").lower() == norm_name:
+                return p_slug
+    return norm_slug or None
 
 
 def slug_from_tpc_filename(filename: str) -> str:
@@ -575,6 +607,13 @@ def collect_inventory():
                     if slug not in KNOWN_PRODUCT_META and parsed["title"]:
                         entry["display"] = parsed["title"]
                         entry["section"] = parsed["title"]
+
+    # Second pass: resolve SecNumCloud status using full discovered `products` dictionary
+    for item in secnumcloud_data.get("services", []):
+        if item.get("status") in ("qualified", "in_progress"):
+            resolved_slug = slug_from_secnumcloud_item(item, available_products=products)
+            if resolved_slug and resolved_slug in products:
+                products[resolved_slug]["secnumcloud"] = item.get("status_label", "—")
 
     return berlin_manifest, s3ns_manifest, secnumcloud_data, products
 
@@ -981,6 +1020,42 @@ def sync_services_md(
         count=1,
     )
 
+    # 6. Auto-append any newly discovered products not yet in '## Services by Category'
+    covered_slugs = set(category_service_to_slug.values()) | {
+        "sdk",
+        "container-optimized-os",
+        "organization-policy",
+        "managed-spark",
+        "api-keys",
+        "billing",
+        "terraform",
+    }
+    new_cat_products = sorted(
+        [
+            p for p in products.values()
+            if (p["berlin_pages"] > 0 or p["s3ns_pages"] > 0)
+            and p["slug"] not in covered_slugs
+            and p["display"].lower() not in category_service_to_slug
+        ],
+        key=lambda x: x["display"].lower(),
+    )
+    if new_cat_products:
+        add_lines = [
+            "### Newly Discovered Sovereign Cloud Services",
+            "",
+            "| Service | Status | S3NS SecNumCloud 3.2 | Description |",
+            "|---------|--------|----------------------|-------------|",
+        ]
+        for np in new_cat_products:
+            add_lines.append(
+                f"| {np['display']} | Available | {np['secnumcloud']} | {np['includes']} |"
+            )
+        content = replace_marker_block(
+            content, "ADDITIONAL-CATEGORY-SERVICES", "\n".join(add_lines)
+        )
+    else:
+        content = replace_marker_block(content, "ADDITIONAL-CATEGORY-SERVICES", "")
+
     if content != original:
         if not check_only:
             SERVICES_FILE.write_text(content, encoding="utf-8")
@@ -1048,6 +1123,38 @@ def sync_skill_md(secnumcloud_data: dict, products: dict, check_only: bool = Fal
         )
 
     content = replace_marker_block(content, "AVAILABLE-SERVICES", "\n".join(block_lines))
+
+    # Automatically filter out any service from the unavailable checklist once it is scraped in `products`
+    active_slugs = {
+        slug for slug, p in products.items()
+        if p["berlin_pages"] > 0 or p["s3ns_pages"] > 0
+    }
+    unavailable_candidates = [
+        ("Cloud Functions / Cloud Run functions", {"functions", "cloudfunctions", "cloud-functions"}),
+        ("App Engine", {"appengine", "app-engine"}),
+        ("Dataflow", {"dataflow"}),
+        ("Spanner", {"spanner", "cloud-spanner"}),
+        ("Firestore", {"firestore"}),
+        ("Memorystore", {"memorystore"}),
+        ("AlloyDB", {"alloydb"}),
+        ("Cloud Tasks", {"cloudtasks", "tasks", "cloud-tasks"}),
+        ("Cloud Scheduler", {"cloudscheduler", "scheduler", "cloud-scheduler"}),
+        ("Cloud Build", {"build", "cloud-build"}),
+        ("Cloud CDN", {"cdn", "media-cdn", "cloud-cdn"}),
+        ("Certificate Manager", {"certificate-manager"}),
+        ("proprietary Vertex AI / Gemini APIs", {"vertex-ai"}),
+    ]
+    still_unavailable = [
+        label for label, candidate_slugs in unavailable_candidates
+        if not (candidate_slugs & active_slugs)
+    ]
+    if still_unavailable:
+        if len(still_unavailable) > 1:
+            unavail_str = ", ".join(still_unavailable[:-1]) + f", or {still_unavailable[-1]}"
+        else:
+            unavail_str = still_unavailable[0]
+        unavail_checklist = f"- [ ] No references to unavailable services: {unavail_str}."
+        content = replace_marker_block(content, "UNAVAILABLE-SERVICES-CHECKLIST", unavail_checklist)
 
     if qualified or in_progress or upcoming:
         gotcha_text = (
@@ -1228,7 +1335,12 @@ def sync_readme_md(berlin_manifest: dict, s3ns_manifest: dict, products: dict, c
     original = content
 
     tpc_products = sorted(
-        [p for p in products.values() if p["tpc_filename"] or p["slug"] in ("api-keys", "assured-workloads_access-transparency")],
+        [
+            p for p in products.values()
+            if p["tpc_filename"]
+            or p["slug"] in ("api-keys", "assured-workloads_access-transparency")
+            or (p["slug"] not in KNOWN_PRODUCT_META and (p["berlin_pages"] > 0 or p["s3ns_pages"] > 0))
+        ],
         key=lambda x: x["display"].lower(),
     )
 

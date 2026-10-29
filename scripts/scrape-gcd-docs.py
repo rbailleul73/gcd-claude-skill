@@ -671,7 +671,14 @@ def discover_links_from_page(
                     new_paths.append(link)
         return new_paths, new_products
 
-    # 3. Product landing page or tpc-differences page
+    # 3. Product landing page or tpc-differences page (including newly probed products)
+    inferred_self = infer_product_from_link(path)
+    if inferred_self and inferred_self not in products:
+        products.add(inferred_self)
+        new_products.append(inferred_self)
+        for seed in product_seed_paths(inferred_self):
+            new_paths.append(seed)
+
     matched_prod = is_product_landing_or_diff(path, products)
     if matched_prod:
         for link in extract_links(article_html):
@@ -714,25 +721,51 @@ def discover_products_from_secnumcloud(secnum_payload: dict | None) -> tuple[set
     if not secnum_payload:
         return discovered_prods, probe_paths
 
+    known_set = set(COMMON_PRODUCTS)
     for item in secnum_payload.get("services", []):
         name_lower = item.get("name", "").strip().lower()
         status = item.get("status", "")
         url = item.get("url", "")
-        slug = PREMI3NS_NAME_TO_PRODUCT_SLUG.get(name_lower)
-        if not slug and url:
+        candidates: list[str] = []
+
+        mapped = PREMI3NS_NAME_TO_PRODUCT_SLUG.get(name_lower)
+        if mapped:
+            candidates.append(mapped)
+
+        if url:
             parsed = urllib.parse.urlparse(url)
-            if parsed.netloc in ("documentation.s3ns.fr", "berlin.devsitetest.how", "cloud.google.com"):
-                slug = infer_product_from_link(parsed.path.rstrip("/"))
+            clean_path = parsed.path.rstrip("/")
+            if parsed.netloc in ("documentation.s3ns.fr", "berlin.devsitetest.how", "cloud.google.com", "docs.cloud.google.com"):
+                doc_slug = infer_product_from_link(clean_path)
+                if doc_slug and doc_slug not in candidates:
+                    candidates.append(doc_slug)
+                # Also extract slug from marketing URLs like /spanner or /products/alloydb
+                parts = [p for p in clean_path.strip("/").split("/") if p]
+                if len(parts) == 1 and parts[0] not in ("docs", "products") and re.match(r"^[a-z0-9-]+$", parts[0]):
+                    mkt_slug = parts[0].removesuffix("-service").removesuffix("-center")
+                    if mkt_slug and mkt_slug not in candidates:
+                        candidates.append(mkt_slug)
+                elif len(parts) == 2 and parts[0] == "products" and re.match(r"^[a-z0-9-]+$", parts[1]):
+                    if parts[1] not in candidates:
+                        candidates.append(parts[1])
 
-        if not slug or slug in ("quotas", "terraform"):
-            continue
+        # Also derive a normalized slug directly from the service name for zero-maintenance future services
+        norm_name = re.sub(r"^(?:google\s+cloud\s+|cloud\s+|google\s+)", "", name_lower)
+        norm_name = re.sub(r"\s+service$", "", norm_name).strip()
+        norm_slug = re.sub(r"[^a-z0-9]+", "-", norm_name).strip("-")
+        if norm_slug and len(norm_slug) >= 3 and norm_slug not in candidates:
+            candidates.append(norm_slug)
 
-        if status == "upcoming":
-            # Probe only landing and tpc-differences for upcoming roadmap services
-            # so the day they launch in sovereign cloud docs, they are discovered!
-            probe_paths.extend([f"/{slug}/docs", f"/{slug}/docs/tpc-differences"])
-        else:
-            discovered_prods.add(slug)
+        for slug in candidates:
+            if not slug or slug in ("quotas", "terraform", "networking"):
+                continue
+            if status != "upcoming" and slug in known_set:
+                discovered_prods.add(slug)
+            else:
+                # Probe landing and tpc-differences for upcoming or brand-new PREMI3NS services
+                for p in (f"/{slug}/docs", f"/{slug}/docs/tpc-differences"):
+                    if p not in probe_paths:
+                        probe_paths.append(p)
 
     return discovered_prods, probe_paths
 
