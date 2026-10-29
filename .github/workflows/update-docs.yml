@@ -15,7 +15,11 @@ on:
       - ".github/workflows/update-docs.yml"
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: update-sovereign-cloud-docs-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   validate:
@@ -27,8 +31,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Compile Python scripts
-        run: python3 -m py_compile scripts/scrape-gcd-docs.py scripts/sync-skill.py
+      - name: Compile and smoke-test Python scripts
+        run: |
+          python3 -m py_compile scripts/scrape-gcd-docs.py scripts/sync-skill.py
+          python3 -c "import importlib.util, json, pathlib; spec = importlib.util.spec_from_file_location('s', 'scripts/scrape-gcd-docs.py'); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); data = json.loads(pathlib.Path('docs-raw-s3ns/_secnumcloud_status.json').read_text()); prods, probes = m.discover_products_from_secnumcloud(data); assert len(prods) > 20 and len(probes) > 10"
 
       - name: Verify skill and reference files are in sync
         run: python3 -u scripts/sync-skill.py --check
@@ -37,6 +43,8 @@ jobs:
     if: github.event_name != 'pull_request'
     needs: validate
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -52,15 +60,15 @@ jobs:
           cp docs-raw-s3ns/_manifest.json /tmp/previous_manifest_s3ns.json 2>/dev/null || echo "{}" > /tmp/previous_manifest_s3ns.json
           cp docs-raw-s3ns/_secnumcloud_status.json /tmp/previous_secnumcloud_s3ns.json 2>/dev/null || echo "{}" > /tmp/previous_secnumcloud_s3ns.json
 
-      - name: Scrape Berlin (GCD) docs
-        id: scrape_berlin
-        continue-on-error: true
-        run: python3 -u scripts/scrape-gcd-docs.py --region berlin
-
       - name: Scrape S3NS (Cloud de Confiance) docs and PREMI3NS SecNumCloud status
         id: scrape_s3ns
         continue-on-error: true
         run: python3 -u scripts/scrape-gcd-docs.py --region s3ns
+
+      - name: Scrape Berlin (GCD) docs
+        id: scrape_berlin
+        continue-on-error: true
+        run: python3 -u scripts/scrape-gcd-docs.py --region berlin
 
       - name: Verify at least one region scrape succeeded
         run: |

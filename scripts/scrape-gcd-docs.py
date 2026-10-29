@@ -368,6 +368,14 @@ def infer_product_from_link(link: str) -> str | None:
         prod = f"{parts[0]}/{parts[1]}"
     elif parts[0] in NON_DOCS_PRODUCTS:
         prod = parts[0]
+    elif (
+        len(parts) == 2
+        and parts[1] in ("tpc-differences", "overview")
+        and parts[0] not in ("docs", "products", "release-notes")
+    ):
+        prod = parts[0]
+        if prod not in NON_DOCS_PRODUCTS and prod not in IGNORED_PRODUCT_SLUGS:
+            NON_DOCS_PRODUCTS.append(prod)
 
     if prod and prod in IGNORED_PRODUCT_SLUGS:
         return None
@@ -721,7 +729,7 @@ def discover_products_from_secnumcloud(secnum_payload: dict | None) -> tuple[set
     if not secnum_payload:
         return discovered_prods, probe_paths
 
-    known_set = set(COMMON_PRODUCTS)
+    known_set = set(get_products("s3ns"))
     for item in secnum_payload.get("services", []):
         name_lower = item.get("name", "").strip().lower()
         status = item.get("status", "")
@@ -762,8 +770,9 @@ def discover_products_from_secnumcloud(secnum_payload: dict | None) -> tuple[set
             if status != "upcoming" and slug in known_set:
                 discovered_prods.add(slug)
             else:
-                # Probe landing and tpc-differences for upcoming or brand-new PREMI3NS services
-                for p in (f"/{slug}/docs", f"/{slug}/docs/tpc-differences"):
+                # Probe landing and tpc-differences (both /docs and non-/docs variants)
+                # for upcoming or brand-new PREMI3NS services
+                for p in (f"/{slug}/docs", f"/{slug}/docs/tpc-differences", f"/{slug}/tpc-differences"):
                     if p not in probe_paths:
                         probe_paths.append(p)
 
@@ -1224,7 +1233,7 @@ def main():
         scrape_s3ns_secnumcloud_status(output_dir)
         return
 
-    regions_to_scrape = list(REGIONS.keys()) if args.region == "all" else [args.region]
+    regions_to_scrape = ["s3ns", "berlin"] if args.region == "all" else [args.region]
 
     for region in regions_to_scrape:
         if args.output_dir and len(regions_to_scrape) == 1:
