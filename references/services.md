@@ -109,122 +109,122 @@ On **Cloud de Confiance by S3NS** (`u-france-east1`, PREMI3NS offering), service
 
 ### Compute & Containers
 
-| Service | Status | Description |
-|---------|--------|-------------|
-| Compute Engine | Available | Scalable VMs (`C3`, `M3`, `A3 Edge`) and instance groups |
-| Google Kubernetes Engine (GKE) | Available | Managed Kubernetes (Autopilot mode only) |
-| Cloud Run | Available | Managed serverless container services and jobs (from Artifact Registry) |
-| Cloud GPUs | Available | NVIDIA H100 GPU acceleration on `A3` machine series |
-| Container-Optimized OS | Available | Optimized OS for running containers on Compute Engine and GKE |
-| Shielded VM | Available | Hardened VMs with rootkit/bootkit protection |
-| Hyperdisk | Available | High-performance block storage (`hyperdisk-balanced`) for VMs |
+| Service | Status | S3NS SecNumCloud 3.2 | Description |
+|---------|--------|----------------------|-------------|
+| Compute Engine | Available | Qualifié SecNumCloud 3.2 | Scalable VMs (`C3`, `M3`, `A3 Edge`) and instance groups |
+| Google Kubernetes Engine (GKE) | Available | Qualifié SecNumCloud 3.2 | Managed Kubernetes (Autopilot mode only) |
+| Cloud Run | Available | Qualification en cours | Managed serverless container services and jobs (from Artifact Registry) |
+| Cloud GPUs | Available | Qualifié SecNumCloud 3.2 | NVIDIA H100 GPU acceleration on `A3` machine series |
+| Container-Optimized OS | Available | Qualifié SecNumCloud 3.2 | Optimized OS for running containers on Compute Engine and GKE |
+| Shielded VM | Available | Qualifié SecNumCloud 3.2 | Hardened VMs with rootkit/bootkit protection |
+| Hyperdisk | Available | Qualifié SecNumCloud 3.2 | High-performance block storage (`hyperdisk-balanced`) for VMs |
 
 **Key limitations:** Machine types (`C3`, `M3`, `A3`), single-region zones, and disk types (`Hyperdisk`) are constrained to the sovereign cloud environment. See [product-differences.md](product-differences.md) for per-service constraints.
 
 ### AI & Machine Learning
 
-| Service | Status | Description |
-|---------|--------|-------------|
-| Agent Platform (Gemini Enterprise Agent Platform) | Available | Model Garden, Model Registry, and synchronous online inference (`Predict`/`RawPredict`) for open-weight models (Gemma, Mistral) |
-| BigQuery ML | Available | ML model training and inference via SQL (internal models only) |
+| Service | Status | S3NS SecNumCloud 3.2 | Description |
+|---------|--------|----------------------|-------------|
+| Agent Platform (Gemini Enterprise Agent Platform) | Available | Qualification en cours | Model Garden, Model Registry, and synchronous online inference (`Predict`/`RawPredict`) for open-weight models (Gemma, Mistral) |
+| BigQuery ML | Available | Qualifié SecNumCloud 3.2 | ML model training and inference via SQL (internal models only) |
 
 **Key limitations:** Proprietary Gemini models, Model-as-a-Service, fine-tuning, batch inference, streaming/chat completion endpoints, and Vertex AI / Google Gen AI SDKs are unavailable.
 
 ### Networking
 
-| Service | Status | Description |
-|---------|--------|-------------|
-| Virtual Private Cloud (VPC) | Available | Core network for workload connectivity (no default VPC auto-created) |
-| Cloud DNS | Available | Managed private DNS zones and DNS server policies |
-| Cloud Load Balancing | Available | Regional Application and Network Load Balancers (Premium Tier only) |
-| Cloud VPN | Available | HA VPN IPsec tunnels to peer networks |
-| Cloud Interconnect | Available | Dedicated Interconnect and Partner Interconnect (with MACsec) |
-| Cloud Router | Available | Regional dynamic BGP route exchange |
-| Cloud NAT | Available | Public NAT (IPv4-to-IPv4) outbound internet connectivity |
-| Private Service Connect | Available | Private access to managed services and sovereign cloud APIs |
-| Network Service Tiers | Available | Premium Network Service Tier |
-| Cloud Next Generation Firewall (NGFW) | Available | Essentials and Standard tiers distributed firewall |
-| VPC Service Controls | Available | Security perimeters for sovereign cloud services |
-| Google Cloud Armor | Available | Standard tier DDoS and WAF protection for regional external ALB |
-| Service Directory | Available | Service registry and private DNS discovery |
+| Service | Status | S3NS SecNumCloud 3.2 | Description |
+|---------|--------|----------------------|-------------|
+| Virtual Private Cloud (VPC) | Available | Qualifié SecNumCloud 3.2 | Core network for workload connectivity (no default VPC auto-created) |
+| Cloud DNS | Available | Qualifié SecNumCloud 3.2 | Managed private DNS zones and DNS server policies |
+| Cloud Load Balancing | Available | Qualifié SecNumCloud 3.2 | Regional Application and Network Load Balancers (Premium Tier only) |
+| Cloud VPN | Available | Qualifié SecNumCloud 3.2 | HA VPN IPsec tunnels to peer networks |
+| Cloud Interconnect | Available | Qualifié SecNumCloud 3.2 | Dedicated Interconnect and Partner Interconnect (with MACsec) |
+| Cloud Router | Available | Qualifié SecNumCloud 3.2 | Regional dynamic BGP route exchange |
+| Cloud NAT | Available | Qualifié SecNumCloud 3.2 | Public NAT (IPv4-to-IPv4) outbound internet connectivity |
+| Private Service Connect | Available | Qualifié SecNumCloud 3.2 | Private access to managed services and sovereign cloud APIs |
+| Network Service Tiers | Available | Qualifié SecNumCloud 3.2 | Premium Network Service Tier |
+| Cloud Next Generation Firewall (NGFW) | Available | Qualifié SecNumCloud 3.2 | Essentials and Standard tiers distributed firewall |
+| VPC Service Controls | Available | Qualifié SecNumCloud 3.2 | Security perimeters for sovereign cloud services |
+| Google Cloud Armor | Available | Qualifié SecNumCloud 3.2 | Standard tier DDoS and WAF protection for regional external ALB |
+| Service Directory | Available | Qualifié SecNumCloud 3.2 | Service registry and private DNS discovery |
 
 **Key limitations:** Global load balancers, Cloud CDN, Certificate Manager, Classic VPN, Cross-Cloud Interconnect, Private NAT, Standard Network Tier, and NGFW Enterprise (IPS/TLS inspection) are unavailable.
 
 ### Storage & Data Transfer
 
-| Service | Status | Description |
-|---------|--------|-------------|
-| Cloud Storage | Available | Single-region object storage |
-| Filestore | Available | Regional tier managed NFS file storage (1 TiB–9.75 TiB, Direct Peering) |
-| Storage Transfer Service | Available | Bucket-to-bucket transfers and agent-based Amazon S3 transfers |
-| Hyperdisk | Available | Scalable high-performance block storage |
+| Service | Status | S3NS SecNumCloud 3.2 | Description |
+|---------|--------|----------------------|-------------|
+| Cloud Storage | Available | Qualifié SecNumCloud 3.2 | Single-region object storage |
+| Filestore | Available | Qualification en cours | Regional tier managed NFS file storage (1 TiB–9.75 TiB, Direct Peering) |
+| Storage Transfer Service | Available | Qualification en cours | Bucket-to-bucket transfers and agent-based Amazon S3 transfers |
+| Hyperdisk | Available | Qualifié SecNumCloud 3.2 | Scalable high-performance block storage |
 
 **Key limitations:** Multi-region/dual-region buckets, Storage Insights, Basic/Zonal/Enterprise Filestore tiers, and agentless AWS / Azure Storage Transfer are unavailable.
 
 ### Databases
 
-| Service | Status | Description |
-|---------|--------|-------------|
-| Cloud SQL | Available | Managed relational databases (MySQL and PostgreSQL, Enterprise Plus on C3) |
-| Bigtable | Available | Managed NoSQL wide-column database (single-region, multi-zone replication, SSD/HDD) |
+| Service | Status | S3NS SecNumCloud 3.2 | Description |
+|---------|--------|----------------------|-------------|
+| Cloud SQL | Available | Qualifié SecNumCloud 3.2 | Managed relational databases (MySQL and PostgreSQL, Enterprise Plus on C3) |
+| Bigtable | Available | Qualification en cours | Managed NoSQL wide-column database (single-region, multi-zone replication, SSD/HDD) |
 
 **Key limitations:** Cloud SQL Server engine, Spanner, Firestore, Memorystore, and AlloyDB are not available. Bigtable GoogleSQL, Data Boost, BigQuery federation, and cross-region replication are unavailable.
 
 ### Data Analytics & Orchestration
 
-| Service | Status | Description |
-|---------|--------|-------------|
-| BigQuery | Available | Managed data warehouse with built-in ML |
-| BigQuery Data Policy | Available | Data governance and access policies |
-| BigQuery Reservation | Available | Capacity reservation management |
-| BigQuery Storage | Available | High-throughput read/write API for analytics workloads |
-| BigLake | Available | Query external data in Cloud Storage with access delegation |
-| Managed Service for Apache Spark (Dataproc) | Available | Apache Spark clusters on Compute Engine (image 2.3+, `C3`/`M3`/`A3`) |
-| Managed Airflow (Cloud Composer) | Available | Managed Apache Airflow Gen 3 (Composer 3, Highly Resilient Large/Custom) |
-| Pub/Sub | Available | Regional event stream ingestion and messaging |
+| Service | Status | S3NS SecNumCloud 3.2 | Description |
+|---------|--------|----------------------|-------------|
+| BigQuery | Available | Qualifié SecNumCloud 3.2 | Managed data warehouse with built-in ML |
+| BigQuery Data Policy | Available | Qualifié SecNumCloud 3.2 | Data governance and access policies |
+| BigQuery Reservation | Available | Qualifié SecNumCloud 3.2 | Capacity reservation management |
+| BigQuery Storage | Available | Qualifié SecNumCloud 3.2 | High-throughput read/write API for analytics workloads |
+| BigLake | Available | Qualifié SecNumCloud 3.2 | Query external data in Cloud Storage with access delegation |
+| Managed Service for Apache Spark (Dataproc) | Available | Qualification en cours | Apache Spark clusters on Compute Engine (image 2.3+, `C3`/`M3`/`A3`) |
+| Managed Airflow (Cloud Composer) | Available | Qualification en cours | Managed Apache Airflow Gen 3 (Composer 3, Highly Resilient Large/Custom) |
+| Pub/Sub | Available | Qualifié SecNumCloud 3.2 | Regional event stream ingestion and messaging |
 
 **Key limitations:** Serverless Spark, Spark on GKE, Composer 1/2, Dataflow, Dataform, Datastream, and Data Fusion are unavailable.
 
 ### Security and Identity
 
-| Service | Status | Description |
-|---------|--------|-------------|
-| Identity and Access Management (IAM) | Available | Fine-grained access control for resources |
-| Secret Manager | Available | Secret storage and versioning (automatic and regional replication, `v1` API) |
-| Access Context Manager | Available | Basic attribute-based access levels (IP and geo conditions) |
-| Access Transparency | Available | Near real-time logs of operator accesses during support cases |
-| Cloud KMS | Available | Software key management and CMEK integration |
-| Cloud External Key Manager (EKM) | Available | Externally managed encryption keys via VPC |
-| API Keys | Available | API key creation and management |
-| VPC Service Controls | Available | Security perimeters for data protection |
-| Organization Policy Service | Available | Programmatic resource governance and constraints |
-| Workforce Identity Federation | Available | External identity provider federation for human users |
-| Workload Identity Federation | Available | External identity federation for workloads |
-| Service Account Credentials | Available | Service account key and token management |
-| Cloud Audit Logs | Available | Activity tracking and auditing |
+| Service | Status | S3NS SecNumCloud 3.2 | Description |
+|---------|--------|----------------------|-------------|
+| Identity and Access Management (IAM) | Available | Qualifié SecNumCloud 3.2 | Fine-grained access control for resources |
+| Secret Manager | Available | Qualification en cours | Secret storage and versioning (automatic and regional replication, `v1` API) |
+| Access Context Manager | Available | Qualifié SecNumCloud 3.2 | Basic attribute-based access levels (IP and geo conditions) |
+| Access Transparency | Available | Qualification en cours | Near real-time logs of operator accesses during support cases |
+| Cloud KMS | Available | Qualifié SecNumCloud 3.2 | Software key management and CMEK integration |
+| Cloud External Key Manager (EKM) | Available | Qualifié SecNumCloud 3.2 | Externally managed encryption keys via VPC |
+| API Keys | Available | — | API key creation and management |
+| VPC Service Controls | Available | Qualifié SecNumCloud 3.2 | Security perimeters for data protection |
+| Organization Policy Service | Available | Qualifié SecNumCloud 3.2 | Programmatic resource governance and constraints |
+| Workforce Identity Federation | Available | Qualifié SecNumCloud 3.2 | External identity provider federation for human users |
+| Workload Identity Federation | Available | Qualifié SecNumCloud 3.2 | External identity federation for workloads |
+| Service Account Credentials | Available | Qualifié SecNumCloud 3.2 | Service account key and token management |
+| Cloud Audit Logs | Available | Qualifié SecNumCloud 3.2 | Activity tracking and auditing |
 
 **Key limitations:** Cloud HSM, KMS Autokey, Security Command Center, Binary Authorization, Certificate Authority Service, and Google Identity/Workspace accounts are not available.
 
 ### Observability
 
-| Service | Status | Description |
-|---------|--------|-------------|
-| Cloud Logging | Available | Log storage, search, analysis, and sinks (Log buckets, Pub/Sub) |
-| Cloud Monitoring | Available | Metric listing and PromQL / Prometheus API export |
+| Service | Status | S3NS SecNumCloud 3.2 | Description |
+|---------|--------|----------------------|-------------|
+| Cloud Logging | Available | Qualifié SecNumCloud 3.2 | Log storage, search, analysis, and sinks (Log buckets, Pub/Sub) |
+| Cloud Monitoring | Available | Qualifié SecNumCloud 3.2 | Metric listing and PromQL / Prometheus API export |
 
 **Key limitations:** Cloud Trace, Cloud Profiler, Error Reporting, Ops Agent, custom metrics, and native Monitoring dashboards/alerts are unavailable (use PromQL with Grafana).
 
 ### Application Development, Billing, and Resource Management
 
-| Service | Status | Description |
-|---------|--------|-------------|
-| Artifact Registry | Available | Container (`Docker`) and OS package (`Apt`, `Yum`) repositories |
-| Resource Manager | Available | Organization, folder, project, and tag management |
-| Cloud Billing | Available | Operator-managed billing accounts and BigQuery billing export |
-| Cloud Quotas | Available | Quota inspection and support-assisted quota adjustments |
-| Service Usage | Available | API enablement and lifecycle management |
-| API Discovery Service | Available | API metadata and discovery documents |
-| Terraform | Available | Infrastructure provisioning via the Google Terraform provider |
+| Service | Status | S3NS SecNumCloud 3.2 | Description |
+|---------|--------|----------------------|-------------|
+| Artifact Registry | Available | Qualifié SecNumCloud 3.2 | Container (`Docker`) and OS package (`Apt`, `Yum`) repositories |
+| Resource Manager | Available | Qualifié SecNumCloud 3.2 | Organization, folder, project, and tag management |
+| Cloud Billing | Available | — | Operator-managed billing accounts and BigQuery billing export |
+| Cloud Quotas | Available | Qualification en cours | Quota inspection and support-assisted quota adjustments |
+| Service Usage | Available | Qualifié SecNumCloud 3.2 | API enablement and lifecycle management |
+| API Discovery Service | Available | — | API metadata and discovery documents |
+| Terraform | Available | — | Infrastructure provisioning via the Google Terraform provider |
 
 ---
 

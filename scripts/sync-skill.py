@@ -30,6 +30,11 @@ S3NS_DIR = BASE_DIR / "docs-raw-s3ns"
 
 PRODUCT_DIFFS_FILE = BASE_DIR / "references" / "product-differences.md"
 SERVICES_FILE = BASE_DIR / "references" / "services.md"
+OVERVIEW_FILE = BASE_DIR / "references" / "overview.md"
+KEY_DIFFS_FILE = BASE_DIR / "references" / "key-differences.md"
+GOTCHAS_FILE = BASE_DIR / "references" / "gotchas.md"
+TERRAFORM_FILE = BASE_DIR / "references" / "terraform.md"
+QUOTAS_FILE = BASE_DIR / "references" / "quotas.md"
 SKILL_FILE = BASE_DIR / "SKILL.md"
 README_FILE = BASE_DIR / "README.md"
 
@@ -883,6 +888,99 @@ def sync_services_md(
             content, "RECENT-RELEASE-NOTES", "\n".join(rn_lines)
         )
 
+    # 5. Synchronize S3NS SecNumCloud 3.2 status column inside '## Services by Category' tables
+    category_service_to_slug = {
+        "compute engine": "compute",
+        "cloud gpus": "compute",
+        "container-optimized os": "compute",
+        "shielded vm": "compute",
+        "hyperdisk": "compute",
+        "google kubernetes engine (gke)": "kubernetes-engine",
+        "cloud run": "run",
+        "agent platform (gemini enterprise agent platform)": "gemini-enterprise-agent-platform",
+        "bigquery": "bigquery",
+        "bigquery ml": "bigquery",
+        "bigquery data policy": "bigquery",
+        "bigquery reservation": "bigquery",
+        "bigquery storage": "bigquery",
+        "biglake": "bigquery",
+        "virtual private cloud (vpc)": "vpc",
+        "private service connect": "vpc",
+        "network service tiers": "network-tiers",
+        "cloud next generation firewall (ngfw)": "firewall",
+        "vpc service controls": "vpc-service-controls",
+        "cloud dns": "dns",
+        "cloud load balancing": "load-balancing",
+        "cloud vpn": "network-connectivity_vpn",
+        "cloud interconnect": "network-connectivity_interconnect",
+        "cloud router": "network-connectivity_router",
+        "cloud nat": "nat",
+        "google cloud armor": "armor",
+        "service directory": "service-directory",
+        "cloud storage": "storage",
+        "filestore": "filestore",
+        "storage transfer service": "storage-transfer",
+        "cloud sql": "sql",
+        "bigtable": "bigtable",
+        "managed service for apache spark (dataproc)": "dataproc",
+        "managed airflow (cloud composer)": "composer",
+        "pub/sub": "pubsub",
+        "identity and access management (iam)": "iam",
+        "workforce identity federation": "iam",
+        "workload identity federation": "iam",
+        "service account credentials": "iam",
+        "secret manager": "secret-manager",
+        "access context manager": "access-context-manager",
+        "access transparency": "assured-workloads_access-transparency",
+        "cloud kms": "kms",
+        "cloud external key manager (ekm)": "kms",
+        "organization policy service": "resource-manager_docs_organization-policy",
+        "cloud logging": "logging",
+        "cloud audit logs": "logging",
+        "cloud monitoring": "monitoring",
+        "artifact registry": "artifact-registry",
+        "resource manager": "resource-manager",
+        "cloud quotas": "quotas",
+        "service usage": "service-usage",
+    }
+    # Also include direct PREMI3NS name matches (e.g. Networking covers NGFW / Network Service Tiers)
+    networking_secnum = next(
+        (s.get("status_label") for s in services_list if s.get("name", "").lower() == "networking"),
+        "Qualifié SecNumCloud 3.2",
+    )
+
+    def update_category_row(match: re.Match) -> str:
+        svc_cell = match.group(1).strip()
+        status_cell = match.group(2).strip()
+        old_secnum_cell = match.group(3).strip()
+        desc_cell = match.group(4).strip()
+        if svc_cell == "Service" or svc_cell.startswith("---"):
+            return match.group(0)
+        svc_lower = svc_cell.lower()
+        slug = category_service_to_slug.get(svc_lower)
+        new_secnum = old_secnum_cell
+        if slug and slug in products and products[slug]["secnumcloud"] != "—":
+            new_secnum = products[slug]["secnumcloud"]
+        elif slug in ("network-tiers", "firewall"):
+            new_secnum = networking_secnum
+        else:
+            for s in services_list:
+                if s.get("name", "").lower() == svc_lower and s.get("status_label"):
+                    new_secnum = s["status_label"]
+                    break
+        return f"| {svc_cell} | {status_cell} | {new_secnum} | {desc_cell} |"
+
+    cat_section_pat = re.compile(
+        r"(## Services by Category\n.*?)(?=\n## Discovered Documentation Inventory)",
+        re.S,
+    )
+    row_pat = re.compile(r"^\| ([^|\n]+) \| (Available) \| ([^|\n]+) \| ([^|\n]+) \|$", re.M)
+    content = cat_section_pat.sub(
+        lambda m: row_pat.sub(update_category_row, m.group(1)),
+        content,
+        count=1,
+    )
+
     if content != original:
         if not check_only:
             SERVICES_FILE.write_text(content, encoding="utf-8")
@@ -951,11 +1049,178 @@ def sync_skill_md(secnumcloud_data: dict, products: dict, check_only: bool = Fal
 
     content = replace_marker_block(content, "AVAILABLE-SERVICES", "\n".join(block_lines))
 
+    if qualified or in_progress or upcoming:
+        gotcha_text = (
+            f"11. **Check S3NS SecNumCloud 3.2 qualification status.** On S3NS (`u-france-east1`,\n"
+            f"    PREMI3NS), **{len(qualified)}** services are **Qualifié SecNumCloud 3.2**, **{len(in_progress)}** services\n"
+            f"    ({', '.join(in_progress)}) are in **Qualification en cours**\n"
+            f"    (available today, ANSSI qualification in progress), and **{len(upcoming)}** services ({', '.join(upcoming)}) are\n"
+            f"    **À venir** (upcoming). If a workload has a strict ANSSI SecNumCloud 3.2\n"
+            f"    regulatory mandate, warn the user before using a service whose qualification is\n"
+            f"    still in progress."
+        )
+        content = replace_marker_block(content, "SECNUMCLOUD-GOTCHA", gotcha_text)
+
+        checklist_text = (
+            f"- [ ] For S3NS workloads requiring strict **SecNumCloud 3.2** qualification, verify\n"
+            f"      that every used service is **Qualifié SecNumCloud 3.2** ({len(qualified)} qualified) and flag\n"
+            f"      any service currently in **Qualification en cours** ({len(in_progress)} in progress: "
+            f"{', '.join(in_progress)})."
+        )
+        content = replace_marker_block(content, "SECNUMCLOUD-CHECKLIST", checklist_text)
+
     if content != original:
         if not check_only:
             SKILL_FILE.write_text(content, encoding="utf-8")
         return True
     return False
+
+
+def build_cross_cutting_diffs_block(md_filename: str, label: str, s3ns_manifest: dict, berlin_manifest: dict) -> str:
+    """Build an auto-synced digest and summary block for cross-cutting tpc-differences files."""
+    md_path = S3NS_DIR / md_filename
+    if not md_path.exists():
+        md_path = BERLIN_DIR / md_filename
+    if not md_path.exists():
+        return ""
+
+    parsed = parse_tpc_markdown(md_path)
+    lu = "—"
+    for info in list(s3ns_manifest.values()) + list(berlin_manifest.values()):
+        if info.get("filename") == md_filename and info.get("last_updated"):
+            lu = info["last_updated"]
+            break
+
+    lines = [
+        f"> **Auto-synced upstream `{md_filename}` status:** Last updated `{lu}` | Digest `{parsed['digest']}`",
+    ]
+    items = [
+        b for b in parsed["bullets"]
+        if not b.lower().startswith("for developers")
+    ]
+    for s_name, rows in parsed["sections"]:
+        for feat, desc in rows:
+            items.append(f"**{s_name} — {feat}:** {desc}")
+    if items:
+        lines.extend(
+            [
+                "",
+                "<details>",
+                f"<summary>Upstream <code>{md_filename}</code> key differences ({len(items)} items)</summary>",
+                "",
+            ]
+        )
+        for item in items:
+            lines.append(f"- {item}")
+        lines.extend(["", "</details>"])
+    return "\n".join(lines)
+
+
+def sync_cross_cutting_and_secnumcloud_refs(
+    berlin_manifest: dict,
+    s3ns_manifest: dict,
+    secnumcloud_data: dict,
+    check_only: bool = False,
+) -> list[str]:
+    """Synchronize SecNumCloud summaries and cross-cutting tpc-differences across reference files."""
+    updated_files = []
+    services_list = secnumcloud_data.get("services", [])
+    qualified = sorted(
+        [s["name"] for s in services_list if s.get("status") == "qualified"],
+        key=lambda s: s.lower(),
+    )
+    in_progress = sorted(
+        [s["name"] for s in services_list if s.get("status") == "in_progress"],
+        key=lambda s: s.lower(),
+    )
+    upcoming = sorted(
+        [s["name"] for s in services_list if s.get("status") == "upcoming"],
+        key=lambda s: s.lower(),
+    )
+
+    # 1. references/overview.md
+    if OVERVIEW_FILE.exists() and (qualified or in_progress):
+        ov_content = OVERVIEW_FILE.read_text(encoding="utf-8")
+        ov_orig = ov_content
+        ov_summary = (
+            f"- **SecNumCloud 3.2 (S3NS):** On S3NS PREMI3NS, **{len(qualified)}** services are **Qualifié SecNumCloud 3.2**, "
+            f"**{len(in_progress)}** recently released services are in **Qualification en cours** (available today, ANSSI qualification in progress), "
+            f"and **{len(upcoming)}** roadmap services are **À venir** — see [services.md](services.md)"
+        )
+        ov_content = replace_marker_block(ov_content, "SECNUMCLOUD-SUMMARY", ov_summary)
+        if ov_content != ov_orig:
+            if not check_only:
+                OVERVIEW_FILE.write_text(ov_content, encoding="utf-8")
+            updated_files.append("references/overview.md")
+
+    # 2. references/key-differences.md
+    if KEY_DIFFS_FILE.exists():
+        kd_content = KEY_DIFFS_FILE.read_text(encoding="utf-8")
+        kd_orig = kd_content
+        if qualified or in_progress:
+            in_prog_ticks = ", ".join(f"`{name}`" for name in in_progress)
+            upcoming_ticks = ", ".join(f"`{name}`" for name in upcoming)
+            kd_summary = (
+                f"- **S3NS SecNumCloud 3.2 status:** On S3NS (`u-france-east1`, PREMI3NS), **{len(qualified)}** services are **Qualifié SecNumCloud 3.2**, "
+                f"**{len(in_progress)}** recently released services ({in_prog_ticks}) are in **Qualification en cours** (available today, ANSSI qualification in progress), "
+                f"and **{len(upcoming)}** roadmap services ({upcoming_ticks}) are **À venir**. Always verify whether the customer requires strictly SecNumCloud-qualified services."
+            )
+            kd_content = replace_marker_block(kd_content, "SECNUMCLOUD-SUMMARY", kd_summary)
+
+        cc_tpc = build_cross_cutting_diffs_block("tpc-differences.md", "General Sovereign Cloud", s3ns_manifest, berlin_manifest)
+        if cc_tpc:
+            kd_content = replace_marker_block(kd_content, "CROSS-CUTTING-DIFFS:tpc-differences", cc_tpc)
+
+        if kd_content != kd_orig:
+            if not check_only:
+                KEY_DIFFS_FILE.write_text(kd_content, encoding="utf-8")
+            updated_files.append("references/key-differences.md")
+
+    # 3. references/gotchas.md
+    if GOTCHAS_FILE.exists() and (qualified or in_progress):
+        go_content = GOTCHAS_FILE.read_text(encoding="utf-8")
+        go_orig = go_content
+        in_prog_ticks = ", ".join(f"`{name}`" for name in in_progress)
+        upcoming_ticks = ", ".join(f"`{name}`" for name in upcoming)
+        go_summary = (
+            f"- **Not every service available on S3NS is already ANSSI SecNumCloud 3.2 qualified.**\n"
+            f"  On S3NS PREMI3NS (`u-france-east1`), **{len(qualified)} services** are **`Qualifié SecNumCloud 3.2`**,\n"
+            f"  while **{len(in_progress)} recently released services** ({in_prog_ticks}) are in\n"
+            f"  **`Qualification en cours`** (available and documented today, ANSSI qualification in progress).\n"
+            f"  **{len(upcoming)} roadmap services** ({upcoming_ticks}) are **`À venir`**. Always check [services.md](services.md)\n"
+            f"  when designing workloads subject to strict SecNumCloud 3.2 compliance mandates."
+        )
+        go_content = replace_marker_block(go_content, "SECNUMCLOUD-SUMMARY", go_summary)
+        if go_content != go_orig:
+            if not check_only:
+                GOTCHAS_FILE.write_text(go_content, encoding="utf-8")
+            updated_files.append("references/gotchas.md")
+
+    # 4. references/terraform.md
+    if TERRAFORM_FILE.exists():
+        tf_content = TERRAFORM_FILE.read_text(encoding="utf-8")
+        tf_orig = tf_content
+        cc_tf = build_cross_cutting_diffs_block("terraform_tpc-differences.md", "Terraform", s3ns_manifest, berlin_manifest)
+        if cc_tf:
+            tf_content = replace_marker_block(tf_content, "CROSS-CUTTING-DIFFS:terraform", cc_tf)
+        if tf_content != tf_orig:
+            if not check_only:
+                TERRAFORM_FILE.write_text(tf_content, encoding="utf-8")
+            updated_files.append("references/terraform.md")
+
+    # 5. references/quotas.md
+    if QUOTAS_FILE.exists():
+        qu_content = QUOTAS_FILE.read_text(encoding="utf-8")
+        qu_orig = qu_content
+        cc_qu = build_cross_cutting_diffs_block("quotas_tpc-differences.md", "Cloud Quotas", s3ns_manifest, berlin_manifest)
+        if cc_qu:
+            qu_content = replace_marker_block(qu_content, "CROSS-CUTTING-DIFFS:quotas", cc_qu)
+        if qu_content != qu_orig:
+            if not check_only:
+                QUOTAS_FILE.write_text(qu_content, encoding="utf-8")
+            updated_files.append("references/quotas.md")
+
+    return updated_files
 
 
 def sync_readme_md(berlin_manifest: dict, s3ns_manifest: dict, products: dict, check_only: bool = False) -> bool:
@@ -1019,6 +1284,11 @@ def main():
         changed.append("SKILL.md")
     if sync_readme_md(berlin_manifest, s3ns_manifest, products, check_only=args.check):
         changed.append("README.md")
+    changed.extend(
+        sync_cross_cutting_and_secnumcloud_refs(
+            berlin_manifest, s3ns_manifest, secnumcloud_data, check_only=args.check
+        )
+    )
 
     if changed:
         if args.check:

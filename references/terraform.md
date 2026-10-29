@@ -373,3 +373,17 @@ While Terraform is the primary recommendation, sovereign cloud deployments also 
 - **Pulumi** — provision infrastructure using general-purpose programming languages
 - **Crossplane** — manage sovereign cloud resources through Kubernetes
 - **Ansible** — automate provisioning and configuration management
+
+<!-- AUTO-SYNC:CROSS-CUTTING-DIFFS:terraform:START -->
+> **Auto-synced upstream `terraform_tpc-differences.md` status:** Last updated `2026-10-26` | Digest `bcb0fd2998`
+
+<details>
+<summary>Upstream <code>terraform_tpc-differences.md</code> key differences (4 items)</summary>
+
+- Policy validation for Terraform with `gcloud terraform vet` isn't supported in Cloud de Confiance.
+- [ Exporting your Cloud de Confiance resources to Terraform format using `gcloud beta resource-config bulk-export`](https://documentation.s3ns.fr/docs/terraform/resource-management/export) isn't supported in Cloud de Confiance.
+- **Security and access control — Policy validation:** Policy validation using `gcloud beta terraform vet` isn't supported in Cloud de Confiance. However, you can use [Terraform checks](https://developer.hashicorp.com/terraform/language/checks) to validate your Terraform configuration in Cloud de Confiance. There may be other Terraform policy tools that aren't managed by Google Cloud that work in Cloud de Confiance.
+- **Workflows and tools — Export to Terraform format:** Exporting your resources to Terraform format using `gcloud beta resource-config bulk-export` isn't supported in Cloud de Confiance. Alternately, you can use HashiCorp's [Generating Configuration](https://developer.hashicorp.com/terraform/language/import/generating-configuration) export method in Cloud de Confiance. You may be able to export your Terraform configurations using other Terraform-supported tools that are not managed by Google Cloud.
+
+</details>
+<!-- AUTO-SYNC:CROSS-CUTTING-DIFFS:terraform:END -->

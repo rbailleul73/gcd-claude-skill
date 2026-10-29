@@ -97,7 +97,9 @@ Note: user-created service account emails do **NOT** include the `eu0:` or `s3ns
 ## Service Availability, SecNumCloud 3.2, and Feature Limitations
 
 - Not all GCP products are available in GCD or S3NS. Check [services.md](services.md) for current availability.
-- **S3NS SecNumCloud 3.2 status:** On S3NS (`u-france-east1`, PREMI3NS), 29 services are **Qualifié SecNumCloud 3.2** and 10 recently released services (`Access Transparency`, `Bigtable`, `Cloud Quotas`, `Cloud Run`, `Filestore`, `Gemini platform / Agent Platform`, `Managed Service for Apache Airflow / Composer 3`, `Managed Service for Apache Spark / Dataproc`, `Secret Manager`, `Storage Transfer Service`) are in **Qualification en cours** (available today, ANSSI qualification in progress). Always verify whether the customer requires strictly SecNumCloud-qualified services.
+<!-- AUTO-SYNC:SECNUMCLOUD-SUMMARY:START -->
+- **S3NS SecNumCloud 3.2 status:** On S3NS (`u-france-east1`, PREMI3NS), **29** services are **Qualifié SecNumCloud 3.2**, **10** recently released services (`Access Transparency`, `Bigtable`, `Cloud Quota`, `Cloud Run`, `Filestore`, `Gemini platform`, `Managed Service for Apache Airflow`, `Managed Service for Apache Spark`, `Secret Manager`, `Storage Transfer Service`) are in **Qualification en cours** (available today, ANSSI qualification in progress), and **4** roadmap services (`Cloud Asset Inventory`, `Cloud Build`, `Cloud Spanner`, `Network Connectivity Center`) are **À venir**. Always verify whether the customer requires strictly SecNumCloud-qualified services.
+<!-- AUTO-SYNC:SECNUMCLOUD-SUMMARY:END -->
 - Key architectural limitations across available products (see [product-differences.md](product-differences.md) for full details):
   - **GKE:** Only Autopilot mode is available (no Standard mode).
   - **Compute Engine:** Only `C3`, `M3`, and `A3` (H100 GPU) VM families; only Hyperdisk (`hyperdisk-balanced`); no ARM images; no TPUs; no OS Login.
@@ -189,3 +191,18 @@ Note: user-created service account emails do **NOT** include the `eu0:` or `s3ns
 | Billing & SLAs | **No** | Through GCD operator | Through S3NS |
 | Cloud Identity | **No** | Not available; use Workforce Identity Federation | Not available; use Workforce Identity Federation |
 | Cloud Shell | **No** | Not available | Not available |
+
+<!-- AUTO-SYNC:CROSS-CUTTING-DIFFS:tpc-differences:START -->
+> **Auto-synced upstream `tpc-differences.md` status:** Last updated `2026-10-26` | Digest `93b4b2359d`
+
+<details>
+<summary>Upstream <code>tpc-differences.md</code> key differences (5 items)</summary>
+
+- Default API service *names* are the same as in Google Cloud, such as `bigquery.googleapis.com`. These service names are visible when you enable or disable APIs, for example. The service *endpoint* FQDN is different, based on the Cloud de Confiance hostname. For example, `bigquery.googleapis.com` becomes `bigquery.s3nsapis.fr`.
+- OAuth scope names are consistent between Google Cloud and Cloud de Confiance. If an OAuth scope includes `googleapis` in Google Cloud, it also does so in Cloud de Confiance.
+- Unlike in Google Cloud, you need to specify your target universe (in this case, Cloud de Confiance) when setting up and using developer tools like the Google Cloud CLI and client libraries. For example, you must set a `GOOGLE_CLOUD_UNIVERSE_DOMAIN` environment variable before running any code samples that use our client libraries. For more information, see [Set up the gcloud CLI for Cloud de Confiance](/docs/get-started-tpc/setup-gcloud) and [Use client libraries in Cloud de Confiance](/docs/get-started-tpc/use-client-libraries).
+- You must provide the appropriate Cloud de Confiance prefix, such as `s3ns:`, to identify projects. This prefix is automatically prepended to the IDs of any projects you create in Cloud de Confiance. For example, the ID `example-project` must be referenced as `s3ns:example-project`.
+- Because there's no Cloud Shell in Cloud de Confiance, you must install command line tools locally or on a VM that runs in Cloud de Confiance. If you have workflows or tools that expect access to Cloud Shell, update them for locally-installed access using client libraries or the Google Cloud CLI. To learn more about additional differences between Google Cloud and Cloud de Confiance, review the product-specific differences page for each product.
+
+</details>
+<!-- AUTO-SYNC:CROSS-CUTTING-DIFFS:tpc-differences:END -->

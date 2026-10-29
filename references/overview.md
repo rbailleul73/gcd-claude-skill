@@ -66,7 +66,9 @@ Every resource must belong to a project. Projects work similarly to Google Cloud
 - **API endpoints:** Universe-specific domain names for all service endpoints
 - **Machine types:** Modern Compute Engine machine families (`C3`, `M3`, `A3`) and Hyperdisk (`hyperdisk-balanced`); older machine families (`E2`, `N1`, `N2`, `T2D`) are unavailable
 - **Tools:** Cloud Shell, Cloud Workstations, and Cloud Code are not available
-- **SecNumCloud 3.2 (S3NS):** On S3NS PREMI3NS, 29 services are **Qualifié SecNumCloud 3.2** and 10 recently released services are in **Qualification en cours** (available today, ANSSI qualification in progress) — see [services.md](services.md)
+<!-- AUTO-SYNC:SECNUMCLOUD-SUMMARY:START -->
+- **SecNumCloud 3.2 (S3NS):** On S3NS PREMI3NS, **29** services are **Qualifié SecNumCloud 3.2**, **10** recently released services are in **Qualification en cours** (available today, ANSSI qualification in progress), and **4** roadmap services are **À venir** — see [services.md](services.md)
+<!-- AUTO-SYNC:SECNUMCLOUD-SUMMARY:END -->
 
 ## Available Services
 

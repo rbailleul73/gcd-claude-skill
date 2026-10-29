@@ -101,15 +101,15 @@ region, check these:
     `PROJECT.eu0.iam.gserviceaccount.com` (Berlin) or
     `PROJECT.s3ns.iam.gserviceaccount.com` (S3NS).
 
+<!-- AUTO-SYNC:SECNUMCLOUD-GOTCHA:START -->
 11. **Check S3NS SecNumCloud 3.2 qualification status.** On S3NS (`u-france-east1`,
-    PREMI3NS), some available services are already **Qualifié SecNumCloud 3.2**
-    while newer services (such as Bigtable, Cloud Run, Secret Manager, Filestore,
-    Managed Airflow/Composer, Managed Spark, Storage Transfer Service, Cloud Quotas,
-    Access Transparency, and Agent Platform) are in **Qualification en cours**
-    (qualification in progress), and others (Cloud Spanner, Cloud Build, Network
-    Connectivity Center, Cloud Asset Inventory) are **À venir** (upcoming). If a
-    workload has a strict ANSSI SecNumCloud 3.2 regulatory mandate, warn the user
-    before using a service whose qualification is still in progress.
+    PREMI3NS), **29** services are **Qualifié SecNumCloud 3.2**, **10** services
+    (Access Transparency, Bigtable, Cloud Quota, Cloud Run, Filestore, Gemini platform, Managed Service for Apache Airflow, Managed Service for Apache Spark, Secret Manager, Storage Transfer Service) are in **Qualification en cours**
+    (available today, ANSSI qualification in progress), and **4** services (Cloud Asset Inventory, Cloud Build, Cloud Spanner, Network Connectivity Center) are
+    **À venir** (upcoming). If a workload has a strict ANSSI SecNumCloud 3.2
+    regulatory mandate, warn the user before using a service whose qualification is
+    still in progress.
+<!-- AUTO-SYNC:SECNUMCLOUD-GOTCHA:END -->
 
 ## When to load reference files
 
@@ -228,11 +228,11 @@ When uncertain whether a feature is available, query the docs directly
       App Engine, Dataflow, Spanner, Firestore, Memorystore, AlloyDB, Cloud Tasks,
       Cloud Scheduler, Cloud Build, Cloud CDN, Certificate Manager, or proprietary
       Vertex AI / Gemini APIs.
+<!-- AUTO-SYNC:SECNUMCLOUD-CHECKLIST:START -->
 - [ ] For S3NS workloads requiring strict **SecNumCloud 3.2** qualification, verify
-      that every used service is **Qualifié SecNumCloud 3.2** (and flag any service
-      currently in **Qualification en cours** such as Bigtable, Cloud Run, Secret
-      Manager, Filestore, Composer, Managed Spark, Storage Transfer Service, Cloud
-      Quotas, Access Transparency, or Agent Platform).
+      that every used service is **Qualifié SecNumCloud 3.2** (29 qualified) and flag
+      any service currently in **Qualification en cours** (10 in progress: Access Transparency, Bigtable, Cloud Quota, Cloud Run, Filestore, Gemini platform, Managed Service for Apache Airflow, Managed Service for Apache Spark, Secret Manager, Storage Transfer Service).
+<!-- AUTO-SYNC:SECNUMCLOUD-CHECKLIST:END -->
 - [ ] No use of unavailable features within available services:
   - GKE Standard mode (Autopilot only)
   - Persistent Disk or Local SSD (Hyperdisk Balanced only)

@@ -4,12 +4,38 @@ on:
   schedule:
     - cron: "23 3 * * *"  # 03:23 UTC daily
   workflow_dispatch: {}
+  pull_request:
+    paths:
+      - "scripts/**"
+      - "references/**"
+      - "docs-raw/**"
+      - "docs-raw-s3ns/**"
+      - "SKILL.md"
+      - "README.md"
+      - ".github/workflows/update-docs.yml"
 
 permissions:
   contents: write
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile Python scripts
+        run: python3 -m py_compile scripts/scrape-gcd-docs.py scripts/sync-skill.py
+
+      - name: Verify skill and reference files are in sync
+        run: python3 -u scripts/sync-skill.py --check
+
   scrape:
+    if: github.event_name != 'pull_request'
+    needs: validate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

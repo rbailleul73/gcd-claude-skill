@@ -635,6 +635,20 @@ def discover_links_from_page(
             elif "tpc-differences" in link:
                 new_paths.append(link)
 
+    # 1b. Release notes (/release-notes): scan <article> for any tpc-differences
+    # links or newly announced product documentation hubs.
+    if path == "/release-notes" or path.endswith("/release-notes"):
+        for link in extract_links(article_html):
+            if "tpc-differences" in link:
+                new_paths.append(link)
+                prod = infer_product_from_link(link)
+                if prod:
+                    if prod not in products:
+                        products.add(prod)
+                        new_products.append(prod)
+                    for seed in product_seed_paths(prod):
+                        new_paths.append(seed)
+
     # 2. Product discovery hubs (/products and /docs/* category pages):
     # scan <article> for product links and tpc-differences links.
     is_product_hub = (
@@ -674,6 +688,55 @@ def discover_links_from_page(
     return new_paths, new_products
 
 
+# Mapping from PREMI3NS service names (including upcoming roadmap services)
+# to documentation product slugs so they are automatically probed during crawl.
+PREMI3NS_NAME_TO_PRODUCT_SLUG = {
+    "gemini platform": "gemini-enterprise-agent-platform",
+    "managed service for apache airflow": "composer",
+    "managed service for apache spark": "managed-spark",
+    "cloud quota": "quotas",
+    "storage transfer service": "storage-transfer",
+    "cloud key management service": "kms",
+    "google kubernetes engine autopilot": "kubernetes-engine",
+    "virtual private cloud": "vpc",
+    "identity and access management": "iam",
+    "cloud spanner": "spanner",
+    "cloud build": "build",
+    "cloud asset inventory": "asset-inventory",
+    "network connectivity center": "network-connectivity",
+}
+
+
+def discover_products_from_secnumcloud(secnum_payload: dict | None) -> tuple[set[str], list[str]]:
+    """Extract product slugs and probe paths from the PREMI3NS SecNumCloud catalog."""
+    discovered_prods: set[str] = set()
+    probe_paths: list[str] = []
+    if not secnum_payload:
+        return discovered_prods, probe_paths
+
+    for item in secnum_payload.get("services", []):
+        name_lower = item.get("name", "").strip().lower()
+        status = item.get("status", "")
+        url = item.get("url", "")
+        slug = PREMI3NS_NAME_TO_PRODUCT_SLUG.get(name_lower)
+        if not slug and url:
+            parsed = urllib.parse.urlparse(url)
+            if parsed.netloc in ("documentation.s3ns.fr", "berlin.devsitetest.how", "cloud.google.com"):
+                slug = infer_product_from_link(parsed.path.rstrip("/"))
+
+        if not slug or slug in ("quotas", "terraform"):
+            continue
+
+        if status == "upcoming":
+            # Probe only landing and tpc-differences for upcoming roadmap services
+            # so the day they launch in sovereign cloud docs, they are discovered!
+            probe_paths.extend([f"/{slug}/docs", f"/{slug}/docs/tpc-differences"])
+        else:
+            discovered_prods.add(slug)
+
+    return discovered_prods, probe_paths
+
+
 # -- Main crawl ----------------------------------------------------------------
 
 def crawl_and_scrape(
@@ -681,6 +744,7 @@ def crawl_and_scrape(
     region: str,
     use_playwright: bool = False,
     workers: int = DEFAULT_WORKERS,
+    force: bool = False,
 ) -> dict:
     """Crawl and scrape all documentation pages for a region."""
     region_config = REGIONS[region]
@@ -692,16 +756,33 @@ def crawl_and_scrape(
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Refresh or load S3NS PREMI3NS SecNumCloud status first so any newly added
+    # or newly launched PREMI3NS services seed the documentation crawler.
+    secnum_payload = None
+    if region == "s3ns":
+        secnum_payload = scrape_s3ns_secnumcloud_status(output_dir)
+    else:
+        s3ns_status_file = output_dir.parent / REGIONS["s3ns"]["default_output_dir"] / "_secnumcloud_status.json"
+        if s3ns_status_file.exists():
+            try:
+                secnum_payload = json.loads(s3ns_status_file.read_text(encoding="utf-8"))
+            except Exception:
+                secnum_payload = None
+
+    secnum_prods, secnum_probes = discover_products_from_secnumcloud(secnum_payload)
+    products.update(secnum_prods)
+
     discovered: set[str] = set()
     to_visit: deque[str] = deque()
     visited: set[str] = set()
     results: dict[str, dict] = {}
 
-    # Seed paths: top-level hubs + product seeds + curated sub-pages
+    # Seed paths: top-level hubs + product seeds + curated sub-pages + PREMI3NS probes
     seeds = ["/docs", "/products", "/release-notes"]
     for product in sorted(products):
         seeds.extend(product_seed_paths(product))
     seeds.extend(product_pages)
+    seeds.extend(secnum_probes)
 
     for p in seeds:
         p_norm = p.rstrip("/")
@@ -842,6 +923,23 @@ def crawl_and_scrape(
 
     print(f"\nFetched {len(results)} valid pages total (across {len(products)} products)")
 
+    # Anti-wipe safety check: abort before modifying files if page count dropped >20%
+    manifest_path = output_dir / "_manifest.json"
+    if manifest_path.exists() and not force:
+        try:
+            prev_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            prev_count = len(prev_manifest)
+        except Exception:
+            prev_count = 0
+        if prev_count > 50 and len(results) < int(prev_count * 0.8):
+            print(
+                f"\nERROR: Fetched page count ({len(results)}) dropped by >20% compared to "
+                f"previous manifest ({prev_count} pages). Aborting save and cleanup to prevent "
+                f"data loss from a transient documentation outage. Pass --force to override.",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+
     # Phase 2: Process and save
     print("\nPhase 2: Processing and saving pages...")
     manifest = {}
@@ -890,7 +988,6 @@ def crawl_and_scrape(
             print(f"  REMOVED stale file {existing_md.name}")
 
     # Save manifest
-    manifest_path = output_dir / "_manifest.json"
     manifest_path.write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
@@ -904,9 +1001,6 @@ def crawl_and_scrape(
     tracker_path.write_text(
         json.dumps(tracker, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    if region == "s3ns":
-        scrape_s3ns_secnumcloud_status(output_dir)
-
     pages_with_dates = sum(1 for v in manifest.values() if v.get("last_updated"))
     print(f"\nManifest: {manifest_path}")
     print(f"Tracker: {tracker_path}")
@@ -918,37 +1012,62 @@ def crawl_and_scrape(
 S3NS_PREMI3NS_URL = "https://www.s3ns.io/offres/premi3ns-cloud-de-confiance"
 
 
+def _classify_secnumcloud_badge(badge_raw: str) -> tuple[str, str]:
+    badge_lower = badge_raw.lower()
+    if "en cours" in badge_lower or "qualification" in badge_lower:
+        return "in_progress", "Qualification en cours"
+    if "venir" in badge_lower:
+        return "upcoming", "À venir"
+    if not badge_raw or "qualifié" in badge_lower or "secnumcloud" in badge_lower:
+        return "qualified", "Qualifié SecNumCloud 3.2"
+    return "other", badge_raw
+
+
 def scrape_s3ns_secnumcloud_status(output_dir: Path) -> dict | None:
     """Fetch S3NS PREMI3NS product page and extract SecNumCloud 3.2 qualification status per service."""
     output_dir.mkdir(parents=True, exist_ok=True)
     status_path = output_dir / "_secnumcloud_status.json"
     print(f"\nFetching S3NS SecNumCloud qualification status from {S3NS_PREMI3NS_URL}...")
-    req = urllib.request.Request(
-        S3NS_PREMI3NS_URL,
-        headers={
-            "User-Agent": (
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
-            ),
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        },
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=25) as resp:
-            raw_html = resp.read().decode("utf-8", errors="replace")
-    except Exception as e:
-        print(f"  [Warning] Could not fetch {S3NS_PREMI3NS_URL}: {e}", file=sys.stderr)
+
+    raw_html = None
+    for attempt in range(MAX_RETRIES):
+        req = urllib.request.Request(
+            S3NS_PREMI3NS_URL,
+            headers={
+                "User-Agent": (
+                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+                ),
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            },
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=25) as resp:
+                raw_html = resp.read().decode("utf-8", errors="replace")
+                break
+        except Exception as e:
+            wait = 2 ** (attempt + 1)
+            print(
+                f"  [Warning] Fetch {S3NS_PREMI3NS_URL} attempt {attempt + 1} failed: {e}",
+                file=sys.stderr,
+            )
+            if attempt + 1 < MAX_RETRIES:
+                time.sleep(wait)
+
+    if not raw_html:
+        print(f"  [Warning] Could not fetch {S3NS_PREMI3NS_URL}; keeping existing status file.", file=sys.stderr)
         if status_path.exists():
             return json.loads(status_path.read_text(encoding="utf-8"))
         return None
 
     idx = raw_html.find("Liste des services")
     snippet = raw_html[idx:] if idx != -1 else raw_html
-    parts = snippet.split('<div class="relative flex flex-col items-center rounded-[10px]')
 
     seen_names: set[str] = set()
     services: list[dict] = []
 
+    # Primary parser: card container split
+    parts = snippet.split('<div class="relative flex flex-col items-center rounded-[10px]')
     for part in parts[1:]:
         card = part.split("</a></div>")[0]
         h3_m = re.search(r"<h3[^>]*>([^<]+)</h3>", card)
@@ -965,19 +1084,7 @@ def scrape_s3ns_secnumcloud_status(output_dir: Path) -> dict | None:
             if badge_m
             else ""
         )
-        badge_lower = badge_raw.lower()
-        if "en cours" in badge_lower or "qualification" in badge_lower:
-            status = "in_progress"
-            status_label = "Qualification en cours"
-        elif "venir" in badge_lower:
-            status = "upcoming"
-            status_label = "À venir"
-        elif not badge_raw:
-            status = "qualified"
-            status_label = "Qualifié SecNumCloud 3.2"
-        else:
-            status = "other"
-            status_label = badge_raw
+        status, status_label = _classify_secnumcloud_badge(badge_raw)
 
         p_m = re.search(r"<p[^>]*>([^<]+)</p>", card)
         desc = html.unescape(p_m.group(1)).strip() if p_m else ""
@@ -994,8 +1101,48 @@ def scrape_s3ns_secnumcloud_status(output_dir: Path) -> dict | None:
             }
         )
 
+    # Structural fallback parser (CSS-class independent) if Tailwind classes changed on s3ns.io
     if not services:
-        print("  [Warning] No service cards parsed from PREMI3NS page", file=sys.stderr)
+        for a_m in re.finditer(r'<a\s+[^>]*href="([^"]+)"[^>]*>(.*?)</a>', snippet, re.S):
+            href = html.unescape(a_m.group(1)).strip()
+            inner = a_m.group(2)
+            h3_m = re.search(r"<h3[^>]*>([^<]+)</h3>", inner)
+            p_m = re.search(r"<p[^>]*>([^<]+)</p>", inner)
+            if not h3_m or not p_m:
+                continue
+            name = html.unescape(h3_m.group(1)).strip()
+            if not name or name in seen_names:
+                continue
+            seen_names.add(name)
+            desc = html.unescape(p_m.group(1)).strip()
+            # Check preceding 350 chars before <a> for any badge ("Qualification en cours" / "À venir")
+            start_pos = max(0, a_m.start() - 350)
+            pre_context = re.sub(r"<[^>]+>", " ", snippet[start_pos:a_m.start()])
+            pre_context = re.sub(r"\s+", " ", html.unescape(pre_context)).strip()
+            badge_raw = ""
+            if "qualification en cours" in pre_context.lower():
+                badge_raw = "Qualification en cours"
+            elif "à venir" in pre_context.lower():
+                badge_raw = "À venir"
+            status, status_label = _classify_secnumcloud_badge(badge_raw)
+            services.append(
+                {
+                    "name": name,
+                    "status": status,
+                    "status_label": status_label,
+                    "description": desc,
+                    "url": href,
+                }
+            )
+
+    if len(services) < 15:
+        print(
+            f"  [Warning] Only {len(services)} service cards parsed from PREMI3NS page; "
+            f"preserving existing {status_path.name}.",
+            file=sys.stderr,
+        )
+        if status_path.exists():
+            return json.loads(status_path.read_text(encoding="utf-8"))
         return None
 
     counts = {
@@ -1033,6 +1180,8 @@ def main():
                         help=f"Number of parallel HTTP workers (default: {DEFAULT_WORKERS})")
     parser.add_argument("--secnumcloud-only", action="store_true",
                         help="Only fetch and update S3NS SecNumCloud qualification status")
+    parser.add_argument("--force", action="store_true",
+                        help="Override the >20%% page-drop safety check")
     args = parser.parse_args()
 
     script_dir = Path(__file__).parent.parent
@@ -1055,6 +1204,7 @@ def main():
             region,
             use_playwright=args.use_playwright,
             workers=args.workers,
+            force=args.force,
         )
 
         if not manifest:

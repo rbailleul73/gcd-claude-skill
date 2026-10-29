@@ -286,3 +286,14 @@ Fix these by setting the quota project correctly.
 - **contactEmail field required**: When updating `QuotaPreference` via the API, the `contactEmail` field is required and cannot be a group email.
 - **Console cannot adjust quotas with no prior usage**: Use the gcloud CLI or REST API instead to request adjustments for quotas that have no prior usage.
 - **Per-user quota usage not displayed**: The sovereign cloud console does not show per-user quota usage.
+
+<!-- AUTO-SYNC:CROSS-CUTTING-DIFFS:quotas:START -->
+> **Auto-synced upstream `quotas_tpc-differences.md` status:** Last updated `2026-10-26` | Digest `8ab8f5aa35`
+
+<details>
+<summary>Upstream <code>quotas_tpc-differences.md</code> key differences (1 items)</summary>
+
+- **Workflows and tools — Quota increase adjustments:** To request a quota increase adjustment, you must contact [Cloud de Confiance support](https://support.s3ns.fr). Follow the steps to [request a quota adjustment](/docs/quotas/help/request_increase), and provide the following information about the quota value that you would like to increase: - **Project name or number**: for example, `my-project` - **Service name**: for example, `compute.googleapis.com` - **Quota name**: for example, `CPUS-per-project-region` - **Dimensions**: for example, `region=europe-west9-a, vm_family=C3` - **Desired quota value**: for example, `2000` - **Justification**: explain why the increase is needed—for example, `I'm deploying a new app and the estimated CPU requirement is 1800` - **Email address**: provide a way to contact you
+
+</details>
+<!-- AUTO-SYNC:CROSS-CUTTING-DIFFS:quotas:END -->
