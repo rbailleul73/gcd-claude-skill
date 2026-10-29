@@ -16,9 +16,11 @@ across both regions to:
 4. Update the auto-synced per-product coverage table and page statistics in `README.md`.
 """
 
+import argparse
 import hashlib
 import json
 import re
+import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -572,7 +574,95 @@ def collect_inventory():
     return berlin_manifest, s3ns_manifest, secnumcloud_data, products
 
 
-def sync_product_differences(products: dict) -> bool:
+def parse_recent_release_notes(max_entries: int = 12) -> list[dict]:
+    """Parse the most recent sovereign cloud release notes from release-notes.md."""
+    rn_path = S3NS_DIR / "release-notes.md"
+    if not rn_path.exists():
+        rn_path = BERLIN_DIR / "release-notes.md"
+    if not rn_path.exists():
+        return []
+
+    lines = rn_path.read_text(encoding="utf-8").splitlines()
+    entries = []
+    seen_keys = set()
+    current_date = None
+    current_product = None
+    note_types = {"Feature", "Change", "Security", "Announcement", "Fixed", "Deprecated", "Issue", "Breaking"}
+
+    i = 0
+    n = len(lines)
+    while i < n and len(entries) < max_entries:
+        line = lines[i].strip()
+        date_m = re.match(r"^##\s+([A-Z][a-z]+\s+\d{1,2},\s+\d{4})\s*$", line)
+        if date_m:
+            current_date = date_m.group(1)
+            current_product = None
+            i += 1
+            continue
+
+        prod_m = re.match(r"^\*\*([^*]+?)\*\*\s*$", line)
+        if prod_m and not prod_m.group(1).strip().endswith("."):
+            current_product = prod_m.group(1).strip()
+            i += 1
+            continue
+
+        if current_date and current_product and line in note_types:
+            note_type = line
+            i += 1
+            while i < n and not lines[i].strip():
+                i += 1
+            subheading = None
+            if i < n and lines[i].strip().startswith("#### "):
+                subheading = lines[i].strip()[5:].strip()
+                i += 1
+                while i < n and not lines[i].strip():
+                    i += 1
+
+            para_lines = []
+            while i < n:
+                pline = lines[i].strip()
+                if not pline:
+                    if para_lines:
+                        break
+                    i += 1
+                    continue
+                if (
+                    pline.startswith("#")
+                    or pline in note_types
+                    or (re.match(r"^\*\*([^*]+?)\*\*\s*$", pline) and not pline.endswith(".**"))
+                ):
+                    break
+                para_lines.append(pline)
+                i += 1
+
+            summary_text = re.sub(r"\s+", " ", " ".join(para_lines)).strip()
+            # Convert relative doc links to clean text or keep markdown links readable
+            summary_text = re.sub(r"\[([^\]]+)\]\((/[^)]+)\)", r"\1 (`\2`)", summary_text)
+            if subheading:
+                full_summary = f"**{subheading}:** {summary_text}" if summary_text else f"**{subheading}**"
+                dedup_key = (current_date, current_product, subheading)
+            else:
+                full_summary = summary_text
+                dedup_key = (current_date, current_product, full_summary[:80])
+
+            if full_summary and dedup_key not in seen_keys:
+                seen_keys.add(dedup_key)
+                entries.append(
+                    {
+                        "date": current_date,
+                        "product": current_product,
+                        "type": note_type,
+                        "summary": full_summary.replace("|", "\\|"),
+                    }
+                )
+            continue
+
+        i += 1
+
+    return entries
+
+
+def sync_product_differences(products: dict, check_only: bool = False) -> bool:
     content = PRODUCT_DIFFS_FILE.read_text(encoding="utf-8")
     original = content
 
@@ -690,7 +780,8 @@ def sync_product_differences(products: dict) -> bool:
                 print(f"  [sync-skill] Updated existing section with upstream changes: ## {sec_title}")
 
     if content != original:
-        PRODUCT_DIFFS_FILE.write_text(content, encoding="utf-8")
+        if not check_only:
+            PRODUCT_DIFFS_FILE.write_text(content, encoding="utf-8")
         return True
     return False
 
@@ -700,6 +791,7 @@ def sync_services_md(
     s3ns_manifest: dict,
     secnumcloud_data: dict,
     products: dict,
+    check_only: bool = False,
 ) -> bool:
     content = SERVICES_FILE.read_text(encoding="utf-8")
     original = content
@@ -776,13 +868,29 @@ def sync_services_md(
         content, "DISCOVERED-PRODUCTS-TABLE", "\n".join(table_lines)
     )
 
+    # 4. Build Recent Sovereign Cloud Release Notes table
+    release_notes = parse_recent_release_notes(max_entries=12)
+    if release_notes:
+        rn_lines = [
+            "| Date | Product | Type | Summary |",
+            "|---|---|---|---|",
+        ]
+        for rn in release_notes:
+            rn_lines.append(
+                f"| {rn['date']} | **{rn['product']}** | `{rn['type']}` | {rn['summary']} |"
+            )
+        content = replace_marker_block(
+            content, "RECENT-RELEASE-NOTES", "\n".join(rn_lines)
+        )
+
     if content != original:
-        SERVICES_FILE.write_text(content, encoding="utf-8")
+        if not check_only:
+            SERVICES_FILE.write_text(content, encoding="utf-8")
         return True
     return False
 
 
-def sync_skill_md(secnumcloud_data: dict, products: dict) -> bool:
+def sync_skill_md(secnumcloud_data: dict, products: dict, check_only: bool = False) -> bool:
     content = SKILL_FILE.read_text(encoding="utf-8")
     original = content
 
@@ -844,12 +952,13 @@ def sync_skill_md(secnumcloud_data: dict, products: dict) -> bool:
     content = replace_marker_block(content, "AVAILABLE-SERVICES", "\n".join(block_lines))
 
     if content != original:
-        SKILL_FILE.write_text(content, encoding="utf-8")
+        if not check_only:
+            SKILL_FILE.write_text(content, encoding="utf-8")
         return True
     return False
 
 
-def sync_readme_md(berlin_manifest: dict, s3ns_manifest: dict, products: dict) -> bool:
+def sync_readme_md(berlin_manifest: dict, s3ns_manifest: dict, products: dict, check_only: bool = False) -> bool:
     content = README_FILE.read_text(encoding="utf-8")
     original = content
 
@@ -872,13 +981,25 @@ def sync_readme_md(berlin_manifest: dict, s3ns_manifest: dict, products: dict) -
     content = replace_marker_block(content, "COVERAGE-TABLE", "\n".join(lines))
 
     if content != original:
-        README_FILE.write_text(content, encoding="utf-8")
+        if not check_only:
+            README_FILE.write_text(content, encoding="utf-8")
         return True
     return False
 
 
 def main():
-    print("Synchronizing skill files from scraped documentation manifests...")
+    parser = argparse.ArgumentParser(
+        description="Synchronize gcd-claude-skill capability files from scraped documentation."
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Verify that all skill files are in sync without modifying them (exits 1 if out of sync).",
+    )
+    args = parser.parse_args()
+
+    mode_label = "Checking" if args.check else "Synchronizing"
+    print(f"{mode_label} skill files from scraped documentation manifests...")
     berlin_manifest, s3ns_manifest, secnumcloud_data, products = collect_inventory()
     tpc_count = sum(1 for p in products.values() if p["tpc_filename"])
     secnum_summary = secnumcloud_data.get("summary", {})
@@ -890,16 +1011,19 @@ def main():
     )
 
     changed = []
-    if sync_product_differences(products):
+    if sync_product_differences(products, check_only=args.check):
         changed.append("references/product-differences.md")
-    if sync_services_md(berlin_manifest, s3ns_manifest, secnumcloud_data, products):
+    if sync_services_md(berlin_manifest, s3ns_manifest, secnumcloud_data, products, check_only=args.check):
         changed.append("references/services.md")
-    if sync_skill_md(secnumcloud_data, products):
+    if sync_skill_md(secnumcloud_data, products, check_only=args.check):
         changed.append("SKILL.md")
-    if sync_readme_md(berlin_manifest, s3ns_manifest, products):
+    if sync_readme_md(berlin_manifest, s3ns_manifest, products, check_only=args.check):
         changed.append("README.md")
 
     if changed:
+        if args.check:
+            print(f"  Out-of-sync files detected: {', '.join(changed)}", file=sys.stderr)
+            sys.exit(1)
         print(f"  Updated files: {', '.join(changed)}")
     else:
         print("  All skill files are already up to date.")

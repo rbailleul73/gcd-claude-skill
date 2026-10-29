@@ -281,6 +281,29 @@ Total scraped pages: **434** (Berlin GCD) / **433** (France S3NS).
 
 ---
 
+## Recent Sovereign Cloud Release Notes (Auto-Synced)
+
+The following table summarizes the most recent sovereign cloud release notes extracted automatically from `docs-raw-s3ns/release-notes.md` and `docs-raw/release-notes.md`:
+
+<!-- AUTO-SYNC:RECENT-RELEASE-NOTES:START -->
+| Date | Product | Type | Summary |
+|---|---|---|---|
+| October 27, 2026 | **Google Kubernetes Engine** | `Change` | **(2026-R46) Version updates:** GKE cluster versions have been updated. |
+| October 26, 2026 | **Compute Engine** | `Security` | A vulnerability (CVE-2026-85299) about incorrect authorization in Compute Engine was discovered and has been addressed. For more information, see the GCP-2026-073 security bulletin (`/compute/docs/security-bulletins#gcp-2026-073`). |
+| October 26, 2026 | **Google Kubernetes Engine** | `Change` | **(2026-R45) Version updates:** GKE cluster versions have been updated. |
+| October 21, 2026 | **Bigtable** | `Feature` | Bigtable is now available in Google Cloud. For more information, see Bigtable in Google Cloud versus Google Cloud (`/bigtable/docs/tpc-differences`). |
+| October 20, 2026 | **Filestore** | `Feature` | Filestore is available in Google Cloud. For more information, see Filestore differences in Google Cloud versus Google Cloud (`/filestore/docs/tpc-differences`). |
+| October 19, 2026 | **Google Cloud Armor** | `Security` | Security fixes and enhancements to Cloud Armor preconfigured WAF `v33-stable` rulesets. For more information, see Tuning Google Cloud Armor WAF rules (`/armor/docs/rule-tuning`). |
+| October 19, 2026 | **Google Cloud Armor** | `Security` | Security fixes and enhancements to Cloud Armor preconfigured WAF `stable` rulesets for v3.0. For more information, see Tuning Google Cloud Armor WAF rules (`/armor/docs/rule-tuning`). |
+| October 19, 2026 | **Virtual Private Cloud** | `Feature` | **General Availability**: VPC Flow Logs adds the following metadata annotations and packet drop reasons for Cloud NAT: |
+| October 14, 2026 | **Google Kubernetes Engine** | `Change` | **(2026-R44) Version updates:** GKE cluster versions have been updated. |
+| October 10, 2026 | **Cloud SQL for MySQL** | `Change` | MySQL 8.0.46 is now the default minor version (`/sql/docs/mysql/db-versions#database-version-support`) for Cloud SQL for MySQL 8.0. |
+| October 08, 2026 | **Cloud SQL for MySQL** | `Feature` | Cloud SQL for MySQL now supports the `innodb_cloudsql_managed_buffer_pool_tuneup_pct` database flag. |
+| October 08, 2026 | **Google Kubernetes Engine** | `Change` | **(2026-R43) Version updates:** GKE cluster versions have been updated. |
+<!-- AUTO-SYNC:RECENT-RELEASE-NOTES:END -->
+
+---
+
 ## Notable Unavailable Services
 
 The following commonly used Google Cloud services are **NOT** available in GCD or S3NS:

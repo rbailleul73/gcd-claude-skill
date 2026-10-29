@@ -24,6 +24,7 @@ jobs:
           cp docs-raw-s3ns/_last_updated.json /tmp/previous_tracker_s3ns.json 2>/dev/null || echo "{}" > /tmp/previous_tracker_s3ns.json
           cp docs-raw/_manifest.json /tmp/previous_manifest_berlin.json 2>/dev/null || echo "{}" > /tmp/previous_manifest_berlin.json
           cp docs-raw-s3ns/_manifest.json /tmp/previous_manifest_s3ns.json 2>/dev/null || echo "{}" > /tmp/previous_manifest_s3ns.json
+          cp docs-raw-s3ns/_secnumcloud_status.json /tmp/previous_secnumcloud_s3ns.json 2>/dev/null || echo "{}" > /tmp/previous_secnumcloud_s3ns.json
 
       - name: Scrape Berlin (GCD) docs
         run: python3 -u scripts/scrape-gcd-docs.py --region berlin
@@ -32,7 +33,9 @@ jobs:
         run: python3 -u scripts/scrape-gcd-docs.py --region s3ns
 
       - name: Synchronize skill capabilities and references
-        run: python3 -u scripts/sync-skill.py
+        run: |
+          python3 -u scripts/sync-skill.py
+          python3 -u scripts/sync-skill.py --check
 
       - name: Detect documentation and skill changes
         id: diff
@@ -47,6 +50,11 @@ jobs:
             CHANGED=true
             echo "S3NS last-updated tracker changes detected:"
             diff -u /tmp/previous_tracker_s3ns.json docs-raw-s3ns/_last_updated.json || true
+          fi
+          if ! diff -q /tmp/previous_secnumcloud_s3ns.json docs-raw-s3ns/_secnumcloud_status.json > /dev/null 2>&1; then
+            CHANGED=true
+            echo "S3NS SecNumCloud 3.2 qualification status changes detected:"
+            diff -u /tmp/previous_secnumcloud_s3ns.json docs-raw-s3ns/_secnumcloud_status.json || true
           fi
           if [ -n "$(git status --porcelain docs-raw/ docs-raw-s3ns/ references/ SKILL.md README.md)" ]; then
             CHANGED=true
