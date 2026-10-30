@@ -31,7 +31,7 @@ All products share these platform-wide constraints:
 | Cloud Logging | Qualifié SecNumCloud 3.2 | `logging_tpc-differences.md` | 2026-10-26 | `3c7ede3f89` |
 | Cloud Monitoring | Qualifié SecNumCloud 3.2 | `monitoring_tpc-differences.md` | 2026-10-26 | `64c4c68e30` |
 | Cloud NAT | Qualifié SecNumCloud 3.2 | `nat_tpc-differences.md` | 2026-10-26 | `355f0cd2d2` |
-| Cloud NGFW | — | `firewall_tpc-differences.md` | 2026-10-26 | `b038ad3e50` |
+| Cloud NGFW | Qualifié SecNumCloud 3.2 | `firewall_tpc-differences.md` | 2026-10-26 | `b038ad3e50` |
 | Cloud Quotas | Qualification en cours | `quotas_tpc-differences.md` | 2026-10-26 | `8ab8f5aa35` |
 | Cloud Router | Qualifié SecNumCloud 3.2 | `network-connectivity_router_tpc-differences.md` | 2026-10-26 | `539f8b73c2` |
 | Cloud Run | Qualification en cours | `run_tpc-differences.md` | 2026-10-26 | `a9f3e4b762` |
@@ -39,13 +39,13 @@ All products share these platform-wide constraints:
 | Cloud Storage | Qualifié SecNumCloud 3.2 | `storage_tpc-differences.md` | 2026-10-26 | `39c9b8894e` |
 | Cloud VPN | Qualifié SecNumCloud 3.2 | `network-connectivity_vpn_concepts_tpc-differences.md` | 2026-10-26 | `09d1827aa5` |
 | Compute Engine | Qualifié SecNumCloud 3.2 | `compute_tpc-differences.md` | 2026-10-26 | `e1489a4601` |
-| Container-Optimized OS | — | `container-optimized-os_tpc-differences.md` | 2026-10-26 | `e4ae3ed663` |
+| Container-Optimized OS | Qualifié SecNumCloud 3.2 | `container-optimized-os_tpc-differences.md` | 2026-10-26 | `e4ae3ed663` |
 | Filestore | Qualification en cours | `filestore_tpc-differences.md` | 2026-10-26 | `63ca06de02` |
 | Google Kubernetes Engine (GKE) | Qualifié SecNumCloud 3.2 | `kubernetes-engine_tpc-differences.md` | 2026-10-26 | `73814f730e` |
 | IAM | Qualifié SecNumCloud 3.2 | `iam_tpc-differences.md` | 2026-10-26 | `3d1ed47caa` |
 | Managed Airflow (Cloud Composer 3) | Qualification en cours | `composer_tpc-differences.md` | 2026-10-26 | `8b00656c51` |
 | Managed Service for Apache Spark (Dataproc) | Qualification en cours | `managed-spark_tpc-differences.md` | 2026-10-26 | `4fd95170bf` |
-| Network Service Tiers | — | `network-tiers_tpc-differences.md` | 2026-10-26 | `2dbc42433d` |
+| Network Service Tiers | Qualifié SecNumCloud 3.2 | `network-tiers_tpc-differences.md` | 2026-10-26 | `2dbc42433d` |
 | Organization Policy | Qualifié SecNumCloud 3.2 | `organization-policy_tpc-differences.md` | 2026-10-22 | `4208565439` |
 | Pub/Sub | Qualifié SecNumCloud 3.2 | `pubsub_tpc-differences.md` | 2026-10-26 | `d649238759` |
 | Resource Manager | Qualifié SecNumCloud 3.2 | `resource-manager_tpc-differences.md` | 2026-10-26 | `4ae45cb244` |
@@ -54,7 +54,7 @@ All products share these platform-wide constraints:
 | Storage Transfer Service | Qualification en cours | `storage-transfer_tpc-differences.md` | 2026-10-26 | `847b76ecde` |
 | Terraform | — | `terraform_tpc-differences.md` | 2026-10-26 | `bcb0fd2998` |
 | VPC | Qualifié SecNumCloud 3.2 | `vpc_tpc-differences.md` | 2026-10-26 | `06a8de4766` |
-| VPC Service Controls | — | `vpc-service-controls_tpc-differences.md` | 2026-10-26 | `1f38179c73` |
+| VPC Service Controls | Qualifié SecNumCloud 3.2 | `vpc-service-controls_tpc-differences.md` | 2026-10-26 | `1f38179c73` |
 
 </details>
 <!-- AUTO-SYNC:TPC-DIFFERENCES-INDEX:END -->

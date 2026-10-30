@@ -255,7 +255,7 @@ Total scraped pages: **434** (Berlin GCD) / **433** (France S3NS).
 | Cloud Logging | 10 | 10 | Qualifié SecNumCloud 3.2 | `logging_tpc-differences.md` | 2026-10-26 |
 | Cloud Monitoring | 4 | 4 | Qualifié SecNumCloud 3.2 | `monitoring_tpc-differences.md` | 2026-10-26 |
 | Cloud NAT | 3 | 3 | Qualifié SecNumCloud 3.2 | `nat_tpc-differences.md` | 2026-10-26 |
-| Cloud NGFW | 3 | 3 | — | `firewall_tpc-differences.md` | 2026-10-26 |
+| Cloud NGFW | 3 | 3 | Qualifié SecNumCloud 3.2 | `firewall_tpc-differences.md` | 2026-10-26 |
 | Cloud Quotas | 29 | 29 | Qualification en cours | `quotas_tpc-differences.md` | 2026-10-27 |
 | Cloud Router | 2 | 2 | Qualifié SecNumCloud 3.2 | `network-connectivity_router_tpc-differences.md` | 2026-10-26 |
 | Cloud Run | 14 | 14 | Qualification en cours | `run_tpc-differences.md` | 2026-10-28 |
@@ -263,14 +263,14 @@ Total scraped pages: **434** (Berlin GCD) / **433** (France S3NS).
 | Cloud Storage | 10 | 10 | Qualifié SecNumCloud 3.2 | `storage_tpc-differences.md` | 2026-10-26 |
 | Cloud VPN | 2 | 2 | Qualifié SecNumCloud 3.2 | `network-connectivity_vpn_concepts_tpc-differences.md` | 2026-10-26 |
 | Compute Engine | 9 | 9 | Qualifié SecNumCloud 3.2 | `compute_tpc-differences.md` | 2026-10-26 |
-| Container-Optimized OS | 3 | 3 | — | `container-optimized-os_tpc-differences.md` | 2026-10-26 |
+| Container-Optimized OS | 3 | 3 | Qualifié SecNumCloud 3.2 | `container-optimized-os_tpc-differences.md` | 2026-10-26 |
 | Filestore | 16 | 16 | Qualification en cours | `filestore_tpc-differences.md` | 2026-10-26 |
 | Google Cloud CLI (gcloud SDK) | 2 | 2 | — | — | 2026-10-27 |
 | Google Kubernetes Engine (GKE) | 9 | 9 | Qualifié SecNumCloud 3.2 | `kubernetes-engine_tpc-differences.md` | 2026-10-27 |
 | IAM | 18 | 18 | Qualifié SecNumCloud 3.2 | `iam_tpc-differences.md` | 2026-10-27 |
 | Managed Airflow (Cloud Composer 3) | 18 | 18 | Qualification en cours | `composer_tpc-differences.md` | 2026-10-26 |
 | Managed Service for Apache Spark (Dataproc) | 10 | 10 | Qualification en cours | `managed-spark_tpc-differences.md` | 2026-10-26 |
-| Network Service Tiers | 3 | 3 | — | `network-tiers_tpc-differences.md` | 2026-10-26 |
+| Network Service Tiers | 3 | 3 | Qualifié SecNumCloud 3.2 | `network-tiers_tpc-differences.md` | 2026-10-26 |
 | Organization Policy | 3 | 3 | Qualifié SecNumCloud 3.2 | `organization-policy_tpc-differences.md` | 2026-10-26 |
 | Pub/Sub | 11 | 11 | Qualifié SecNumCloud 3.2 | `pubsub_tpc-differences.md` | 2026-10-26 |
 | Resource Manager | 11 | 11 | Qualifié SecNumCloud 3.2 | `resource-manager_tpc-differences.md` | 2026-10-26 |
@@ -280,7 +280,7 @@ Total scraped pages: **434** (Berlin GCD) / **433** (France S3NS).
 | Storage Transfer Service | 7 | 7 | Qualification en cours | `storage-transfer_tpc-differences.md` | 2026-10-26 |
 | Terraform | 32 | 32 | — | `terraform_tpc-differences.md` | 2026-10-26 |
 | VPC | 7 | 7 | Qualifié SecNumCloud 3.2 | `vpc_tpc-differences.md` | 2026-10-26 |
-| VPC Service Controls | 3 | 3 | — | `vpc-service-controls_tpc-differences.md` | 2026-10-26 |
+| VPC Service Controls | 3 | 3 | Qualifié SecNumCloud 3.2 | `vpc-service-controls_tpc-differences.md` | 2026-10-26 |
 <!-- AUTO-SYNC:DISCOVERED-PRODUCTS-TABLE:END -->
 
 ---
@@ -312,15 +312,17 @@ The following table summarizes the most recent sovereign cloud release notes ext
 
 The following commonly used Google Cloud services are **NOT** available in GCD or S3NS:
 
+<!-- AUTO-SYNC:NOTABLE-UNAVAILABLE-SERVICES:START -->
 - **AI/ML:** Proprietary Gemini APIs, Vertex AI Training/Pipelines/AutoML, Vision AI, Natural Language AI, Translation AI
-- **Databases:** Spanner, Firestore, Memorystore (Redis/Memcached), AlloyDB, Database Migration Service
+- **Databases:** Spanner (`À venir` on S3NS roadmap), Firestore, Memorystore (Redis/Memcached), AlloyDB, Database Migration Service
 - **Data:** Dataflow, Dataform, Data Fusion, Datastream, Analytics Hub, Serverless Spark
 - **Serverless:** App Engine, Cloud Run functions / Cloud Functions, Cloud Scheduler, Cloud Tasks, Eventarc
-- **CI/CD:** Cloud Build, Cloud Deploy, Cloud Source Repositories
+- **CI/CD:** Cloud Build (`À venir` on S3NS roadmap), Cloud Deploy, Cloud Source Repositories
 - **Observability:** Cloud Trace, Cloud Profiler, Error Reporting, Ops Agent
-- **Security:** Cloud HSM, Security Command Center, Binary Authorization, Certificate Authority Service, Identity-Aware Proxy (IAP), Managed Microsoft AD
-- **Networking:** Cloud CDN, Certificate Manager, Classic VPN, Cross-Cloud Interconnect, Network Connectivity Center VPC spokes
+- **Security:** Cloud Asset Inventory (`À venir` on S3NS roadmap), Cloud HSM, Security Command Center, Binary Authorization, Certificate Authority Service, Identity-Aware Proxy (IAP), Managed Microsoft AD
+- **Networking:** Cloud CDN, Certificate Manager, Classic VPN, Cross-Cloud Interconnect, Network Connectivity Center (`À venir` on S3NS roadmap)
 - **Other:** Cloud Shell, Apigee, API Gateway, Firebase
+<!-- AUTO-SYNC:NOTABLE-UNAVAILABLE-SERVICES:END -->
 
 ---
 

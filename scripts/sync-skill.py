@@ -615,6 +615,26 @@ def collect_inventory():
             if resolved_slug and resolved_slug in products:
                 products[resolved_slug]["secnumcloud"] = item.get("status_label", "—")
 
+    # Inherit parent SecNumCloud card status for sub-products covered by "Networking" or "Compute Engine"
+    networking_status = next(
+        (
+            s.get("status_label")
+            for s in secnumcloud_data.get("services", [])
+            if s.get("name", "").strip().lower() == "networking"
+            and s.get("status") in ("qualified", "in_progress")
+        ),
+        None,
+    )
+    if networking_status:
+        for net_slug in ("firewall", "network-tiers", "vpc-service-controls"):
+            if net_slug in products and products[net_slug]["secnumcloud"] == "—":
+                products[net_slug]["secnumcloud"] = networking_status
+
+    compute_status = products.get("compute", {}).get("secnumcloud")
+    if compute_status and compute_status != "—":
+        if "container-optimized-os" in products and products["container-optimized-os"]["secnumcloud"] == "—":
+            products["container-optimized-os"]["secnumcloud"] = compute_status
+
     return berlin_manifest, s3ns_manifest, secnumcloud_data, products
 
 
@@ -961,7 +981,7 @@ def sync_services_md(
         "storage transfer service": "storage-transfer",
         "cloud sql": "sql",
         "bigtable": "bigtable",
-        "managed service for apache spark (dataproc)": "dataproc",
+        "managed service for apache spark (dataproc)": "managed-spark",
         "managed airflow (cloud composer)": "composer",
         "pub/sub": "pubsub",
         "identity and access management (iam)": "iam",
@@ -973,14 +993,17 @@ def sync_services_md(
         "access transparency": "assured-workloads_access-transparency",
         "cloud kms": "kms",
         "cloud external key manager (ekm)": "kms",
-        "organization policy service": "resource-manager_docs_organization-policy",
+        "api keys": "api-keys",
+        "organization policy service": "organization-policy",
         "cloud logging": "logging",
         "cloud audit logs": "logging",
         "cloud monitoring": "monitoring",
         "artifact registry": "artifact-registry",
         "resource manager": "resource-manager",
+        "cloud billing": "billing",
         "cloud quotas": "quotas",
         "service usage": "service-usage",
+        "terraform": "terraform",
     }
     # Also include direct PREMI3NS name matches (e.g. Networking covers NGFW / Network Service Tiers)
     networking_secnum = next(
@@ -1055,6 +1078,127 @@ def sync_services_md(
         )
     else:
         content = replace_marker_block(content, "ADDITIONAL-CATEGORY-SERVICES", "")
+
+    # 7. Auto-sync Notable Unavailable Services (removing any service once scraped in `products`
+    #    and annotating services listed as `upcoming` on the PREMI3NS roadmap)
+    active_slugs = {
+        slug for slug, p in products.items()
+        if p["berlin_pages"] > 0 or p["s3ns_pages"] > 0
+    }
+    upcoming_slugs = {
+        slug_from_secnumcloud_item(s)
+        for s in services_list
+        if s.get("status") == "upcoming"
+    } - {None}
+
+    notable_unavailable_by_cat = [
+        (
+            "AI/ML",
+            [
+                ("Proprietary Gemini APIs", {"vertex-ai"}),
+                ("Vertex AI Training/Pipelines/AutoML", {"vertex-ai"}),
+                ("Vision AI", {"vision"}),
+                ("Natural Language AI", {"natural-language"}),
+                ("Translation AI", {"translate", "translation"}),
+            ],
+        ),
+        (
+            "Databases",
+            [
+                ("Spanner", {"spanner", "cloud-spanner"}),
+                ("Firestore", {"firestore"}),
+                ("Memorystore (Redis/Memcached)", {"memorystore"}),
+                ("AlloyDB", {"alloydb"}),
+                ("Database Migration Service", {"database-migration", "dms"}),
+            ],
+        ),
+        (
+            "Data",
+            [
+                ("Dataflow", {"dataflow"}),
+                ("Dataform", {"dataform"}),
+                ("Data Fusion", {"data-fusion"}),
+                ("Datastream", {"datastream"}),
+                ("Analytics Hub", {"analytics-hub"}),
+                ("Serverless Spark", {"dataproc-serverless"}),
+            ],
+        ),
+        (
+            "Serverless",
+            [
+                ("App Engine", {"appengine", "app-engine"}),
+                ("Cloud Run functions / Cloud Functions", {"functions", "cloudfunctions", "cloud-functions"}),
+                ("Cloud Scheduler", {"cloudscheduler", "scheduler", "cloud-scheduler"}),
+                ("Cloud Tasks", {"cloudtasks", "tasks", "cloud-tasks"}),
+                ("Eventarc", {"eventarc"}),
+            ],
+        ),
+        (
+            "CI/CD",
+            [
+                ("Cloud Build", {"build", "cloud-build"}),
+                ("Cloud Deploy", {"deploy", "cloud-deploy"}),
+                ("Cloud Source Repositories", {"source-repositories"}),
+            ],
+        ),
+        (
+            "Observability",
+            [
+                ("Cloud Trace", {"trace", "cloud-trace"}),
+                ("Cloud Profiler", {"profiler", "cloud-profiler"}),
+                ("Error Reporting", {"error-reporting"}),
+                ("Ops Agent", {"ops-agent"}),
+            ],
+        ),
+        (
+            "Security",
+            [
+                ("Cloud Asset Inventory", {"asset-inventory", "cloud-asset-inventory"}),
+                ("Cloud HSM", {"hsm", "cloud-hsm"}),
+                ("Security Command Center", {"security-command-center", "scc"}),
+                ("Binary Authorization", {"binary-authorization"}),
+                ("Certificate Authority Service", {"certificate-authority-service", "cas"}),
+                ("Identity-Aware Proxy (IAP)", {"iap"}),
+                ("Managed Microsoft AD", {"managed-microsoft-ad"}),
+            ],
+        ),
+        (
+            "Networking",
+            [
+                ("Cloud CDN", {"cdn", "media-cdn", "cloud-cdn"}),
+                ("Certificate Manager", {"certificate-manager"}),
+                ("Classic VPN", {"classic-vpn"}),
+                ("Cross-Cloud Interconnect", {"cross-cloud-interconnect"}),
+                ("Network Connectivity Center", {"network-connectivity", "network-connectivity-center"}),
+            ],
+        ),
+        (
+            "Other",
+            [
+                ("Cloud Shell", {"shell", "cloud-shell"}),
+                ("Apigee", {"apigee"}),
+                ("API Gateway", {"api-gateway"}),
+                ("Firebase", {"firebase"}),
+            ],
+        ),
+    ]
+
+    unavail_lines = []
+    for cat_label, items in notable_unavailable_by_cat:
+        rendered_items = []
+        for item_label, item_slugs in items:
+            if item_slugs & active_slugs:
+                continue
+            if item_slugs & upcoming_slugs:
+                rendered_items.append(f"{item_label} (`À venir` on S3NS roadmap)")
+            else:
+                rendered_items.append(item_label)
+        if rendered_items:
+            unavail_lines.append(f"- **{cat_label}:** {', '.join(rendered_items)}")
+
+    content = replace_marker_block(
+        content, "NOTABLE-UNAVAILABLE-SERVICES", "\n".join(unavail_lines)
+    )
 
     if content != original:
         if not check_only:
@@ -1333,6 +1477,13 @@ def sync_cross_cutting_and_secnumcloud_refs(
 def sync_readme_md(berlin_manifest: dict, s3ns_manifest: dict, products: dict, check_only: bool = False) -> bool:
     content = README_FILE.read_text(encoding="utf-8")
     original = content
+
+    tpc_guide_count = sum(1 for p in products.values() if p["tpc_filename"])
+    content = re.sub(
+        r"across all \d+ product `tpc-differences` pages",
+        f"across all {tpc_guide_count} product `tpc-differences` pages",
+        content,
+    )
 
     tpc_products = sorted(
         [

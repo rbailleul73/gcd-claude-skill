@@ -98,6 +98,7 @@ gcd-claude-skill/
   docs-raw-s3ns/                        # Scraped S3NS (Cloud de Confiance) docs
     _manifest.json
     _last_updated.json
+    _secnumcloud_status.json            # PREMI3NS SecNumCloud 3.2 qualification catalog
   LICENSE                               # Apache-2.0
 ```
 
@@ -163,7 +164,7 @@ Total scraped pages: **434** in `docs-raw/` (Berlin GCD) and **433** in `docs-ra
 | Cloud Logging | 10 | 10 | Qualifié SecNumCloud 3.2 | Landing, differences, audit logs, log buckets, sinks, queries |
 | Cloud Monitoring | 4 | 4 | Qualifié SecNumCloud 3.2 | Landing, differences, PromQL, Prometheus export, client libraries |
 | Cloud NAT | 3 | 3 | Qualifié SecNumCloud 3.2 | Landing, differences, Public NAT, GCE/GKE configuration |
-| Cloud NGFW | 3 | 3 | — | Landing, differences, firewall rules, hierarchical & network policies |
+| Cloud NGFW | 3 | 3 | Qualifié SecNumCloud 3.2 | Landing, differences, firewall rules, hierarchical & network policies |
 | Cloud Quotas | 29 | 29 | Qualification en cours | Landing, differences, quota viewing, adjustment requests, REST API |
 | Cloud Router | 2 | 2 | Qualifié SecNumCloud 3.2 | Landing, differences, regional dynamic BGP routing |
 | Cloud Run | 14 | 14 | Qualification en cours | Landing, differences, container services & jobs, Direct VPC egress |
@@ -171,13 +172,13 @@ Total scraped pages: **434** in `docs-raw/` (Berlin GCD) and **433** in `docs-ra
 | Cloud Storage | 10 | 10 | Qualifié SecNumCloud 3.2 | Landing, differences, single-region buckets, uploads, FUSE, HMAC |
 | Cloud VPN | 2 | 2 | Qualifié SecNumCloud 3.2 | Landing, differences, HA VPN topologies and tunnels |
 | Compute Engine | 9 | 9 | Qualifié SecNumCloud 3.2 | Landing, differences, C3/M3/A3 VMs, Hyperdisk, Shielded VM, OS images |
-| Container-Optimized OS | 3 | 3 | — | Landing, differences, H100 GPU drivers, release notes |
+| Container-Optimized OS | 3 | 3 | Qualifié SecNumCloud 3.2 | Landing, differences, H100 GPU drivers, release notes |
 | Filestore | 16 | 16 | Qualification en cours | Landing, differences, Regional tier NFS, Direct Peering, GKE CSI |
 | Google Kubernetes Engine (GKE) | 9 | 9 | Qualifié SecNumCloud 3.2 | Landing, differences, Autopilot clusters, Workload Identity, Storage FUSE |
 | IAM | 18 | 18 | Qualifié SecNumCloud 3.2 | Landing, differences, Workforce/Workload Identity, service accounts, custom roles |
 | Managed Airflow (Cloud Composer 3) | 18 | 18 | Qualification en cours | Landing, differences, Composer 3 HA environments, DAGs, plugins |
 | Managed Service for Apache Spark (Dataproc) | 10 | 10 | Qualification en cours | Landing, differences, GCE Spark clusters (image 2.3+), jobs, CMEK |
-| Network Service Tiers | 3 | 3 | — | Landing, differences, Premium Tier overview |
+| Network Service Tiers | 3 | 3 | Qualifié SecNumCloud 3.2 | Landing, differences, Premium Tier overview |
 | Organization Policy | 3 | 3 | Qualifié SecNumCloud 3.2 | Landing, differences, managed & custom constraints |
 | Pub/Sub | 11 | 11 | Qualifié SecNumCloud 3.2 | Landing, differences, topics, push/pull subscriptions, IAM |
 | Resource Manager | 11 | 11 | Qualifié SecNumCloud 3.2 | Landing, differences, organizations, folders, projects, tags |
@@ -186,7 +187,7 @@ Total scraped pages: **434** in `docs-raw/` (Berlin GCD) and **433** in `docs-ra
 | Storage Transfer Service | 7 | 7 | Qualification en cours | Landing, differences, GCS transfers, agent-based S3 transfers |
 | Terraform | 32 | 32 | — | Landing, differences, provider universe_domain, GCS state backend |
 | VPC | 7 | 7 | Qualifié SecNumCloud 3.2 | Landing, differences, subnets, Private Google Access, Private Service Connect |
-| VPC Service Controls | 3 | 3 | — | Landing, differences, service perimeters, ingress/egress rules |
+| VPC Service Controls | 3 | 3 | Qualifié SecNumCloud 3.2 | Landing, differences, service perimeters, ingress/egress rules |
 <!-- AUTO-SYNC:COVERAGE-TABLE:END -->
 
 ## Updating the docs
